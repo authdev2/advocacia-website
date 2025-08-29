@@ -17,7 +17,15 @@
           <h1>Defendemos os teus <span>direitos</span></h1>
         </div>
         <div class="description">
-          <p>Fale com o nosso team de advocacia para resolver o teu problema</p>
+          <p>
+            Não deixes que questões legais complexas te causem stress desnecessário. Contacta-nos hoje mesmo para uma consulta inicial. A tua tranquilidade é a nossa prioridade.
+          </p>
+        </div>
+
+        <div class="btn-whatsapp">
+          <button>
+            <i class="fa-brands fa-whatsapp" style="color: var(--cor-fundo);"></i>
+            Fale no WhatsApp!</button>
         </div>
       </div>
     </div>
@@ -136,5 +144,22 @@
 
 .custom-shape-divider-bottom-1756387658 .shape-fill {
   fill: var(--cor-primaria);
+}
+
+.btn-whatsapp button{
+  padding: 15px 40px;
+  background-color: var(--cor-primaria);
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 20px;
+  color: var(--cor-branca);
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.btn-whatsapp button i{
+  font-size: 25px;
 }
 </style>

@@ -100,14 +100,13 @@
 
 <style scoped>
 .title-percurso {
-  text-align: center;
   margin-bottom: 100px;
 }
 
 .title-percurso h2 {
-  text-align: center;
   font-size: 40px;
   margin-bottom: 20px;
+  text-align: center;
 }
 .title-percurso .text-green {
   color: var(--cor-primaria);

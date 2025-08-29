@@ -24,7 +24,7 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        background-color: var(--cor-primaria);
+        background: var(--cor-gradiante);
         padding: 15px;
         border-radius: 10px;
         transition: all 0.3s ease;

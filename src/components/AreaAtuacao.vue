@@ -65,7 +65,6 @@
         </div>
       </div>
 
-
       <div class="box">
         <div class="icon-ultrapassado">
           <i class="fa-solid fa-location-dot" style="color: #ffffff"></i>
@@ -79,7 +78,6 @@
           <button>Saber mais</button>
         </div>
       </div>
-
 
       <div class="box">
         <div class="icon-ultrapassado">
@@ -146,21 +144,22 @@
 }
 
 .box-container .box .icon-ultrapassado {
-  background-color: var(--cor-primaria);
-  width: 100px;
-  height: 100px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: absolute;
-  top: -50px;
-  left: 50%;
-  transform: translateX(-50%);
-  border-radius: 20px;
+    background-color: var(--cor-primaria);
+    width: 100px;
+    height: 70px;
+    display: flex
+;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: -35px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 20px;
 }
 
-.box-container .box .icon-ultrapassado i{
-    font-size: 30px;
+.box-container .box .icon-ultrapassado i {
+  font-size: 30px;
 }
 
 .title-box h3 {
