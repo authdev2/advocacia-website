@@ -1,16 +1,25 @@
 @import url('https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap');
 
+:root {
+  --cor-primaria: #84928D;
+  --cor-branca: #ffffff;
+  --cor-cinza: #666666;
+  --cor-fundo: #262626;
+}
 
-*{
+* {
   margin: 0;
-  padding: 0px;
+  padding: 0;
   box-sizing: border-box;
 }
 
-body{
-  background-color: #262626;
-  margin: 40px;
-  color: #fff;
+body {
+  background-color: var(--cor-fundo);
+  color: var(--cor-branca);
   font-family: 'Figtree', sans-serif;
-  border: 1px solid red;
+  line-height: 1.6;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 30px 0;
+  /* border: 1px solid rgb(66, 66, 66); */
 }

@@ -1,0 +1,12 @@
+:root{
+    --cor-fundo: #181919;
+    --cor-primaria: #84928D;
+    --cor-branca: white;
+    --cor-preta: black;
+    --cor-cinza: #dddbdb;
+    --cor-cinza-claro: #D9D9D9;
+    --cor-cinza-escuro: #3b3a3a;
+    --cor-cinza-claro-escuro: rgb(103, 103, 103);
+    --cor-gradiante: linear-gradient(to right, var(--cor-primaria), #2B2B2B);
+
+}

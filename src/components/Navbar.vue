@@ -24,9 +24,10 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        background-color: #84928D;
+        background-color: var(--cor-primaria);
         padding: 15px;
         border-radius: 10px;
+        transition: all 0.3s ease;
     }
 
     nav .left, nav .right{
@@ -39,8 +40,15 @@
         text-decoration: none;
         margin-left: 30px;
         padding: 10px;
-        color: white;
+        color: var(--cor-branca);
         font-size: 16px;
+        transition: all 0.8s ease;
+    }
+
+    nav .left .links a:hover{
+        background-color: var(--cor-branca);
+        border-radius: 7px;
+        color: var(--cor-preta);
     }
 
     nav .left .logo img{
