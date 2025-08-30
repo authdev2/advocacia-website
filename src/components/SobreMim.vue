@@ -8,7 +8,7 @@
     </div>
     <div class="container">
       <div class="left-container">
-        <img src="../assets/sobre-mim/image.png" alt="Minha imagem" />
+        <img src="../assets/sobre-mim/image.webp" alt="Minha imagem" />
       </div>
 
       <div class="right-container">
@@ -72,12 +72,17 @@ const compromissos = [
 <style scoped>
 .sobre-mim-container {
   padding: 100px 0;
+  max-width: 1400px;
+  margin: 0 auto;
 }
 
 .sobre-mim-container .container {
   display: flex;
   justify-content: space-between;
   gap: 80px;
+  max-width: 1400px;        
+  margin: 0 auto;          
+
 }
 
 .sobre-mim-container h2 {
@@ -114,19 +119,21 @@ const compromissos = [
 }
 
 .right-container p {
-  font-size: 20px;
+  font-size: clamp(16px, 2.5vw, 20px); 
   color: var(--cor-cinza);
   margin-top: 20px;
   text-align: justify;
+  max-width: 100%;
+  line-height: 1.6;
 }
 
 .box-compromissos{
-    display: flex;
-    gap: 15px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
 }
 
 .box-compromissos .box{
-    background: var(--cor-gradiante);
     padding: 20px;
     border-radius: 10px;
     margin-bottom: 20px;
@@ -135,12 +142,31 @@ const compromissos = [
     justify-content: center;
     gap: 10px;
     width: 200px;
+    width: clamp(100px, 20vw, 200px);
     height: 100px;
     margin-top: 70px;
+    border: 1px solid var(--cor-cinza-claro-escuro);
 }
 
 .box-compromissos .box img{
     width: 30px;
     height: 30px;
+}
+
+.left-container img{
+  width: clamp(300px, 40vw, 400px);
+  height: auto;                         
+}
+
+
+@media (max-width: 1000px) {
+  .sobre-mim-container .container {
+    flex-direction: column;       
+
+}
+
+.box-compromissos {
+    grid-template-columns: repeat(2, 1fr);
+}
 }
 </style>

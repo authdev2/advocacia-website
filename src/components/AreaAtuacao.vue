@@ -110,6 +110,7 @@
   font-weight: 600;
   letter-spacing: 0.05rem;
 }
+
 .area-atuacao .description {
   font-size: 20px;
   color: var(--cor-cinza);
@@ -124,15 +125,15 @@
 
 .box-container {
   padding-top: 130px;
-
   display: grid;
-  grid-template-columns: repeat(3, 475px);
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
 }
 
 .box-container .box {
-  background-color: var(--cor-cinza-claro);
-  color: var(--cor-preta);
-  width: 450px;
+  color: var(--cor-branca);
   height: 250px;
   border-radius: 20px;
   text-align: center;
@@ -141,6 +142,8 @@
   align-items: center;
   justify-content: center;
   margin-bottom: 100px;
+  background-color: var(--cor-fundo);
+  border: 1px solid var(--cor-cinza-claro-escuro);
 }
 
 .box-container .box .icon-ultrapassado {
@@ -168,7 +171,7 @@
 
 .title-box p {
   margin-top: 20px;
-  color: var(--cor-cinza-escuro);
+  color: var(--cor-cinza);
   max-width: 300px;
 }
 
@@ -182,5 +185,20 @@
   font-size: 16px;
   font-weight: 600;
   margin-top: 20px;
+}
+
+@media (max-width: 1000px) {
+  .box-container{
+    grid-template-columns: repeat(1, 1fr);
+    gap: 10px;
+}
+
+.area-atuacao h2 {
+    font-size: 30px;
+}
+
+.area-atuacao .description span {
+    font-size: 15px;
+}
 }
 </style>

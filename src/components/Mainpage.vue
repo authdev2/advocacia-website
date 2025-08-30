@@ -24,13 +24,13 @@
 
         <div class="btn-whatsapp">
           <button>
-            <i class="fa-brands fa-whatsapp" style="color: var(--cor-fundo);"></i>
+            <i class="fa-brands fa-whatsapp"></i>
             Fale no WhatsApp!</button>
         </div>
       </div>
     </div>
     <div class="right">
-      <img src="../assets/mainpageImage.png" alt="" />
+      <img src="../assets/mainpageImage.webp" alt="" />
     </div>
   </div>
 
@@ -54,8 +54,9 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 90vh;
+  height: 90dvh;
   gap: 4rem;
+  max-width: 1400px;
 }
 
 .main-page-container .left .container-box {
@@ -82,7 +83,6 @@
   width: 24px;
   height: 24px;
 }
-
 
 .container-seguranca .box span {
   letter-spacing: 0.08rem;
@@ -122,10 +122,10 @@
 }
 
 .right img {
-  width: 600px;
-  height: 400px;
+  width: clamp(300px, 40vw, 600px);
+  height: auto;                         
+  max-width: 100%;                       
 }
-
 .custom-shape-divider-bottom-1756387658 {
   position: absolute;
   bottom: 0;
@@ -147,19 +147,54 @@
 }
 
 .btn-whatsapp button{
-  padding: 15px 40px;
-  background-color: var(--cor-primaria);
+  padding: 10px 30px;
   border-radius: 50px;
   font-weight: 600;
-  font-size: 20px;
+  font-size: 18px;
   color: var(--cor-branca);
   transition: all 0.3s ease;
   display: flex;
   align-items: center;
   gap: 20px;
+  border: none;
+  cursor: pointer;
+  background: var(--cor-gradiante);
 }
 
 .btn-whatsapp button i{
   font-size: 25px;
 }
+
+@media (max-width: 1000px) {
+
+
+  .container-seguranca .box {
+    padding: 5px 10px;
+}
+
+  .custom-shape-divider-bottom-1756387658 {
+    display: none;
+  }
+
+  .main-page-container {
+    flex-direction: column;
+    height: auto;
+    gap: 3rem;
+    padding: 4rem 2rem;
+  }
+  
+  .container-seguranca .title h1 {
+    font-size: 2.8rem;
+  }
+  
+  .container-seguranca .description p {
+    font-size: 1.1rem;
+  }
+  
+  .right img {
+    width: 450px;
+    height: 300px;
+  }
+}
+
 </style>

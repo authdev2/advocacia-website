@@ -100,11 +100,11 @@
 
 <style scoped>
 .title-percurso {
-  margin-bottom: 100px;
+  margin-bottom: clamp(60px, 8vw, 100px);
 }
 
 .title-percurso h2 {
-  font-size: 40px;
+  font-size: clamp(26px, 4vw, 40px);
   margin-bottom: 20px;
   text-align: center;
 }
@@ -114,7 +114,7 @@
   letter-spacing: 0.05rem;
 }
 .title-percurso .description {
-  font-size: 20px;
+  font-size: clamp(14px, 2vw, 20px);
   color: var(--cor-cinza);
   background: var(--cor-gradiante);
   padding: 10px;
@@ -129,46 +129,50 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 70px;
+  gap: clamp(20px, 5vw, 70px);
+  max-width: 1400px;
+  margin: 0 auto;
+  padding-left: clamp(10px, 2vw, 2rem);
+  padding-right: clamp(10px, 2vw, 2rem);
 }
 
 .box-percuso {
   display: flex;
   flex-direction: column;
-  gap: 70px;
+  gap: clamp(20px, 5vw, 70px);
 }
 
 .linha-percurso {
   width: 3px;
-  height: 1000px;
+  height: clamp(600px, 80vw, 1000px);
   background-color: var(--cor-branca);
 }
 
 .box-percuso .box {
     background-color: var(--cor-fundo);
-    padding: 50px;
+    padding: clamp(20px, 4vw, 50px);
     border-radius: 20px;
     position: relative;
     border: 1px solid var(--cor-cinza-claro-escuro);
-    margin-left: 60px;
-    margin-right: 60px;
+    margin-left: clamp(20px, 4vw, 60px);
+    margin-right: clamp(20px, 4vw, 60px);
     transform: skew(-10deg);
 }
 
 .box-percuso .box .conector {
-  width: 80px;
+  width: clamp(40px, 6vw, 80px);
   height: 4px;
   background-color: var(--cor-branca);
   position: absolute;
   top: 50%;
-  left: 440px;
+  left: clamp(200px, 30vw, 440px);
   display: flex;
   align-items: center;
 }
 
 .box-percuso .box .conector span {
-  width: 10px;
-  height: 10px;
+  width: clamp(6px, 1vw, 10px);
+  height: clamp(6px, 1vw, 10px);
   background-color: var(--cor-branca);
   border-radius: 50%;
   position: absolute;
@@ -176,19 +180,19 @@
 }
 
 .box-percuso .box .conector-right {
-  width: 80px;
+  width: clamp(40px, 6vw, 80px);
   height: 4px;
   background-color: var(--cor-branca);
   position: absolute;
   top: 50%;
-  right: 440px;
+  right: clamp(200px, 30vw, 440px);
   display: flex;
   align-items: center;
 }
 
 .box-percuso .box .conector-right span {
-  width: 10px;
-  height: 10px;
+  width: clamp(6px, 1vw, 10px);
+  height: clamp(6px, 1vw, 10px);
   border-radius: 50%;
   position: absolute;
   background-color: var(--cor-branca);
@@ -196,8 +200,39 @@
 }
 
 .data span {
-  font-size: 25px;
+  font-size: clamp(18px, 2.5vw, 25px);
   font-weight: 800;
   color: #E6EDEA;
+}
+
+@media (max-width: 1000px) {
+  .container-percurso {
+    flex-direction: column;
+    gap: 40px;
+  }
+  
+  .linha-percurso {
+    width: 100%;
+    height: 3px;
+    order: -1;
+  }
+  
+  .box-percuso {
+    flex-direction: row;
+    gap: 40px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .box-percuso .box {
+    margin: 0;
+    transform: none;
+    min-width: 250px;
+  }
+  
+  .box-percuso .box .conector,
+  .box-percuso .box .conector-right {
+    display: none;
+  }
 }
 </style>
