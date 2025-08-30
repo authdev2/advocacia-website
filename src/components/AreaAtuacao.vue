@@ -9,92 +9,65 @@
     </div>
 
     <div class="box-container">
-      <div class="box">
-        <div class="icon-ultrapassado">
-          <i class="fa-solid fa-location-dot" style="color: #ffffff"></i>
-        </div>
-        <div class="title-box">
-          <h3>Nacionalidade Portuguesa</h3>
-          <p>
-            Tratamento de casos de nacionalidade portuguesa, inscrições de
-            naturalização e demónio de nacionalidade.
-          </p>
-          <button>Saber mais</button>
-        </div>
-      </div>
 
-      <div class="box">
+      <div class="box" v-for="area in areas" :key="area.title">
         <div class="icon-ultrapassado">
-          <i class="fa-solid fa-location-dot" style="color: #ffffff"></i>
+          <i :class="area.icon" style="color: #ffffff"></i>
         </div>
         <div class="title-box">
-          <h3>Nacionalidade Portuguesa</h3>
+          <h3>{{ area.title }}</h3>
           <p>
-            Tratamento de casos de nacionalidade portuguesa, inscrições de
+            {{ area.description }}
             naturalização e demónio de nacionalidade.
           </p>
-          <button>Saber mais</button>
-        </div>
-      </div>
-
-      <div class="box">
-        <div class="icon-ultrapassado">
-          <i class="fa-solid fa-location-dot" style="color: #ffffff"></i>
-        </div>
-        <div class="title-box">
-          <h3>Nacionalidade Portuguesa</h3>
-          <p>
-            Tratamento de casos de nacionalidade portuguesa, inscrições de
-            naturalização e demónio de nacionalidade.
-          </p>
-          <button>Saber mais</button>
-        </div>
-      </div>
-
-      <div class="box">
-        <div class="icon-ultrapassado">
-          <i class="fa-solid fa-location-dot" style="color: #ffffff"></i>
-        </div>
-        <div class="title-box">
-          <h3>Nacionalidade Portuguesa</h3>
-          <p>
-            Tratamento de casos de nacionalidade portuguesa, inscrições de
-            naturalização e demónio de nacionalidade.
-          </p>
-          <button>Saber mais</button>
-        </div>
-      </div>
-
-      <div class="box">
-        <div class="icon-ultrapassado">
-          <i class="fa-solid fa-location-dot" style="color: #ffffff"></i>
-        </div>
-        <div class="title-box">
-          <h3>Nacionalidade Portuguesa</h3>
-          <p>
-            Tratamento de casos de nacionalidade portuguesa, inscrições de
-            naturalização e demónio de nacionalidade.
-          </p>
-          <button>Saber mais</button>
-        </div>
-      </div>
-
-      <div class="box">
-        <div class="icon-ultrapassado">
-          <i class="fa-solid fa-location-dot" style="color: #ffffff"></i>
-        </div>
-        <div class="title-box">
-          <h3>Nacionalidade Portuguesa</h3>
-          <p>
-            Tratamento de casos de nacionalidade portuguesa, inscrições de
-            naturalização e demónio de nacionalidade.
-          </p>
-          <button>Saber mais</button>
+          <button>{{ area.button }}</button>
         </div>
       </div>
     </div>
   </div>
 </template>
+
+
+<script setup>
+const areas = [
+  {
+    title: 'Nacionalidade Portuguesa',
+    description: 'Tratamento de casos de nacionalidade portuguesa, inscrições de naturalização e demónio de nacionalidade.',
+    button: 'Saber mais',
+    icon: 'fa-solid fa-location-dot'
+  },
+  {
+    title: 'Nacionalidade Portuguesa',
+    description: 'Tratamento de casos de nacionalidade portuguesa, inscrições de naturalização e demónio de nacionalidade.',
+    button: 'Saber mais',
+    icon: 'fa-solid fa-location-dot'
+  },
+  {
+    title: 'Nacionalidade Portuguesa',
+    description: 'Tratamento de casos de nacionalidade portuguesa, inscrições de naturalização e demónio de nacionalidade.',
+    button: 'Saber mais',
+    icon: 'fa-solid fa-location-dot'
+  },
+  {
+    title: 'Nacionalidade Portuguesa',
+    description: 'Tratamento de casos de nacionalidade portuguesa, inscrições de naturalização e demónio de nacionalidade.',
+    button: 'Saber mais',
+    icon: 'fa-solid fa-location-dot'
+  },
+  {
+    title: 'Nacionalidade Portuguesa',
+    description: 'Tratamento de casos de nacionalidade portuguesa, inscrições de naturalização e demónio de nacionalidade.',
+    button: 'Saber mais',
+    icon: 'fa-solid fa-location-dot'
+  },
+  {
+    title: 'Nacionalidade Portuguesa',
+    description: 'Tratamento de casos de nacionalidade portuguesa, inscrições de naturalização e demónio de nacionalidade.',
+    button: 'Saber mais',
+    icon: 'fa-solid fa-location-dot'
+  },
+]
+</script>
 
 <style scoped>
 .area-atuacao {

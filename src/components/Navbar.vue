@@ -20,16 +20,16 @@
         <div class="mobile-menu">
             <button @click="toggleMenu"><i class="fa-solid fa-bars"></i></button>
 
-            <div class="links-mobile" v-if="menuOpen">
-                <a href="#">Inicio</a>
-                <a href="#">Area de Atuação</a>
-                <a href="#">O meu percurso</a>
-                <a href="#">Quem sou</a>
-                <a href="#">Processo</a>
-
-            </div>
         </div>
     </nav>
+    <div class="links-mobile" v-if="menuOpen">
+        <a href="#">Inicio</a>
+        <a href="#">Area de Atuação</a>
+        <a href="#">O meu percurso</a>
+        <a href="#">Quem sou</a>
+        <a href="#">Processo</a>
+
+    </div>
 </template>
 
 <style scoped>
@@ -77,6 +77,43 @@ nav .right img {
 
 nav .mobile-menu {
     display: none;
+}
+
+.mobile-menu button {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+    color: var(--cor-branca);
+    transition: all 0.3s ease;
+    border-radius: 10px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.links-mobile{
+    width: 100%;
+    background: var(--cor-gradiante);
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.links-mobile a {
+    text-decoration: none;
+    color: var(--cor-branca);
+    font-size: 16px;
+    padding: 10px;
+    transition: all 0.3s ease;
+    border-radius: 10px;
+   
 }
 
 

@@ -7,88 +7,30 @@
   </div>
   <div class="container-percurso">
     <div class="box-percuso">
-      <div class="box">
+
+      <div class="box" v-for="percurso in percursos" :key="percurso.title">
         <div class="conector">
           <span></span>
         </div>
         <div class="data">
-          <span>2005</span>
+          <span>{{ percurso.title }}</span>
         </div>
         <div class="description">
-          <p>Formado em Direito pela Universidade X</p>
+          <p>{{ percurso.description }}</p>
         </div>
       </div>
 
-      <div class="box">
-        <div class="conector">
-          <span></span>
-        </div>
-        <div class="data">
-          <span>2005</span>
-        </div>
-        <div class="description">
-          <p>Formado em Direito pela Universidade X</p>
-        </div>
-      </div>
-
-      <div class="box">
-        <div class="conector">
-          <span></span>
-        </div>
-        <div class="data">
-          <span>2005</span>
-        </div>
-        <div class="description">
-          <p>Formado em Direito pela Universidade X</p>
-        </div>
-      </div>
-
-      <div class="box">
-        <div class="conector">
-          <span></span>
-        </div>
-        <div class="data">
-          <span>2005</span>
-        </div>
-        <div class="description">
-          <p>Formado em Direito pela Universidade X</p>
-        </div>
-      </div>
     </div>
 
     <div class="linha-percurso"></div>
 
     <div class="box-percuso">
-      <div class="box">
+      <div class="box" v-for="percursoRight in percursosRight" :key="percursoRight.title">
         <div class="data">
-          <span>2005</span>
+          <span>{{ percursoRight.title }}</span>
         </div>
         <div class="description">
-          <p>Formado em Direito pela Universidade X</p>
-        </div>
-        <div class="conector-right">
-          <span></span>
-        </div>
-      </div>
-
-      <div class="box">
-        <div class="data">
-          <span>2005</span>
-        </div>
-        <div class="description">
-          <p>Formado em Direito pela Universidade X</p>
-        </div>
-        <div class="conector-right">
-          <span></span>
-        </div>
-      </div>
-
-      <div class="box">
-        <div class="data">
-          <span>2005</span>
-        </div>
-        <div class="description">
-          <p>Formado em Direito pela Universidade X</p>
+          <p>{{ percursoRight.description }}</p>
         </div>
         <div class="conector-right">
           <span></span>
@@ -97,6 +39,45 @@
     </div>
   </div>
 </template>
+
+<script setup>
+const percursos = [
+  {
+    title: '2005',
+    description: 'Formado em Direito pela Universidade X',
+  },
+  {
+    title: '2005',
+    description: 'Formado em Direito pela Universidade X',
+  },
+  {
+    title: '2005',
+    description: 'Formado em Direito pela Universidade X',
+  },
+  {
+    title: '2005',
+    description: 'Formado em Direito pela Universidade X',
+  },
+  
+]
+
+const percursosRight = [
+  {
+    title: '2005',
+    description: 'Formado em Direito pela Universidade X',
+  },
+  
+  {
+    title: '2005',
+    description: 'Formado em Direito pela Universidade X',
+  },
+  
+  {
+    title: '2005',
+    description: 'Formado em Direito pela Universidade X',
+  },
+]
+</script>
 
 <style scoped>
 .title-percurso {
