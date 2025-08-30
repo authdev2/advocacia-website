@@ -112,6 +112,8 @@ const compromissos = [
     display: flex;
     justify-content: center;
     flex-direction: column;
+    flex: 1; 
+    min-width: 0; 
 }
 
 .right-container h3 {
@@ -125,11 +127,12 @@ const compromissos = [
   text-align: justify;
   max-width: 100%;
   line-height: 1.6;
+  word-wrap: break-word; /* Quebra palavras longas se necessário */
+  overflow-wrap: break-word; /* Suporte para navegadores mais antigos */
 }
 
 .box-compromissos{
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    display: flex;
     gap: 20px;
 }
 
@@ -140,6 +143,7 @@ const compromissos = [
     display: flex;
     align-items: center;
     justify-content: center;
+    flex: 1;
     gap: 10px;
     width: 200px;
     width: clamp(100px, 20vw, 200px);
@@ -153,6 +157,10 @@ const compromissos = [
     height: 30px;
 }
 
+.left-container {
+  flex-shrink: 0; /* Não permite que a imagem encolha */
+}
+
 .left-container img{
   width: clamp(300px, 40vw, 400px);
   height: auto;                         
@@ -162,11 +170,15 @@ const compromissos = [
 @media (max-width: 1000px) {
   .sobre-mim-container .container {
     flex-direction: column;       
+    gap: 40px; /* Reduz o gap em telas menores */
+  }
 
-}
+  .right-container {
+    max-width: 100%; /* Em telas menores, usa toda a largura disponível */
+  }
 
-.box-compromissos {
+  .box-compromissos {
     grid-template-columns: repeat(2, 1fr);
-}
+  }
 }
 </style>

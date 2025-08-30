@@ -76,28 +76,28 @@ nav .right img {
 }
 
 nav .mobile-menu {
-        display: none;
-    }
+    display: none;
+}
 
 
 @media (max-width: 1000px) {
     nav .mobile-menu {
         display: block;
     }
-}
-@media (max-width: 1600px) {
-    nav {
-        padding: 10px 50px;
-    }
 
     nav .links,
     nav .right {
         display: none;
     }
+}
+
+@media (max-width: 1600px) {
+    nav {
+        padding: 10px 50px;
+    }
 
 
 }
-
 </style>
 
 <script setup>

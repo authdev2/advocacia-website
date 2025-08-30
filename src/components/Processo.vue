@@ -80,8 +80,8 @@ const etapas = [
     display: flex;
     flex-direction: column;
     gap: 100px;
-    height: 100vh;
     margin-top: 100px;
+    padding-bottom: 100px;
 }
 
 .content-processo {
