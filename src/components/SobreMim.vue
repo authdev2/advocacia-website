@@ -127,58 +127,68 @@ const compromissos = [
   text-align: justify;
   max-width: 100%;
   line-height: 1.6;
-  word-wrap: break-word; /* Quebra palavras longas se necessário */
-  overflow-wrap: break-word; /* Suporte para navegadores mais antigos */
+  word-wrap: break-word;
+  margin-bottom: 50px;
 }
 
 .box-compromissos{
     display: flex;
     gap: 20px;
+    flex-wrap: wrap;
 }
+
+
 
 .box-compromissos .box{
-    padding: 20px;
-    border-radius: 10px;
-    margin-bottom: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex: 1;
-    gap: 10px;
-    width: 200px;
-    width: clamp(100px, 20vw, 200px);
-    height: 100px;
-    margin-top: 70px;
-    border: 1px solid var(--cor-cinza-claro-escuro);
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  gap: 10px;
+  width: 200px;
+  width: clamp(100px, 20vw, 200px);
+  height: 100px;
+  border: 1px solid var(--cor-cinza-claro-escuro);
+  flex-wrap: wrap;
+
 }
 
+@keyframes teste {
+    0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(-2800px, 0);
+  }
+}
 .box-compromissos .box img{
     width: 30px;
     height: 30px;
 }
 
-.left-container {
-  flex-shrink: 0; /* Não permite que a imagem encolha */
-}
-
 .left-container img{
-  width: clamp(300px, 40vw, 400px);
-  height: auto;                         
+  width: 100%;
+  height: 500px;    
+                       
 }
 
 
 @media (max-width: 1000px) {
   .sobre-mim-container .container {
     flex-direction: column;       
-    gap: 40px; /* Reduz o gap em telas menores */
+    gap: 40px;
   }
 
   .right-container {
-    max-width: 100%; /* Em telas menores, usa toda a largura disponível */
+    max-width: 100%;
   }
 
   .box-compromissos {
     grid-template-columns: repeat(2, 1fr);
   }
+
 }
 </style>
