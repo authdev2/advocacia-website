@@ -24,7 +24,7 @@
 
         <div class="btn-whatsapp">
           <button>
-            <i class="fa-brands fa-whatsapp"></i>
+            <img src="../assets/svg/whatsapp.svg" alt="">
             Fale no WhatsApp!</button>
         </div>
       </div>
@@ -161,8 +161,9 @@
   background: var(--cor-gradiante);
 }
 
-.btn-whatsapp button i{
-  font-size: 25px;
+.btn-whatsapp button img{
+  width: 25px;
+  height: 25px;
 }
 
 @media (max-width: 1000px) {
