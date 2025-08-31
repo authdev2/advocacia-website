@@ -130,6 +130,11 @@ nav .mobile-menu {
 
 }
 
+.links-mobile a:hover {
+    color: var(--cor-preta);
+    background-color: var(--cor-branca);
+}
+
 
 @media (max-width: 1000px) {
     nav .mobile-menu {

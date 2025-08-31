@@ -162,5 +162,9 @@ const etapas = [
     .icon {
         padding: 35px 25px;
     }
+
+    .box{
+        min-width: 100%;
+    }
 }
 </style>

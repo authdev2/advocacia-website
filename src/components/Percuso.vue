@@ -197,7 +197,6 @@ const percursosRight = [
   .linha-percurso {
     width: 100%;
     height: 3px;
-    order: -1;
   }
 
   .box-percuso {
@@ -211,6 +210,7 @@ const percursosRight = [
     margin: 0;
     transform: none;
     min-width: 250px;
+    flex: 1;
   }
 
   .box-percuso .box .conector,

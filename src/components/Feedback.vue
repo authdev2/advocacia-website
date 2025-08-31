@@ -34,51 +34,51 @@
 </template>
 
 <script setup>
-import PessoaImagem from '../assets/imagem-pessoa.jpg'
+import PessoaImagem from '../assets/imagem-pessoa.webp'
 const feedbacks = [
     {
-        description: 'A dr. Ana foi uma profissional incrível. Ela me ajudou a resolver um problema complexo e foi muito profissional.',
-        name: 'Ana Maria',
-        ajudante: 'Advogada',
+        description: 'A dr. Elisa foi uma profissional incrível. Ela me ajudou a resolver um problema complexo e foi muito profissional.',
+        name: 'João Silva',
+        ajudante: 'Processo Judicial',
         rating: 5,
         image: PessoaImagem,
     },
     {
-        description: 'A dr. Ana foi uma profissional incrível. Ela me ajudou a resolver um problema complexo e foi muito profissional.',
+        description: 'A dr. Elisa foi uma profissional incrível. Ela me ajudou a resolver um problema complexo e foi muito profissional.',
         name: 'Ana Maria',
-        ajudante: 'Advogada',
-        rating: 5,
-        image: PessoaImagem,
-    },
-
-    {
-        description: 'A dr. Ana foi uma profissional incrível. Ela me ajudou a resolver um problema complexo e foi muito profissional.',
-        name: 'Ana Maria',
-        ajudante: 'Advogada',
+        ajudante: 'Processo Judicial',
         rating: 5,
         image: PessoaImagem,
     },
 
     {
-        description: 'A dr. Ana foi uma profissional incrível. Ela me ajudou a resolver um problema complexo e foi muito profissional.',
-        name: 'Ana Maria',
-        ajudante: 'Advogada',
+        description: 'A dr. Elisa foi uma profissional incrível. Ela me ajudou a resolver um problema complexo e foi muito profissional.',
+        name: 'Mario Marques',
+        ajudante: 'Processo Judicial',
         rating: 5,
         image: PessoaImagem,
     },
 
     {
-        description: 'A dr. Ana foi uma profissional incrível. Ela me ajudou a resolver um problema complexo e foi muito profissional.',
-        name: 'Ana Maria',
-        ajudante: 'Advogada',
+        description: 'A dr. Elisa foi uma profissional incrível. Ela me ajudou a resolver um problema complexo e foi muito profissional.',
+        name: 'Carla Silva',
+        ajudante: 'Processo Judicial',
         rating: 5,
         image: PessoaImagem,
     },
 
     {
-        description: 'A dr. Ana foi uma profissional incrível. Ela me ajudou a resolver um problema complexo e foi muito profissional.',
+        description: 'A dr. Elisa foi uma profissional incrível. Ela me ajudou a resolver um problema complexo e foi muito profissional.',
         name: 'Ana Maria',
-        ajudante: 'Advogada',
+        ajudante: 'Processo Judicial',
+        rating: 5,
+        image: PessoaImagem,
+    },
+
+    {
+        description: 'A dr. Elisa foi uma profissional incrível. Ela me ajudou a resolver um problema complexo e foi muito profissional.',
+        name: 'Carlos Santos',
+        ajudante: 'Processo Judicial',
         rating: 5,
         image: PessoaImagem,
     },

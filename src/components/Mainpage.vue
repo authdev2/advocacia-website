@@ -4,11 +4,11 @@
       <div class="container-seguranca">
         <div class="container-box">
           <div class="box">
-            <img src="../assets/svg/padlock.svg" alt="" />
+            <img src="../assets/svg/padlock.svg" alt="Ícone de segurança e proteção jurídica" />
             <span>Segurança</span>
           </div>
           <div class="box">
-            <img src="../assets/svg/trust.svg" alt="" />
+            <img src="../assets/svg/trust.svg" alt="Ícone de confiança e lealdade profissional" />
             <span>Lealdade</span>
           </div>
         </div>
@@ -24,9 +24,12 @@
         </div>
 
         <div class="btn-whatsapp">
-          <button>
-            <img src="../assets/svg/whatsapp.svg" alt="">
-            Fale no WhatsApp!</button>
+          <a href="https://wa.me/351912345678" target="_blank" rel="noopener noreferrer" aria-label="Contactar via WhatsApp">
+            <button type="button">
+              <img src="../assets/svg/whatsapp.svg" alt="Ícone do WhatsApp">
+              Fale no WhatsApp!
+            </button>
+          </a>
         </div>
       </div>
     </div>
@@ -155,6 +158,10 @@
   border: none;
   cursor: pointer;
   background: var(--cor-gradiante);
+}
+
+.btn-whatsapp a{
+  text-decoration: none;
 }
 
 .btn-whatsapp button img {
