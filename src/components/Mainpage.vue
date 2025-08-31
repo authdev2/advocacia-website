@@ -169,6 +169,39 @@
   height: 25px;
 }
 
+@media (max-width: 1600px) {
+
+
+  .main-page-container{
+    height: 80dvh;
+  }
+  .container-seguranca .box {
+    font-size: .8rem;
+  }
+
+  .main-page-container .left .container-seguranca .box img {
+    width: 15px;
+    height: 15px;
+  }
+
+  .container-seguranca .title h1{
+    font-size: 2.3rem;
+  }
+
+  .container-seguranca .description p{
+    font-size: 1.1rem;
+  }
+
+  .btn-whatsapp button{
+    font-size: 1rem;
+  }
+
+  .btn-whatsapp button img {
+    width: 20px;
+    height: 20px;
+  }
+}
+
 @media (max-width: 1000px) {
 
 
