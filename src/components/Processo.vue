@@ -1,10 +1,10 @@
 <template>
-      <div class="title-processo">
-    <h2>O meu <span class="text-green">processo</span></h2>
-    <div class="description">
-      <span>Como trabalho e qual o meu processo!</span>
+    <div id="processo" class="title-processo">
+        <h2>O meu <span class="text-green">processo</span></h2>
+        <div class="description">
+            <span>Como trabalho e qual o meu processo!</span>
+        </div>
     </div>
-  </div>
     <div class="processo">
         <div class="box" v-for="(etapa, index) in etapas" :key="etapa.numero">
 
@@ -14,9 +14,6 @@
                     <p>
                         {{ etapa.description }}
                     </p>
-                </div>
-                <div class="etapa-number">
-                    <span>{{ index + 1 }}</span>
                 </div>
             </div>
 
@@ -54,32 +51,34 @@ const etapas = [
 </script>
 
 <style scoped>
-
 .title-processo h2 {
-  font-size: 40px;
-  margin-bottom: 20px;
-  text-align: center;
+    font-size: 40px;
+    margin-bottom: 20px;
+    text-align: center;
 }
+
 .title-processo .text-green {
-  color: var(--cor-primaria);
-  font-weight: 600;
-  letter-spacing: 0.05rem;
+    color: var(--cor-primaria);
+    font-weight: 600;
+    letter-spacing: 0.05rem;
 }
+
 .title-processo .description {
-  font-size: 20px;
-  color: var(--cor-cinza);
-  background: var(--cor-gradiante);
-  padding: 10px;
-  transform: skew(-20deg);
+    font-size: 20px;
+    color: var(--cor-cinza);
+    background: var(--cor-gradiante);
+    padding: 10px;
+    transform: skew(-20deg);
 }
 
 .title-processo .description span {
-  margin-left: 20px;
+    margin-left: 20px;
 }
+
 .processo {
     display: flex;
-    flex-direction: column;
     gap: 80px;
+    flex-wrap: wrap;
     margin-top: 80px;
     padding-bottom: 80px;
     align-items: center;
@@ -92,8 +91,7 @@ const etapas = [
     display: flex;
     justify-content: space-between;
     gap: 25px;
-    max-width: 1000px;
-    width: 100%;
+    max-width: 500px;
     background: rgba(132, 146, 141, 0.02);
 }
 
@@ -108,10 +106,13 @@ const etapas = [
 .box {
     display: flex;
     justify-content: center;
-    width: 100%;
+    /* width: 100%; */
+    min-width: 450px;
+    flex: 1;
 }
 
-.box:nth-child(1), .box:nth-child(3) {
+.box:nth-child(1),
+.box:nth-child(3) {
     flex-direction: row-reverse;
 }
 
@@ -130,7 +131,8 @@ const etapas = [
 
 .icon {
     padding: 45px 35px;
-    border-radius: 12px 0px 0 12px;;
+    border-radius: 12px 0px 0 12px;
+    ;
     background-color: var(--cor-primaria);
     color: var(--cor-branco);
     display: flex;
@@ -146,47 +148,19 @@ const etapas = [
     font-weight: 600;
 }
 
-.etapa-number span{
-    background-color: var(--cor-cinza-escuro);
-    padding: 12px 16px;
-    border-radius: 12px;
-    color: var(--cor-branca);
-    font-weight: 600;
-    font-size: 16px;
-}
-
-@media (max-width: 1000px) {
-    .icon {
-        transform: none;
-    }
-    
-    .content-processo {
-        flex-direction: column;
-        text-align: center;
-        gap: 20px;
-    }
-    
-
-    
-    .info-processo p {
-        max-width: 100%;
-    }
-}
-
 @media (max-width: 768px) {
     .processo {
         gap: 60px;
         margin-top: 60px;
         padding-bottom: 60px;
     }
-    
+
     .content-processo {
         padding: 25px;
     }
-    
+
     .icon {
         padding: 35px 25px;
     }
 }
-
 </style>

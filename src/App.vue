@@ -5,6 +5,7 @@
   <Percuso />
   <SobreMim />
   <Processo />
+  <Feedback />
   <Footer />
 </template>
 
@@ -16,4 +17,5 @@ import Percuso from './components/Percuso.vue';
 import SobreMim from './components/SobreMim.vue';
 import Footer from './components/Footer.vue';
 import Processo from './components/Processo.vue';
+import Feedback from './components/Feedback.vue';
 </script>

@@ -1,10 +1,8 @@
 <template>
-  <div class="sobre-mim-container">
-    <h2>Sobre <span class="text-green">Mim</span></h2>
+  <div id="quem-sou" class="sobre-mim-container">
+    <h2>Quem <span class="text-green">sou?</span></h2>
     <div class="description">
-      <span
-        >O meu compromisso com a excelência</span
-      >
+      <span>O meu compromisso com a excelência</span>
     </div>
     <div class="container">
       <div class="left-container">
@@ -30,10 +28,10 @@
         </p>
 
         <div class="box-compromissos">
-            <div class="box" v-for="compromisso in compromissos" :key="compromisso.title">
-                <img :src="compromisso.img" alt="">
-                <h4>{{ compromisso.title }}</h4>
-            </div>
+          <div class="box" v-for="compromisso in compromissos" :key="compromisso.title">
+            <img :src="compromisso.img" alt="">
+            <h4>{{ compromisso.title }}</h4>
+          </div>
         </div>
       </div>
     </div>
@@ -47,24 +45,24 @@ import idea from '../assets/svg/idea.svg'
 import appointment from '../assets/svg/appointment.svg'
 
 const compromissos = [
-    {
-        img: trust,
-        title: 'Transparência',
-    },
-    {
-        img: honest,
-        title: 'Honestidade',
-    },
-    
-    {
-        img: idea,
-        title: 'Inovação',
-    },
-    
-    {
-        img: appointment,
-        title: 'Dedicação',
-    },
+  {
+    img: trust,
+    title: 'Transparência',
+  },
+  {
+    img: honest,
+    title: 'Honestidade',
+  },
+
+  {
+    img: idea,
+    title: 'Inovação',
+  },
+
+  {
+    img: appointment,
+    title: 'Dedicação',
+  },
 ]
 
 </script>
@@ -80,8 +78,8 @@ const compromissos = [
   display: flex;
   justify-content: space-between;
   gap: 80px;
-  max-width: 1400px;        
-  margin: 0 auto;          
+  max-width: 1400px;
+  margin: 0 auto;
 
 }
 
@@ -90,11 +88,13 @@ const compromissos = [
   font-size: 40px;
   margin-bottom: 20px;
 }
+
 .sobre-mim-container .text-green {
   color: var(--cor-primaria);
   font-weight: 600;
   letter-spacing: 0.05rem;
 }
+
 .sobre-mim-container .description {
   font-size: 20px;
   color: var(--cor-cinza);
@@ -108,12 +108,12 @@ const compromissos = [
   margin-left: 20px;
 }
 
-.right-container{
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    flex: 1; 
-    min-width: 0; 
+.right-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  flex: 1;
+  min-width: 0;
 }
 
 .right-container h3 {
@@ -121,7 +121,7 @@ const compromissos = [
 }
 
 .right-container p {
-  font-size: clamp(16px, 2.5vw, 20px); 
+  font-size: clamp(16px, 2.5vw, 20px);
   color: var(--cor-cinza);
   margin-top: 20px;
   text-align: justify;
@@ -131,15 +131,15 @@ const compromissos = [
   margin-bottom: 50px;
 }
 
-.box-compromissos{
-    display: flex;
-    gap: 20px;
-    flex-wrap: wrap;
+.box-compromissos {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
 }
 
 
 
-.box-compromissos .box{
+.box-compromissos .box {
   padding: 20px;
   border-radius: 10px;
   margin-bottom: 20px;
@@ -157,28 +157,30 @@ const compromissos = [
 }
 
 @keyframes teste {
-    0% {
+  0% {
     transform: translate(0, 0);
   }
+
   100% {
     transform: translate(-2800px, 0);
   }
 }
-.box-compromissos .box img{
-    width: 30px;
-    height: 30px;
+
+.box-compromissos .box img {
+  width: 30px;
+  height: 30px;
 }
 
-.left-container img{
+.left-container img {
   width: 100%;
-  height: 500px;    
-                       
+  height: 500px;
+
 }
 
 
 @media (max-width: 1000px) {
   .sobre-mim-container .container {
-    flex-direction: column;       
+    flex-direction: column;
     gap: 40px;
   }
 

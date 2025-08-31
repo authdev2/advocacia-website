@@ -1,5 +1,5 @@
 <template>
-  <div class="main-page-container">
+  <div id="inicio" class="main-page-container">
     <div class="left">
       <div class="container-seguranca">
         <div class="container-box">
@@ -18,7 +18,8 @@
         </div>
         <div class="description">
           <p>
-            Não deixes que questões legais complexas te causem stress desnecessário. Contacta-nos hoje mesmo para uma consulta inicial. A tua tranquilidade é a nossa prioridade.
+            Não deixes que questões legais complexas te causem stress desnecessário. Contacta-nos hoje mesmo para uma
+            consulta inicial. A tua tranquilidade é a nossa prioridade.
           </p>
         </div>
 
@@ -35,16 +36,10 @@
   </div>
 
   <div class="custom-shape-divider-bottom-1756387658">
-    <svg
-      data-name="Layer 1"
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 1200 120"
-      preserveAspectRatio="none"
-    >
+    <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
       <path
         d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z"
-        class="shape-fill"
-      ></path>
+        class="shape-fill"></path>
     </svg>
   </div>
 </template>
@@ -123,9 +118,10 @@
 
 .right img {
   width: clamp(300px, 40vw, 600px);
-  height: auto;                         
-  max-width: 100%;                       
+  height: auto;
+  max-width: 100%;
 }
+
 .custom-shape-divider-bottom-1756387658 {
   position: absolute;
   bottom: 0;
@@ -146,7 +142,7 @@
   fill: var(--cor-primaria);
 }
 
-.btn-whatsapp button{
+.btn-whatsapp button {
   padding: 10px 30px;
   border-radius: 50px;
   font-weight: 600;
@@ -161,7 +157,7 @@
   background: var(--cor-gradiante);
 }
 
-.btn-whatsapp button img{
+.btn-whatsapp button img {
   width: 25px;
   height: 25px;
 }
@@ -171,7 +167,7 @@
 
   .container-seguranca .box {
     padding: 5px 10px;
-}
+  }
 
   .custom-shape-divider-bottom-1756387658 {
     display: none;
@@ -183,19 +179,18 @@
     gap: 3rem;
     padding: 4rem 2rem;
   }
-  
+
   .container-seguranca .title h1 {
     font-size: 2.8rem;
   }
-  
+
   .container-seguranca .description p {
     font-size: 1.1rem;
   }
-  
+
   .right img {
     width: 450px;
     height: 300px;
   }
 }
-
 </style>

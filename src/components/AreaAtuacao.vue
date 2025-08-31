@@ -1,11 +1,9 @@
 <template>
-  <div class="area-atuacao">
+  <div id="area-atuacao" class="area-atuacao">
     <h2>Áreas de <span class="text-green">Atuação</span></h2>
     <div class="description">
-      <span
-        >Assessoria jurídica especializada com um escritório que entende cada
-        detalhe do seu processo</span
-      >
+      <span>Assessoria jurídica especializada com um escritório que entende cada
+        detalhe do seu processo</span>
     </div>
 
     <div class="box-container">
@@ -76,11 +74,13 @@ const areas = [
 .area-atuacao {
   padding: 100px 0;
 }
+
 .area-atuacao h2 {
   text-align: center;
   font-size: 40px;
   margin-bottom: 20px;
 }
+
 .area-atuacao .text-green {
   color: var(--cor-primaria);
   font-weight: 600;
@@ -123,19 +123,18 @@ const areas = [
 }
 
 .box-container .box .icon-ultrapassado {
-    background-color: var(--cor-primaria);
-    width: 100px;
-    height: 70px;
-    display: flex
-;
-    align-items: center;
-    justify-content: center;
-    position: absolute;
-    top: -35px;
-    left: 50%;
-    transform: translateX(-50%);
-    border-radius: 20px;
-    background: linear-gradient(to right, #505050, #84928D);
+  background-color: var(--cor-primaria);
+  width: 100px;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: -35px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 20px;
+  background: linear-gradient(to right, #505050, #84928D);
 }
 
 .box-container .box .icon-ultrapassado img {
@@ -165,7 +164,13 @@ const areas = [
   margin-top: 20px;
 }
 
-.btn-saber-mais{
+.title-box button:hover {
+  background-color: var(--cor-footer);
+  transition: all 0.3s ease;
+  border: 1px solid var(--cor-cinza-claro-escuro);
+}
+
+.btn-saber-mais {
   display: flex;
   align-items: center;
   gap: 10px;
@@ -177,7 +182,7 @@ const areas = [
   color: var(--cor-branca);
 }
 
-.title-box{
+.title-box {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -185,17 +190,17 @@ const areas = [
 }
 
 @media (max-width: 1000px) {
-  .box-container{
+  .box-container {
     grid-template-columns: repeat(1, 1fr);
     gap: 10px;
-}
+  }
 
-.area-atuacao h2 {
+  .area-atuacao h2 {
     font-size: 30px;
-}
+  }
 
-.area-atuacao .description span {
+  .area-atuacao .description span {
     font-size: 15px;
-}
+  }
 }
 </style>

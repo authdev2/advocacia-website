@@ -36,13 +36,13 @@
 
 <style scoped>
 footer {
-  padding: 30px ;
+  padding: 30px;
   background-color: var(--cor-footer);
 
   position: absolute;
   left: 0;
   width: 100%;
-  
+
 }
 
 .top {
@@ -72,11 +72,11 @@ footer {
   color: var(--cor-primaria);
 }
 
-.bottom span{
-    color: var(--cor-cinza);
-    font-size: 14px;
-    letter-spacing: 0.05rem;
-    display: flex;
+.bottom span {
+  color: var(--cor-cinza);
+  font-size: 14px;
+  letter-spacing: 0.05rem;
+  display: flex;
   justify-content: center;
   padding: 20px 0 0 0;
 

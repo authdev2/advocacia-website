@@ -5,30 +5,33 @@
                 <img src="../assets/logo.webp" alt="logo"></img>
             </div>
             <div class="links">
-                <a href="#">Inicio</a>
-                <a href="#">Area de Atuação</a>
-                <a href="#">O meu percurso</a>
-                <a href="#">Quem sou</a>
-                <a href="#">Processo</a>
+                <a href="#inicio">Inicio</a>
+                <a href="#area-atuacao">Area de Atuação</a>
+                <a href="#percurso">O meu percurso</a>
+                <a href="#quem-sou">Quem sou</a>
+                <a href="#processo">Processo</a>
+                <a href="#feedback">Feedback</a>
             </div>
-        </div>
+        </div>      
         <div class="right">
             <img src="../assets/svg/telephone.svg" alt="Icone de telefone">
             <span>+351 912 345 678</span>
         </div>
 
         <div class="mobile-menu">
-            <button @click="toggleMenu"><i class="fa-solid fa-bars"></i></button>
+            <button @click="toggleMenu">
+                <img :src="image" alt="Icone de menu">
+            </button>
 
         </div>
     </nav>
     <div class="links-mobile" v-if="menuOpen">
-        <a href="#">Inicio</a>
-        <a href="#">Area de Atuação</a>
-        <a href="#">O meu percurso</a>
-        <a href="#">Quem sou</a>
-        <a href="#">Processo</a>
-
+        <a href="#inicio">Inicio</a>
+        <a href="#area-atuacao">Area de Atuação</a>
+        <a href="#percurso">O meu percurso</a>
+        <a href="#quem-sou">Quem sou</a>
+        <a href="#processo">Processo</a>
+        <a href="#feedback">Feedback</a>
     </div>
 </template>
 
@@ -93,7 +96,18 @@ nav .mobile-menu {
     justify-content: center;
 }
 
-.links-mobile{
+.mobile-menu button:hover {
+    transform: rotate(360deg);
+    transition: all 0.3s ease;
+}
+
+.mobile-menu button img {
+    width: 20px;
+    height: 20px;
+    transition: all 0.3s ease;
+}
+
+.links-mobile {
     width: 100%;
     background: var(--cor-gradiante);
     padding: 20px;
@@ -113,7 +127,7 @@ nav .mobile-menu {
     padding: 10px;
     transition: all 0.3s ease;
     border-radius: 10px;
-   
+
 }
 
 
@@ -139,8 +153,17 @@ nav .mobile-menu {
 
 <script setup>
 import { ref } from 'vue';
+import menu from '../assets/svg/menu.svg';
+import close from '../assets/svg/close.svg';
 let menuOpen = ref(false);
+let image = ref(menu);
 function toggleMenu() {
     menuOpen.value = !menuOpen.value;
+
+    if (menuOpen.value) {
+        image.value = close;
+    } else {
+        image.value = menu;
+    }
 }
 </script>

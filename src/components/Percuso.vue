@@ -1,5 +1,5 @@
 <template>
-  <div class="title-percurso">
+  <div id="percurso" class="title-percurso">
     <h2>O meu <span class="text-green">percurso</span></h2>
     <div class="description">
       <span>Perceba um pouco do meu percuso e onde eu estudei!</span>
@@ -58,7 +58,7 @@ const percursos = [
     title: '2005',
     description: 'Formado em Direito pela Universidade X',
   },
-  
+
 ]
 
 const percursosRight = [
@@ -66,12 +66,12 @@ const percursosRight = [
     title: '2005',
     description: 'Formado em Direito pela Universidade X',
   },
-  
+
   {
     title: '2005',
     description: 'Formado em Direito pela Universidade X',
   },
-  
+
   {
     title: '2005',
     description: 'Formado em Direito pela Universidade X',
@@ -89,11 +89,13 @@ const percursosRight = [
   margin-bottom: 20px;
   text-align: center;
 }
+
 .title-percurso .text-green {
   color: var(--cor-primaria);
   font-weight: 600;
   letter-spacing: 0.05rem;
 }
+
 .title-percurso .description {
   font-size: clamp(14px, 2vw, 20px);
   color: var(--cor-cinza);
@@ -130,14 +132,14 @@ const percursosRight = [
 }
 
 .box-percuso .box {
-    background-color: var(--cor-fundo);
-    padding: clamp(20px, 4vw, 50px);
-    border-radius: 20px;
-    position: relative;
-    border: 1px solid var(--cor-cinza-claro-escuro);
-    margin-left: clamp(20px, 4vw, 60px);
-    margin-right: clamp(20px, 4vw, 60px);
-    transform: skew(-10deg);
+  background-color: var(--cor-fundo);
+  padding: clamp(20px, 4vw, 50px);
+  border-radius: 20px;
+  position: relative;
+  border: 1px solid var(--cor-cinza-claro-escuro);
+  margin-left: clamp(20px, 4vw, 60px);
+  margin-right: clamp(20px, 4vw, 60px);
+  transform: skew(-10deg);
 }
 
 .box-percuso .box .conector {
@@ -191,26 +193,26 @@ const percursosRight = [
     flex-direction: column;
     gap: 40px;
   }
-  
+
   .linha-percurso {
     width: 100%;
     height: 3px;
     order: -1;
   }
-  
+
   .box-percuso {
     flex-direction: row;
     gap: 40px;
     flex-wrap: wrap;
     justify-content: center;
   }
-  
+
   .box-percuso .box {
     margin: 0;
     transform: none;
     min-width: 250px;
   }
-  
+
   .box-percuso .box .conector,
   .box-percuso .box .conector-right {
     display: none;
