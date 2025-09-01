@@ -12,9 +12,13 @@
                 </div>
             </div>
 
-            <div class="icon">
-                <span> {{ index + 1 }} - Etapa</span>
-
+            <div class="step-circle">
+                <div class="circle-number">
+                    <span class="number">{{ index + 1 }}</span>
+                </div>
+                <div class="step-label">
+                    <span>Etapa</span>
+                </div>
             </div>
 
         </div>
@@ -71,7 +75,7 @@ const etapas = [
     border-radius: 15px 0 0 15px;
 }
 
-.box:nth-child(2) .icon {
+.box:nth-child(2) .step-circle {
     border-radius: 0 12px 12px 0;
 }
 
@@ -101,23 +105,48 @@ const etapas = [
     line-height: 1.6;
 }
 
-.icon {
-    padding: 45px 35px;
+.step-circle {
+    padding: 20px;
     border-radius: 12px 0px 0 12px;
-    ;
-    background-color: var(--cor-primaria);
+    background: linear-gradient(135deg, var(--cor-primaria), #6b7c6f);
     color: var(--cor-branco);
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
+    min-width: 120px;
+    position: relative;
+    transition: all 0.3s ease;
 }
 
 
-.icon span {
-    font-size: 18px;
-    color: white;
-    font-weight: 600;
+.circle-number {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: var(--cor-branca);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.number {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--cor-primaria);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.step-label span {
+    font-size: 14px;
+    color: var(--cor-branca);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 @media (max-width: 768px) {
@@ -131,8 +160,22 @@ const etapas = [
         padding: 25px;
     }
 
-    .icon {
-        padding: 35px 25px;
+    .step-circle {
+        padding: 15px;
+        min-width: 100px;
+    }
+    
+    .circle-number {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .number {
+        font-size: 20px;
+    }
+    
+    .step-label span {
+        font-size: 12px;
     }
 
     .box{
