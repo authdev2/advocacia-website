@@ -182,6 +182,7 @@ function retrocederFeedback() {
     width: 50px;
     height: 50px;
     border-radius: 50%;
+    object-fit: cover;
 }
 
 .feedback-info {
