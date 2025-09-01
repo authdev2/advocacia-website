@@ -6,47 +6,64 @@
         </div>
     </div>
     <div class="feedback-container">
-        <div class="feedback-box" v-for="feedback in feedbacks" :key="feedback.name">
+        <button class="arrow-button" @click="retrocederFeedback">
 
-            <div class="description">
-                <p>{{ feedback.description }}</p>
-            </div>
+            <img src="../assets/svg/left-arrow.svg" alt="arrow-left">
+        </button>
+        <div :class="feedback.show ? 'feedback-box' : 'desactive-feedback'" v-for="feedback in feedbacks"
+            :key="feedback.name">
+            <div class="feedback-box-content" v-if="feedback.show">
 
-            <div class="feedback-info">
-                <div class="image">
-                    <img :src="feedback.image" alt="">
+                <div class="description">
+                    <p>{{ feedback.description }}</p>
                 </div>
-                <div class="info">
-                    <h3>{{ feedback.name }}</h3>
-                    <p>{{ feedback.ajudante }}</p>
-                    <div class="rating-container">
-                        <div class="rating" v-for="i in feedback.rating" :key="i">
-                            <img src="../assets/svg/star.svg" alt="teste">
+
+                <div class="feedback-info">
+                    <div class="image">
+                        <img :src="feedback.image" alt="">
+                    </div>
+                    <div class="info">
+                        <h3>{{ feedback.name }}</h3>
+                        <p>{{ feedback.ajudante }}</p>
+                        <div class="rating-container">
+                            <div class="rating" v-for="i in feedback.rating" :key="i">
+                                <img src="../assets/svg/star.svg" alt="teste">
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
+        <button class="arrow-button" @click="avancarFeedback">
+            <img src="../assets/svg/right-arrow.svg" alt="arrow-right">
+        </button>
     </div>
 </template>
 
 <script setup>
-import PessoaImagem from '../assets/imagem-pessoa.webp'
-const feedbacks = [
+import { reactive } from 'vue';
+import PessoaImagem2 from '../assets/pessoa2.webp'
+import PessoaImagem3 from '../assets/pessoa3.jpg'
+import PessoaImagem4 from '../assets/pessoa4.jpg'
+import PessoaImagem5 from '../assets/pessoa5.jpg'
+import PessoaImagem6 from '../assets/pessoa1.jpg'
+
+const feedbacks = reactive([
     {
         description: 'A dr. Elisa foi uma profissional incrível. Ela me ajudou a resolver um problema complexo e foi muito profissional.',
         name: 'João Silva',
         ajudante: 'Processo Judicial',
         rating: 5,
-        image: PessoaImagem,
+        image: PessoaImagem2,
+        show: true,
     },
     {
         description: 'A dr. Elisa foi uma profissional incrível. Ela me ajudou a resolver um problema complexo e foi muito profissional.',
         name: 'Ana Maria',
         ajudante: 'Processo Judicial',
         rating: 5,
-        image: PessoaImagem,
+        image: PessoaImagem3,
+        show: true,
     },
 
     {
@@ -54,7 +71,8 @@ const feedbacks = [
         name: 'Mario Marques',
         ajudante: 'Processo Judicial',
         rating: 5,
-        image: PessoaImagem,
+        image: PessoaImagem4,
+        show: true,
     },
 
     {
@@ -62,7 +80,8 @@ const feedbacks = [
         name: 'Carla Silva',
         ajudante: 'Processo Judicial',
         rating: 5,
-        image: PessoaImagem,
+        image: PessoaImagem5,
+        show: false,
     },
 
     {
@@ -70,7 +89,8 @@ const feedbacks = [
         name: 'Ana Maria',
         ajudante: 'Processo Judicial',
         rating: 5,
-        image: PessoaImagem,
+        image: PessoaImagem6,
+        show: false,
     },
 
     {
@@ -78,25 +98,56 @@ const feedbacks = [
         name: 'Carlos Santos',
         ajudante: 'Processo Judicial',
         rating: 5,
-        image: PessoaImagem,
+        image: PessoaImagem2,
+        show: false,
     },
 
-]
+])
 
+function avancarFeedback() {
+    feedbacks.slice(0, 3).forEach((feedback) => {
+        feedback.show = false;
+    })
+
+    feedbacks.slice(3, feedbacks.length).forEach((feedback) => {
+        feedback.show = true;
+    })
+
+}
+
+
+function retrocederFeedback() {
+    feedbacks.slice(0, 3).forEach((feedback) => {
+        feedback.show = true;
+    })
+
+    feedbacks.slice(3, feedbacks.length).forEach((feedback) => {
+        feedback.show = false;
+    })
+}
 
 </script>
 
 <style scoped>
+.arrow-button {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+}
+
+.arrow-button img {
+    width: 20px;
+    height: 20px;
+}
+
 .feedback h2 {
     text-align: center;
     font-size: 40px;
     margin-bottom: 20px;
 }
 
-.active-feedback {
-    opacity: 0.8;
-    background-color: var(--cor-gradiante);
-    transform: scale(1.05);
+.desactive-feedback {
+    display: none;
 }
 
 .feedback .text-green {
