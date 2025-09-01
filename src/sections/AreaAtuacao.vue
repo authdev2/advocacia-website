@@ -1,10 +1,7 @@
 <template>
   <div id="area-atuacao" class="area-atuacao">
-    <h2>Áreas de <span class="text-green">Atuação</span></h2>
-    <div class="description">
-      <span>Assessoria jurídica especializada com um escritório que entende cada
-        detalhe do seu processo</span>
-    </div>
+
+    <HeaderTitle title="Áreas de" title2="Atuação" description="Assessoria jurídica especializada com um escritório que entende cada detalhe do seu processo" />
 
     <div class="box-container">
 
@@ -16,7 +13,6 @@
           <h3>{{ area.title }}</h3>
           <p>
             {{ area.description }}
-            naturalização e demónio de nacionalidade.
           </p>
           <button class="btn-saber-mais">{{ area.button }}
             <img src="../assets/svg/right-arrow.svg" alt="arrow-right">
@@ -30,6 +26,7 @@
 
 <script setup>
 import location from '../assets/svg/location.svg'
+import HeaderTitle from '../components/HeaderTitle.vue'
 const areas = [
   {
     title: 'Nacionalidade Portuguesa',

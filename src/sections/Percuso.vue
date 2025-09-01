@@ -1,10 +1,7 @@
 <template>
-  <div id="percurso" class="title-percurso">
-    <h2>O meu <span class="text-green">percurso</span></h2>
-    <div class="description">
-      <span>Perceba um pouco do meu percuso e onde eu estudei!</span>
-    </div>
-  </div>
+
+  <HeaderTitle title="O meu" title2="percurso" description="Perceba um pouco do meu percuso e onde eu estudei!" />
+
   <div class="container-percurso">
     <div class="box-percuso">
 
@@ -41,6 +38,7 @@
 </template>
 
 <script setup>
+import HeaderTitle from '../components/HeaderTitle.vue'
 const percursos = [
   {
     title: '2005',
@@ -80,33 +78,7 @@ const percursosRight = [
 </script>
 
 <style scoped>
-.title-percurso {
-  margin-bottom: clamp(60px, 8vw, 100px);
-}
 
-.title-percurso h2 {
-  font-size: clamp(26px, 4vw, 40px);
-  margin-bottom: 20px;
-  text-align: center;
-}
-
-.title-percurso .text-green {
-  color: var(--cor-primaria);
-  font-weight: 600;
-  letter-spacing: 0.05rem;
-}
-
-.title-percurso .description {
-  font-size: clamp(14px, 2vw, 20px);
-  color: var(--cor-cinza);
-  background: var(--cor-gradiante);
-  padding: 10px;
-  transform: skew(-20deg);
-}
-
-.title-percurso .description span {
-  margin-left: 20px;
-}
 
 .container-percurso {
   display: flex;

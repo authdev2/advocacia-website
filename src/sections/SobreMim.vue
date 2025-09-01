@@ -1,9 +1,6 @@
 <template>
   <div id="quem-sou" class="sobre-mim-container">
-    <h2>Quem <span class="text-green">sou?</span></h2>
-    <div class="description">
-      <span>O meu compromisso com a excelência</span>
-    </div>
+    <HeaderTitle title="Quem" title2="sou" description="O meu compromisso com a excelência" />
     <div class="container">
       <div class="left-container">
         <img src="../assets/sobre-mim/image.webp" alt="Minha imagem" />
@@ -43,6 +40,7 @@ import trust from '../assets/svg/trust.svg'
 import honest from '../assets/svg/honest.svg'
 import idea from '../assets/svg/idea.svg'
 import appointment from '../assets/svg/appointment.svg'
+import HeaderTitle from '../components/HeaderTitle.vue'
 
 const compromissos = [
   {
@@ -80,32 +78,8 @@ const compromissos = [
   gap: 80px;
   max-width: 1400px;
   margin: 0 auto;
+  margin-top: 100px;
 
-}
-
-.sobre-mim-container h2 {
-  text-align: center;
-  font-size: 40px;
-  margin-bottom: 20px;
-}
-
-.sobre-mim-container .text-green {
-  color: var(--cor-primaria);
-  font-weight: 600;
-  letter-spacing: 0.05rem;
-}
-
-.sobre-mim-container .description {
-  font-size: 20px;
-  color: var(--cor-cinza);
-  background: var(--cor-gradiante);
-  padding: 10px;
-  transform: skew(-20deg);
-  margin-bottom: 100px;
-}
-
-.sobre-mim-container .description span {
-  margin-left: 20px;
 }
 
 .right-container {

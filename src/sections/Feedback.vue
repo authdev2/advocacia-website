@@ -1,10 +1,6 @@
 <template>
-    <div id="feedback" class="feedback">
-        <h2>Feedback <span class="text-green">de clientes</span></h2>
-        <div class="description">
-            <span>Clientes que nos escolheram para resolver os seus problemas</span>
-        </div>
-    </div>
+
+    <HeaderTitle title="Feedback de" title2="clientes" description="Clientes que nos escolheram para resolver os seus problemas" />
     <div class="feedback-container">
         <button class="arrow-button" @click="retrocederFeedback">
 
@@ -47,6 +43,8 @@ import PessoaImagem3 from '../assets/feedbacks/pessoa3.webp'
 import PessoaImagem4 from '../assets/feedbacks/pessoa4.webp'
 import PessoaImagem5 from '../assets/feedbacks/pessoa5.webp'
 import PessoaImagem6 from '../assets/feedbacks/pessoa1.webp'
+import HeaderTitle from '../components/HeaderTitle.vue'
+
 
 const feedbacks = reactive([
     {
@@ -140,32 +138,9 @@ function retrocederFeedback() {
     height: 20px;
 }
 
-.feedback h2 {
-    text-align: center;
-    font-size: 40px;
-    margin-bottom: 20px;
-}
 
 .desactive-feedback {
     display: none;
-}
-
-.feedback .text-green {
-    color: var(--cor-primaria);
-    font-weight: 600;
-    letter-spacing: 0.05rem;
-}
-
-.feedback .description {
-    font-size: 20px;
-    color: var(--cor-cinza);
-    background: var(--cor-gradiante);
-    padding: 10px;
-    transform: skew(-20deg);
-}
-
-.feedback .description span {
-    margin-left: 20px;
 }
 
 .feedback-container {

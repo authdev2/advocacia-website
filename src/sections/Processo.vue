@@ -1,10 +1,5 @@
 <template>
-    <div id="processo" class="title-processo">
-        <h2>O meu <span class="text-green">processo</span></h2>
-        <div class="description">
-            <span>Como trabalho e qual o meu processo!</span>
-        </div>
-    </div>
+    <HeaderTitle title="O meu" title2="processo" description="Como trabalho e qual o meu processo!" />
     <div class="processo">
         <div class="box" v-for="(etapa, index) in etapas" :key="etapa.numero">
 
@@ -28,7 +23,7 @@
 
 
 <script setup>
-
+import HeaderTitle from '../components/HeaderTitle.vue'
 const etapas = [
 
     {
@@ -51,29 +46,6 @@ const etapas = [
 </script>
 
 <style scoped>
-.title-processo h2 {
-    font-size: 40px;
-    margin-bottom: 20px;
-    text-align: center;
-}
-
-.title-processo .text-green {
-    color: var(--cor-primaria);
-    font-weight: 600;
-    letter-spacing: 0.05rem;
-}
-
-.title-processo .description {
-    font-size: 20px;
-    color: var(--cor-cinza);
-    background: var(--cor-gradiante);
-    padding: 10px;
-    transform: skew(-20deg);
-}
-
-.title-processo .description span {
-    margin-left: 20px;
-}
 
 .processo {
     display: flex;
