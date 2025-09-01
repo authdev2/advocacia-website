@@ -153,7 +153,6 @@ const compromissos = [
   height: 100px;
   border: 1px solid var(--cor-cinza-claro-escuro);
   flex-wrap: wrap;
-
 }
 
 @keyframes teste {

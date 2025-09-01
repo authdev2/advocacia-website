@@ -1,6 +1,8 @@
 <template>
   <footer>
+
     <div class="container">
+      
       <div class="top">
         <div class="coluna">
           <a href="">Inicio</a>

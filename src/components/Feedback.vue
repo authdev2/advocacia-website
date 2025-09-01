@@ -6,7 +6,6 @@
         </div>
     </div>
     <div class="feedback-container">
-
         <div class="feedback-box" v-for="feedback in feedbacks" :key="feedback.name">
 
             <div class="description">
@@ -27,7 +26,6 @@
                     </div>
                 </div>
             </div>
-
         </div>
 
     </div>
@@ -85,6 +83,7 @@ const feedbacks = [
 
 ]
 
+
 </script>
 
 <style scoped>
@@ -92,6 +91,12 @@ const feedbacks = [
     text-align: center;
     font-size: 40px;
     margin-bottom: 20px;
+}
+
+.active-feedback {
+    opacity: 0.8;
+    background-color: var(--cor-gradiante);
+    transform: scale(1.05);
 }
 
 .feedback .text-green {
@@ -124,13 +129,17 @@ const feedbacks = [
 .feedback-box {
     display: flex;
     flex-direction: column;
-    ;
     background-color: var(--cor-footer);
     padding: 20px;
     border-radius: 20px;
     border: 1px solid var(--cor-cinza-claro-escuro);
     flex: 1;
     min-width: 350px;
+    transition: all 0.3s ease;
+}
+
+.feedback-box:hover {
+    opacity: 1;
 }
 
 .rating-container {
