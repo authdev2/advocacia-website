@@ -48,7 +48,7 @@ import HeaderTitle from '../components/HeaderTitle.vue'
 
 const feedbacks = reactive([
     {
-        description: 'A dr. Elisa foi uma profissional incrível. Ela me ajudou a resolver um problema complexo e foi muito profissional.',
+        description: 'O dr. Joao Alves foi uma profissional incrível. Ela me ajudou a resolver um problema complexo e foi muito profissional.',
         name: 'João Silva',
         ajudante: 'Processo Judicial',
         rating: 5,
@@ -56,7 +56,7 @@ const feedbacks = reactive([
         show: true,
     },
     {
-        description: 'A dr. Elisa foi uma profissional incrível. Ela me ajudou a resolver um problema complexo e foi muito profissional.',
+        description: 'O dr. Joao Alves foi uma profissional incrível. Ela me ajudou a resolver um problema complexo e foi muito profissional.',
         name: 'Ana Maria',
         ajudante: 'Processo Judicial',
         rating: 5,
@@ -65,7 +65,7 @@ const feedbacks = reactive([
     },
 
     {
-        description: 'A dr. Elisa foi uma profissional incrível. Ela me ajudou a resolver um problema complexo e foi muito profissional.',
+        description: 'O dr. Joao Alves foi uma profissional incrível. Ela me ajudou a resolver um problema complexo e foi muito profissional.',
         name: 'Mario Marques',
         ajudante: 'Processo Judicial',
         rating: 5,
@@ -74,7 +74,7 @@ const feedbacks = reactive([
     },
 
     {
-        description: 'A dr. Elisa foi uma profissional incrível. Ela me ajudou a resolver um problema complexo e foi muito profissional.',
+        description: 'O dr. Joao Alves foi uma profissional incrível. Ela me ajudou a resolver um problema complexo e foi muito profissional.',
         name: 'Carla Silva',
         ajudante: 'Processo Judicial',
         rating: 5,
@@ -83,7 +83,7 @@ const feedbacks = reactive([
     },
 
     {
-        description: 'A dr. Elisa foi uma profissional incrível. Ela me ajudou a resolver um problema complexo e foi muito profissional.',
+        description: 'O dr. Joao Alves foi uma profissional incrível. Ela me ajudou a resolver um problema complexo e foi muito profissional.',
         name: 'Ana Maria',
         ajudante: 'Processo Judicial',
         rating: 5,
@@ -92,7 +92,7 @@ const feedbacks = reactive([
     },
 
     {
-        description: 'A dr. Elisa foi uma profissional incrível. Ela me ajudou a resolver um problema complexo e foi muito profissional.',
+            description: 'O dr. Joao Alves foi uma profissional incrível. Ela me ajudou a resolver um problema complexo e foi muito profissional.',
         name: 'Carlos Santos',
         ajudante: 'Processo Judicial',
         rating: 5,
