@@ -42,11 +42,11 @@
 
 <script setup>
 import { reactive } from 'vue';
-import PessoaImagem2 from '../assets/pessoa2.webp'
-import PessoaImagem3 from '../assets/pessoa3.jpg'
-import PessoaImagem4 from '../assets/pessoa4.jpg'
-import PessoaImagem5 from '../assets/pessoa5.jpg'
-import PessoaImagem6 from '../assets/pessoa1.jpg'
+import PessoaImagem2 from '../assets/feedbacks/pessoa2.webp'
+import PessoaImagem3 from '../assets/feedbacks/pessoa3.webp'
+import PessoaImagem4 from '../assets/feedbacks/pessoa4.webp'
+import PessoaImagem5 from '../assets/feedbacks/pessoa5.webp'
+import PessoaImagem6 from '../assets/feedbacks/pessoa1.webp'
 
 const feedbacks = reactive([
     {
