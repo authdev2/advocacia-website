@@ -89,6 +89,7 @@ const percursosRight = [
   margin: 0 auto;
   padding-left: clamp(10px, 2vw, 2rem);
   padding-right: clamp(10px, 2vw, 2rem);
+  margin-top: 100px;
 }
 
 .box-percuso {
