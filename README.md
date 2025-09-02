@@ -1,4 +1,4 @@
-Ver ao vivo: https://spontaneous-syrniki-3c5427.netlify.app/
+Ver ao vivo: https://joao-alves-advogado.netlify.app/
 
 <img width="1902" height="943" alt="image" src="https://github.com/user-attachments/assets/87400946-b96f-4a90-9b8d-6ff395797621" />
 
