@@ -12,6 +12,7 @@
     --cor-gradiante: linear-gradient(to right, var(--cor-primaria), #2B2B2B);
     --cor-amarela: #ffc107;
     --cor-icon: white;
+    --cor-seta: white;
 
 }
 
@@ -25,5 +26,5 @@
     --cor-cinza-claro-escuro: #999999;
     --cor-gradiante: linear-gradient(to right, var(--cor-primaria), #e9ecef);
     --cor-icon: white;
-
+    --cor-seta: black;
 }

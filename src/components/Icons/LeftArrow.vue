@@ -10,6 +10,6 @@
 svg {
     width: 20px;
     height: 20px;
-    fill: var(--cor-icon);
+    fill: var(--cor-seta);
 }
 </style>
