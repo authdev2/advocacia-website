@@ -26,7 +26,7 @@
 
         <div class="box-compromissos">
           <div class="box" v-for="compromisso in compromissos" :key="compromisso.title">
-            <img :src="compromisso.img" alt="">
+            <component :is="compromisso.icon"></component>
             <h4>{{ compromisso.title }}</h4>
           </div>
         </div>
@@ -36,29 +36,29 @@
 </template>
 
 <script setup>
-import trust from '../assets/svg/trust.svg'
-import honest from '../assets/svg/honest.svg'
-import idea from '../assets/svg/idea.svg'
-import appointment from '../assets/svg/appointment.svg'
 import HeaderTitle from '../components/HeaderTitle.vue'
+import Trust from '../components/Icons/Trust.vue'
+import Honest from '../components/Icons/Honest.vue'
+import Idea from '../components/Icons/Idea.vue'
+import Appointment from '../components/Icons/Appointment.vue'
 
 const compromissos = [
   {
-    img: trust,
+    icon: Trust,
     title: 'Transparência',
   },
   {
-    img: honest,
+    icon: Honest,
     title: 'Honestidade',
   },
 
   {
-    img: idea,
+    icon: Idea,
     title: 'Inovação',
   },
 
   {
-    img: appointment,
+    icon: Appointment,
     title: 'Dedicação',
   },
 ]
@@ -137,11 +137,6 @@ const compromissos = [
   100% {
     transform: translate(-2800px, 0);
   }
-}
-
-.box-compromissos .box img {
-  width: 30px;
-  height: 30px;
 }
 
 .left-container img {

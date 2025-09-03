@@ -10,5 +10,20 @@
     --cor-cinza-escuro: #3b3a3a;
     --cor-cinza-claro-escuro: rgb(103, 103, 103);
     --cor-gradiante: linear-gradient(to right, var(--cor-primaria), #2B2B2B);
+    --cor-amarela: #ffc107;
+    --cor-icon: white;
+
+}
+
+[data-theme="light"] {
+    --cor-fundo: #f8f9fa;
+    --cor-branca: #181919d3;
+    --cor-cinza: #666666;
+    --cor-footer: #e9ecef;
+    --cor-cinza-claro: #333333;
+    --cor-cinza-escuro: #dee2e6;
+    --cor-cinza-claro-escuro: #999999;
+    --cor-gradiante: linear-gradient(to right, var(--cor-primaria), #e9ecef);
+    --cor-icon: white;
 
 }

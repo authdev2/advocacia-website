@@ -158,7 +158,6 @@ const percursosRight = [
 .data span {
   font-size: clamp(18px, 2.5vw, 25px);
   font-weight: 800;
-  color: #E6EDEA;
 }
 
 @media (max-width: 1000px) {

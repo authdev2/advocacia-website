@@ -12,15 +12,24 @@
                 <a href="#processo">Processo</a>
                 <a href="#feedback">Feedback</a>
             </div>
-        </div>      
+        </div>
         <div class="right">
-            <img src="../assets/svg/telephone.svg" alt="Icone de telefone">
+            <button class="theme-toggle" @click="toggleTheme">
+                <span v-if="isDark">
+                    <Sunshine />
+                </span>
+                <span v-else>
+                    <Moon />
+                </span>
+            </button>
+            <PhoneIcon />
             <span>+351 912 345 678</span>
         </div>
 
         <div class="mobile-menu">
             <button @click="toggleMenu">
-                <img :src="image" alt="Icone de menu">
+                <Menu v-if="!menuOpen" />
+                <Close v-else />
             </button>
 
         </div>
@@ -101,7 +110,8 @@ nav .mobile-menu {
     transition: all 0.3s ease;
 }
 
-.mobile-menu button img {
+.mobile-menu button img,
+.mobile-menu button svg {
     width: 20px;
     height: 20px;
     transition: all 0.3s ease;
@@ -135,6 +145,22 @@ nav .mobile-menu {
     background-color: var(--cor-branca);
 }
 
+.right{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.theme-toggle{
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: var(--cor-branca);
+    transition: all 0.3s ease;
+    margin-right: 20px;
+
+}
+
 
 @media (max-width: 1000px) {
     nav .mobile-menu {
@@ -157,18 +183,29 @@ nav .mobile-menu {
 </style>
 
 <script setup>
-import { ref } from 'vue';
-import menu from '../assets/svg/menu.svg';
-import close from '../assets/svg/close.svg';
+import { ref, onMounted } from 'vue';
+import PhoneIcon from './Icons/Telephone.vue';
+import Sunshine from './Icons/Sunshine.vue';
+import Moon from './Icons/Moon.vue';
+import Menu from './Icons/Menu.vue';
+import Close from './Icons/Close.vue';
+
 let menuOpen = ref(false);
-let image = ref(menu);
+
 function toggleMenu() {
     menuOpen.value = !menuOpen.value;
-
-    if (menuOpen.value) {
-        image.value = close;
-    } else {
-        image.value = menu;
-    }
 }
+
+let isDark = ref(true);
+let themeChoose;
+function toggleTheme() {
+    isDark.value = !isDark.value;
+    themeChoose = isDark.value ? "dark" : "light";
+    document.documentElement.setAttribute('data-theme', themeChoose);
+    localStorage.setItem('theme', themeChoose);
+}
+
+onMounted(() => {
+    document.documentElement.setAttribute('data-theme', localStorage.getItem('theme'));
+})
 </script>

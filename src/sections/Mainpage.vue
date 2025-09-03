@@ -4,11 +4,11 @@
       <div class="container-seguranca">
         <div class="container-box">
           <div class="box">
-            <img src="../assets/svg/padlock.svg" alt="Ícone de segurança e proteção jurídica" />
+            <LockIcon />
             <span>Segurança</span>
           </div>
           <div class="box">
-            <img src="../assets/svg/trust.svg" alt="Ícone de confiança e lealdade profissional" />
+            <ShieldIcon />
             <span>Lealdade</span>
           </div>
         </div>
@@ -26,7 +26,7 @@
         <div class="btn-whatsapp">
           <a href="https://wa.me/351912345678" target="_blank" rel="noopener noreferrer" aria-label="Contactar via WhatsApp">
             <button type="button">
-              <img src="../assets/svg/whatsapp.svg" alt="Ícone do WhatsApp">
+              <WhatsappIcon />
               Fale no WhatsApp!
             </button>
           </a>
@@ -46,6 +46,12 @@
     </svg>
   </div>
 </template>
+
+<script setup>
+import LockIcon from '../components/Icons/Lock.vue';
+import ShieldIcon from '../components/Icons/Shield.vue';
+import WhatsappIcon from '../components/Icons/Whatsapp.vue';
+</script>
 
 <style scoped>
 .main-page-container {
@@ -75,11 +81,6 @@
   font-size: 15px;
   color: var(--cor-branca);
   transition: all 0.3s ease;
-}
-
-.main-page-container .left .container-seguranca .box img {
-  width: 24px;
-  height: 24px;
 }
 
 .container-seguranca .box span {
@@ -164,11 +165,6 @@
   text-decoration: none;
 }
 
-.btn-whatsapp button img {
-  width: 25px;
-  height: 25px;
-}
-
 @media (max-width: 1600px) {
 
 
@@ -178,12 +174,6 @@
   .container-seguranca .box {
     font-size: .8rem;
   }
-
-  .main-page-container .left .container-seguranca .box img {
-    width: 15px;
-    height: 15px;
-  }
-
   .container-seguranca .title h1{
     font-size: 2.3rem;
   }
@@ -194,11 +184,6 @@
 
   .btn-whatsapp button{
     font-size: 1rem;
-  }
-
-  .btn-whatsapp button img {
-    width: 20px;
-    height: 20px;
   }
 }
 

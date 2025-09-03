@@ -7,7 +7,7 @@
 
       <div class="box" v-for="area in areas" :key="area.title">
         <div class="icon-ultrapassado">
-          <img :src="area.icon" alt="arrow-right">
+          <component :is="area.icon"></component>
         </div>
         <div class="title-box">
           <h3>{{ area.title }}</h3>
@@ -15,7 +15,7 @@
             {{ area.description }}
           </p>
           <button class="btn-saber-mais">{{ area.button }}
-            <img src="../assets/svg/right-arrow.svg" alt="arrow-right">
+            <RightArrow />
           </button>
         </div>
       </div>
@@ -25,44 +25,45 @@
 
 
 <script setup>
-import location from '../assets/svg/location.svg'
 import HeaderTitle from '../components/HeaderTitle.vue'
+import Location from '../components/Icons/Location.vue'
+import RightArrow from '../components/Icons/RightArrow.vue'
 const areas = [
   {
     title: 'Nacionalidade Portuguesa',
     description: 'Tratamento de casos de nacionalidade portuguesa, inscrições de naturalização e demónio de nacionalidade.',
     button: 'Saber mais',
-    icon: location
+    icon: Location
   },
   {
     title: 'Nacionalidade Portuguesa',
     description: 'Tratamento de casos de nacionalidade portuguesa, inscrições de naturalização e demónio de nacionalidade.',
     button: 'Saber mais',
-    icon: location
+    icon: Location
   },
   {
     title: 'Nacionalidade Portuguesa',
     description: 'Tratamento de casos de nacionalidade portuguesa, inscrições de naturalização e demónio de nacionalidade.',
     button: 'Saber mais',
-    icon: location
+    icon: Location
   },
   {
     title: 'Nacionalidade Portuguesa',
     description: 'Tratamento de casos de nacionalidade portuguesa, inscrições de naturalização e demónio de nacionalidade.',
     button: 'Saber mais',
-    icon: location
+    icon: Location
   },
   {
     title: 'Nacionalidade Portuguesa',
     description: 'Tratamento de casos de nacionalidade portuguesa, inscrições de naturalização e demónio de nacionalidade.',
     button: 'Saber mais',
-    icon: location
+    icon: Location
   },
   {
     title: 'Nacionalidade Portuguesa',
     description: 'Tratamento de casos de nacionalidade portuguesa, inscrições de naturalização e demónio de nacionalidade.',
     button: 'Saber mais',
-    icon: location
+    icon: Location
   },
 ]
 </script>
@@ -134,7 +135,7 @@ const areas = [
   background: linear-gradient(to right, #505050, #84928D);
 }
 
-.box-container .box .icon-ultrapassado img {
+.box-container .box .icon-ultrapassado svg {
   width: 30px;
   height: 30px;
 }
@@ -171,12 +172,6 @@ const areas = [
   display: flex;
   align-items: center;
   gap: 10px;
-}
-
-.btn-saber-mais img {
-  width: 20px;
-  height: 20px;
-  color: var(--cor-branca);
 }
 
 .title-box {

@@ -3,8 +3,7 @@
     <HeaderTitle title="Feedback de" title2="clientes" description="Clientes que nos escolheram para resolver os seus problemas" />
     <div class="feedback-container">
         <button class="arrow-button" @click="retrocederFeedback">
-
-            <img src="../assets/svg/left-arrow.svg" alt="arrow-left">
+            <LeftArrow />
         </button>
         <div :class="feedback.show ? 'feedback-box' : 'desactive-feedback'" v-for="feedback in feedbacks"
             :key="feedback.name">
@@ -23,7 +22,7 @@
                         <p>{{ feedback.ajudante }}</p>
                         <div class="rating-container">
                             <div class="rating" v-for="i in feedback.rating" :key="i">
-                                <img src="../assets/svg/star.svg" alt="teste">
+                                <Star />
                             </div>
                         </div>
                     </div>
@@ -31,7 +30,7 @@
             </div>
         </div>
         <button class="arrow-button" @click="avancarFeedback">
-            <img src="../assets/svg/right-arrow.svg" alt="arrow-right">
+            <RightArrow />
         </button>
     </div>
 </template>
@@ -44,6 +43,9 @@ import PessoaImagem4 from '../assets/feedbacks/pessoa4.webp'
 import PessoaImagem5 from '../assets/feedbacks/pessoa5.webp'
 import PessoaImagem6 from '../assets/feedbacks/pessoa1.webp'
 import HeaderTitle from '../components/HeaderTitle.vue'
+import LeftArrow from '../components/Icons/LeftArrow.vue'
+import RightArrow from '../components/Icons/RightArrow.vue'
+import Star from '../components/Icons/Star.vue'
 
 
 const feedbacks = reactive([
@@ -129,13 +131,8 @@ function retrocederFeedback() {
 <style scoped>
 .arrow-button {
     border: none;
-    background: transparent;
     cursor: pointer;
-}
-
-.arrow-button img {
-    width: 20px;
-    height: 20px;
+    background: transparent;
 }
 
 
@@ -155,17 +152,26 @@ function retrocederFeedback() {
 .feedback-box {
     display: flex;
     flex-direction: column;
-    background-color: var(--cor-footer);
     padding: 20px;
     border-radius: 20px;
     border: 1px solid var(--cor-cinza-claro-escuro);
     flex: 1;
     min-width: 350px;
+    height: 300px;
     transition: all 0.3s ease;
+    border-top: 4px solid var(--cor-primaria);
 }
 
 .feedback-box:hover {
     opacity: 1;
+}
+
+.feedback-box-content{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    height: 300px;
+
 }
 
 .rating-container {
@@ -173,16 +179,12 @@ function retrocederFeedback() {
     gap: 5px;
 }
 
-.rating img {
-    width: 15px;
-    height: 15px;
-}
-
 .image img {
     width: 50px;
     height: 50px;
     border-radius: 50%;
     object-fit: cover;
+    border: 4px solid var(--cor-primaria);
 }
 
 .feedback-info {
