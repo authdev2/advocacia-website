@@ -104,26 +104,21 @@ const feedbacks = reactive([
 
 ])
 
+function Slice(n1, n2, boolean){
+    feedbacks.slice(n1, n2).forEach((feedback) => {
+        feedback.show = boolean;
+    })
+}
+
 function avancarFeedback() {
-    feedbacks.slice(0, 3).forEach((feedback) => {
-        feedback.show = false;
-    })
-
-    feedbacks.slice(3, feedbacks.length).forEach((feedback) => {
-        feedback.show = true;
-    })
-
+    Slice(0, 3, false);
+    Slice(3, feedbacks.length, true);
 }
 
 
 function retrocederFeedback() {
-    feedbacks.slice(0, 3).forEach((feedback) => {
-        feedback.show = true;
-    })
-
-    feedbacks.slice(3, feedbacks.length).forEach((feedback) => {
-        feedback.show = false;
-    })
+    Slice(0, 3, true);
+    Slice(3, feedbacks.length, false);
 }
 
 </script>
