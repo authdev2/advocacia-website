@@ -5,7 +5,7 @@
 
     <div class="box-container">
 
-      <div class="box" v-for="area in areas" :key="area.title">
+      <div class="box" v-for="(area, index) in areas" :key="area.title">
         <div class="icon-ultrapassado">
           <component :is="area.icon"></component>
         </div>
@@ -14,13 +14,49 @@
           <p>
             {{ area.description }}
           </p>
-          <button class="btn-saber-mais">{{ area.button }}
+          <button class="btn-saber-mais" @click="openModal(index)">{{ area.button }}
             <RightArrow />
           </button>
         </div>
       </div>
     </div>
   </div>
+  <div class="modal" v-if="showModal">
+    <div class="modal-content">
+      <button class="close-btn" @click="closeModal">×</button>
+      
+      <div class="modal-header">
+        <h3>{{ areas[index].modal[0].title }}</h3>
+        <p class="modal-description">{{ areas[index].modal[0].description }}</p>
+      </div>
+
+      <div class="process">
+        <div class="process-steps">
+          <div class="process-step" v-for="(step, index) in areas[index].modal[0].process.steps" :key="index">
+            <span>{{ step }}</span>
+            <span>{{ areas[index].modal[0].process.duration }}</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="pricing">
+        <div class="pricing-item" v-for="(item, index) in areas[index].modal[0].pricing" :key="index">
+          <span>{{ item.consultation }}</span>
+          <span>{{ item.fullProcess }}</span>
+        </div>
+      </div>
+
+      <div class="faq">
+        <div class="faq-item" v-for="(item, index) in areas[index].modal[0].faq" :key="index">
+          <details>
+            <summary>{{ item.question }}</summary>
+            <p>{{ item.answer }}</p>
+          </details>
+        </div>
+      </div>
+    </div>
+  </div>
+
 </template>
 
 
@@ -28,44 +64,226 @@
 import HeaderTitle from '../components/HeaderTitle.vue'
 import Location from '../components/Icons/Location.vue'
 import RightArrow from '../components/Icons/RightArrow.vue'
+import { ref } from 'vue';
+let showModal = ref(false);
 const areas = [
   {
     title: 'Nacionalidade Portuguesa',
-    description: 'Tratamento de casos de nacionalidade portuguesa, inscrições de naturalização e demónio de nacionalidade.',
+    description: 'Processos de aquisição de nacionalidade portuguesa, naturalização e reconhecimento de nacionalidade.',
     button: 'Saber mais',
-    icon: Location
+    icon: Location,
+    modal: [
+     {
+      title: 'Nacionalidade Portuguesa',
+      description: 'Especializamo-nos em todos os processos de nacionalidade portuguesa, incluindo aquisição por descendência, casamento, naturalização e reconhecimento. Acompanhamos todo o processo desde a análise de documentos até à obtenção do certificado de nacionalidade.',
+      process: {
+        steps: ['Análise de documentos', 'Preparação da candidatura', 'Submissão ao IRN', 'Acompanhamento do processo'],
+        duration: '6-12 meses'
+      },
+      pricing: {
+        consultation: '€50',
+        fullProcess: '€800'
+      },
+      contact: {
+        phone: '+351 912 345 678',
+        whatsapp: 'https://wa.me/351912345678'
+      },
+      faq: [
+        {
+          question: 'Quanto tempo demora o processo?',
+          answer: 'Entre 6 a 12 meses, dependendo da complexidade do caso'
+        },
+        {
+          question: 'Que documentos preciso?',
+          answer: 'Certidão de nascimento, comprovativo de residência e certificado de português'
+        }
+      ]
+     }
+    ]
   },
   {
-    title: 'Nacionalidade Portuguesa',
-    description: 'Tratamento de casos de nacionalidade portuguesa, inscrições de naturalização e demónio de nacionalidade.',
+    title: 'Direito do Trabalho',
+    description: 'Defesa dos direitos dos trabalhadores, resolução de conflitos laborais e questões de despedimento.',
     button: 'Saber mais',
-    icon: Location
+    icon: Location,
+    modal: [
+     {
+      title: 'Direito do Trabalho',
+      description: 'Representamos trabalhadores em questões de direito laboral, incluindo despedimentos, acidentes de trabalho, horas extraordinárias, férias, subsídios e resolução de conflitos com empregadores. Garantimos a proteção dos seus direitos laborais.',
+      process: {
+        steps: ['Análise do caso', 'Negociação com empregador', 'Preparação de documentos', 'Representação em tribunal'],
+        duration: '1-6 meses'
+      },
+      pricing: {
+        consultation: '€40',
+        fullProcess: '€600'
+      },
+      contact: {
+        phone: '+351 912 345 678',
+        whatsapp: 'https://wa.me/351912345678'
+      },
+      faq: [
+        {
+          question: 'Posso ser despedido sem justa causa?',
+          answer: 'Não, o despedimento deve ter justa causa ou ser por extinção do posto de trabalho'
+        },
+        {
+          question: 'Tenho direito a indemnização?',
+          answer: 'Sim, dependendo do tipo de despedimento e tempo de serviço'
+        }
+      ]
+     }
+    ]
   },
   {
-    title: 'Nacionalidade Portuguesa',
-    description: 'Tratamento de casos de nacionalidade portuguesa, inscrições de naturalização e demónio de nacionalidade.',
+    title: 'Direito Civil',
+    description: 'Contratos, responsabilidade civil, direito da família, sucessões e propriedade.',
     button: 'Saber mais',
-    icon: Location
+    icon: Location,
+    modal: [
+     {
+      title: 'Direito Civil',
+      description: 'Oferecemos assistência jurídica em direito civil, cobrindo contratos, responsabilidade civil, direito da família (divórcios, regulação de responsabilidades parentais), sucessões, propriedade e outros assuntos civis.',
+      process: {
+        steps: ['Consulta inicial', 'Análise jurídica', 'Preparação de documentos', 'Negociação ou processo judicial'],
+        duration: '2-8 meses'
+      },
+      pricing: {
+        consultation: '€45',
+        fullProcess: '€700'
+      },
+      contact: {
+        phone: '+351 912 345 678',
+        whatsapp: 'https://wa.me/351912345678'
+      },
+      faq: [
+        {
+          question: 'Como funciona o divórcio?',
+          answer: 'Pode ser por mútuo acordo ou litigioso, com diferentes procedimentos'
+        },
+        {
+          question: 'Quem herda os bens?',
+          answer: 'Depende da existência de testamento e da ordem legal de sucessão'
+        }
+      ]
+     }
+    ]
   },
   {
-    title: 'Nacionalidade Portuguesa',
-    description: 'Tratamento de casos de nacionalidade portuguesa, inscrições de naturalização e demónio de nacionalidade.',
+    title: 'Direito Comercial',
+    description: 'Constituição de empresas, contratos comerciais e resolução de disputas empresariais.',
     button: 'Saber mais',
-    icon: Location
+    icon: Location,
+    modal: [
+     {
+      title: 'Direito Comercial',
+      description: 'Assistência jurídica para empresas, incluindo constituição de sociedades, contratos comerciais, propriedade intelectual, resolução de disputas comerciais e assessoria em questões empresariais.',
+      process: {
+        steps: ['Consulta empresarial', 'Análise de necessidades', 'Preparação de documentos', 'Acompanhamento legal'],
+        duration: '1-4 meses'
+      },
+      pricing: {
+        consultation: '€60',
+        fullProcess: '€900'
+      },
+      contact: {
+        phone: '+351 912 345 678',
+        whatsapp: 'https://wa.me/351912345678'
+      },
+      faq: [
+        {
+          question: 'Que tipo de sociedade escolher?',
+          answer: 'Depende do número de sócios, capital e responsabilidade desejada'
+        },
+        {
+          question: 'Preciso de contabilista?',
+          answer: 'Sim, é obrigatório para todas as sociedades comerciais'
+        }
+      ]
+     }
+    ]
   },
   {
-    title: 'Nacionalidade Portuguesa',
-    description: 'Tratamento de casos de nacionalidade portuguesa, inscrições de naturalização e demónio de nacionalidade.',
+    title: 'Direito Penal',
+    description: 'Defesa criminal, representação em processos penais e proteção de direitos fundamentais.',
     button: 'Saber mais',
-    icon: Location
+    icon: Location,
+    modal: [
+     {
+      title: 'Direito Penal',
+      description: 'Defesa criminal especializada, representando clientes em processos penais com dedicação e experiência. Trabalhamos para garantir que os seus direitos sejam protegidos em todas as fases do processo criminal.',
+      process: {
+        steps: ['Consulta urgente', 'Análise do processo', 'Preparação da defesa', 'Representação em tribunal'],
+        duration: '3-12 meses'
+      },
+      pricing: {
+        consultation: '€80',
+        fullProcess: '€1200'
+      },
+      contact: {
+        phone: '+351 912 345 678',
+        whatsapp: 'https://wa.me/351912345678'
+      },
+      faq: [
+        {
+          question: 'Tenho direito a advogado?',
+          answer: 'Sim, é um direito fundamental em qualquer processo penal'
+        },
+        {
+          question: 'Posso ser preso preventivamente?',
+          answer: 'Só em casos específicos e com fundamentação adequada'
+        }
+      ]
+     }
+    ]
   },
   {
-    title: 'Nacionalidade Portuguesa',
-    description: 'Tratamento de casos de nacionalidade portuguesa, inscrições de naturalização e demónio de nacionalidade.',
+    title: 'Direito Administrativo',
+    description: 'Recursos administrativos, contencioso administrativo e questões com a administração pública.',
     button: 'Saber mais',
-    icon: Location
+    icon: Location,
+    modal: [
+     {
+      title: 'Direito Administrativo',
+      description: 'Especializamo-nos em direito administrativo, representando clientes em questões com a administração pública, incluindo recursos administrativos, contencioso administrativo e defesa de direitos perante entidades públicas.',
+      process: {
+        steps: ['Análise do ato administrativo', 'Preparação do recurso', 'Submissão à entidade', 'Acompanhamento do processo'],
+        duration: '4-18 meses'
+      },
+      pricing: {
+        consultation: '€50',
+        fullProcess: '€800'
+      },
+      contact: {
+        phone: '+351 912 345 678',
+        whatsapp: 'https://wa.me/351912345678'
+      },
+      faq: [
+        {
+          question: 'Posso recorrer de qualquer decisão?',
+          answer: 'Sim, desde que respeite os prazos e formalidades legais'
+        },
+        {
+          question: 'Quanto tempo tenho para recorrer?',
+          answer: 'Geralmente 15 dias úteis, mas varia consoante o tipo de ato'
+        }
+      ]
+     }
+    ]
   },
 ]
+
+let index = ref(0);
+
+function openModal(indexArray) {
+  showModal.value = true;
+  index.value = indexArray;
+  console.log(index.value);
+}
+
+function closeModal() {
+  showModal.value = false;
+}
 </script>
 
 <style scoped>
@@ -179,6 +397,20 @@ const areas = [
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 90%;
+  height: 100%;
+  background: var(--cor-footer);
+  left: 50%;  
+  
+  transform: translateX(-50%);
+  overflow-y: scroll;
+
 }
 
 @media (max-width: 1000px) {
