@@ -3,7 +3,16 @@ Ver ao vivo: https://joao-alves-advogado.netlify.app/
 <img width="1898" height="941" alt="image" src="https://github.com/user-attachments/assets/2f1478f5-0a1a-4e50-8f8d-93b549e3f0af" />
 
 <img width="1888" height="929" alt="image" src="https://github.com/user-attachments/assets/1bd2c4ec-4ef6-4f36-a509-ca2c29303533" />
+
+Modal da area das atuações:
+
+
+
+<img width="1700" height="946" alt="image" src="https://github.com/user-attachments/assets/e5d3daea-571a-4706-8536-6a3b48d4a29c" />
+
+
 <img width="1894" height="942" alt="image" src="https://github.com/user-attachments/assets/d9357a04-e05f-413d-8e74-9609a1632c46" />
+
 <img width="1892" height="864" alt="image" src="https://github.com/user-attachments/assets/e41cd0a4-c9ef-402b-bee5-72bb1d82b17e" />
 <img width="1903" height="827" alt="image" src="https://github.com/user-attachments/assets/75f00561-62d0-4c9d-bea6-bfc7d0af6743" />
 <img width="1905" height="591" alt="image" src="https://github.com/user-attachments/assets/1050f860-caaa-4ebb-a572-e0d13bb9d719" />
