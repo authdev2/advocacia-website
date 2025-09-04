@@ -458,6 +458,7 @@ function closeModal() {
   align-items: center;
   justify-content: space-between;
   margin-top: 20px;
+  flex-wrap: wrap;
   
 }
 
@@ -469,6 +470,7 @@ function closeModal() {
   border: 1px solid var(--cor-cinza-claro-escuro);
   height: 100px;
   flex-direction: column;
+  padding: 20px;
 }
 
 .step .duration{
@@ -553,6 +555,19 @@ function closeModal() {
 
   .area-atuacao .description span {
     font-size: 15px;
+  }
+
+  .step{
+    text-align: center;
+  }
+
+  .container{
+    flex-direction: column;
+  }
+
+  .container .right img{
+    width: 100%;
+    height: 100%;
   }
 }
 </style>
