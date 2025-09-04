@@ -23,35 +23,56 @@
   </div>
   <div class="modal" v-if="showModal">
     <div class="modal-content">
-      <button class="close-btn" @click="closeModal">×</button>
+      <!-- <button class="close-btn" @click="closeModal">×</button> -->
       
       <div class="modal-header">
         <h3>{{ areas[index].modal[0].title }}</h3>
+      </div>
+
+      <div class="description-container">
         <p class="modal-description">{{ areas[index].modal[0].description }}</p>
       </div>
 
       <div class="process">
+        <h3>Processo</h3>
         <div class="process-steps">
-          <div class="process-step" v-for="(step, index) in areas[index].modal[0].process.steps" :key="index">
+          <div class="step" v-for="(step, index) in areas[index].modal[0].process.steps" :key="index">
             <span>{{ step }}</span>
-            <span>{{ areas[index].modal[0].process.duration }}</span>
+            <span class="duration">{{ areas[index].modal[0].process.duration }}</span>
           </div>
         </div>
       </div>
 
-      <div class="pricing">
-        <div class="pricing-item" v-for="(item, index) in areas[index].modal[0].pricing" :key="index">
-          <span>{{ item.consultation }}</span>
-          <span>{{ item.fullProcess }}</span>
-        </div>
-      </div>
-
       <div class="faq">
+        <h3>Perguntas Frequentes</h3>
         <div class="faq-item" v-for="(item, index) in areas[index].modal[0].faq" :key="index">
           <details>
             <summary>{{ item.question }}</summary>
             <p>{{ item.answer }}</p>
           </details>
+        </div>
+      </div>
+
+      <div class="contacto">
+        <h3>Contacto</h3>
+        <div class="container">
+          <div class="left">
+            <div class="contacto-item-phone">
+              <span>Telemovel: {{ areas[index].modal[0].contact.phone }}</span>
+            </div>
+            <div class="contacto-item-whatsapp">
+              <button>
+                <a :href="areas[index].modal[0].contact.whatsapp" target="_blank" rel="noopener noreferrer" aria-label="Contactar via WhatsApp">
+                  <WhatsappIcon />
+                  WhatsApp
+                </a>
+              </button>
+            </div>
+          </div>
+
+          <div class="right">
+            <img src="../assets/mainpageImage.webp" alt="Foto do advogado">
+          </div>
         </div>
       </div>
     </div>
@@ -64,6 +85,7 @@
 import HeaderTitle from '../components/HeaderTitle.vue'
 import Location from '../components/Icons/Location.vue'
 import RightArrow from '../components/Icons/RightArrow.vue'
+import WhatsappIcon from '../components/Icons/Whatsapp.vue'
 import { ref } from 'vue';
 let showModal = ref(false);
 const areas = [
@@ -80,13 +102,9 @@ const areas = [
         steps: ['Análise de documentos', 'Preparação da candidatura', 'Submissão ao IRN', 'Acompanhamento do processo'],
         duration: '6-12 meses'
       },
-      pricing: {
-        consultation: '€50',
-        fullProcess: '€800'
-      },
       contact: {
         phone: '+351 912 345 678',
-        whatsapp: 'https://wa.me/351912345678'
+        whatsapp: 'https://wa.me/912345678'
       },
       faq: [
         {
@@ -113,10 +131,6 @@ const areas = [
       process: {
         steps: ['Análise do caso', 'Negociação com empregador', 'Preparação de documentos', 'Representação em tribunal'],
         duration: '1-6 meses'
-      },
-      pricing: {
-        consultation: '€40',
-        fullProcess: '€600'
       },
       contact: {
         phone: '+351 912 345 678',
@@ -148,10 +162,6 @@ const areas = [
         steps: ['Consulta inicial', 'Análise jurídica', 'Preparação de documentos', 'Negociação ou processo judicial'],
         duration: '2-8 meses'
       },
-      pricing: {
-        consultation: '€45',
-        fullProcess: '€700'
-      },
       contact: {
         phone: '+351 912 345 678',
         whatsapp: 'https://wa.me/351912345678'
@@ -181,10 +191,6 @@ const areas = [
       process: {
         steps: ['Consulta empresarial', 'Análise de necessidades', 'Preparação de documentos', 'Acompanhamento legal'],
         duration: '1-4 meses'
-      },
-      pricing: {
-        consultation: '€60',
-        fullProcess: '€900'
       },
       contact: {
         phone: '+351 912 345 678',
@@ -216,10 +222,6 @@ const areas = [
         steps: ['Consulta urgente', 'Análise do processo', 'Preparação da defesa', 'Representação em tribunal'],
         duration: '3-12 meses'
       },
-      pricing: {
-        consultation: '€80',
-        fullProcess: '€1200'
-      },
       contact: {
         phone: '+351 912 345 678',
         whatsapp: 'https://wa.me/351912345678'
@@ -249,10 +251,6 @@ const areas = [
       process: {
         steps: ['Análise do ato administrativo', 'Preparação do recurso', 'Submissão à entidade', 'Acompanhamento do processo'],
         duration: '4-18 meses'
-      },
-      pricing: {
-        consultation: '€50',
-        fullProcess: '€800'
       },
       contact: {
         phone: '+351 912 345 678',
@@ -404,13 +402,122 @@ function closeModal() {
   top: 0;
   left: 0;
   width: 90%;
-  height: 100%;
+  height: 100vh;
   background: var(--cor-footer);
   left: 50%;  
   
   transform: translateX(-50%);
-  overflow-y: scroll;
+  overflow-y: auto;
+  scrollbar-width:thin;
+  z-index: 5;
+  padding: 20px;
+}
 
+.modal-header{
+  padding: 20px;
+  background: var(--cor-gradiante);
+  border-radius: 10px;
+}
+
+.description-container{
+  border: 1px solid var(--cor-cinza-claro-escuro);
+  border-radius: 10px;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+.process h3{
+  text-align: center;
+  margin-top: 20px;
+}
+
+.process-steps{
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 20px;
+  
+}
+
+.step{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  border: 1px solid var(--cor-cinza-claro-escuro);
+  height: 100px;
+  flex-direction: column;
+}
+
+.step .duration{
+  color: var(--cor-primaria);
+}
+
+.faq h3{
+  text-align: center;
+  margin-top: 20px;
+}
+
+.faq-item{
+  width: 100%;
+  background: var(--cor-gradiante);
+  padding: 20px;
+  margin-top: 20px;
+}
+
+.faq-item details p{
+  width: 100%;
+  background: var(--cor-footer);
+  border-radius: 10px;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+.container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+  gap: 100px;
+}
+
+.container .right img{
+  width: 400px;
+  height: 300px;
+
+  border-radius: 10px;
+}
+
+.contacto h3{
+  text-align: center;
+  margin-top: 20px;
+}
+
+.contacto-item-phone{
+  border: 1px solid var(--cor-cinza-claro-escuro);
+  margin-top: 20px;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.contacto-item-whatsapp button{
+  padding: 10px 40px;
+  color: var(--cor-branca);
+  background-color: var(--cor-primaria);
+  border-radius: 20px;
+  border: none;
+  margin-top: 20px;
+  width: 100%;
+}
+
+.contacto-item-whatsapp button a{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  text-decoration: none;
+  color: var(--cor-branca);
 }
 
 @media (max-width: 1000px) {
