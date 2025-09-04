@@ -23,7 +23,9 @@
   </div>
   <div class="modal" v-if="showModal">
     <div class="modal-content">
-      <!-- <button class="close-btn" @click="closeModal">×</button> -->
+      <div class="close-btn" @click="closeModal">
+        <button class="close-btn" @click="closeModal">×</button>
+      </div>
       
       <div class="modal-header">
         <h3>{{ areas[index].modal[0].title }}</h3>
@@ -411,6 +413,25 @@ function closeModal() {
   scrollbar-width:thin;
   z-index: 5;
   padding: 20px;
+}
+
+.modal-content{
+  position: relative;
+}
+
+.close-btn button{
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  background: var(--cor-primaria);
+  border-radius: 10px;
+  padding: 10px;
+  color: var(--cor-branca);
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  margin-top: 20px;
 }
 
 .modal-header{
