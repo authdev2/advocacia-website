@@ -1,16 +1,13 @@
 <template>
-    <nav class="container-limited">
+    <nav id="inicio" class="container-limited">
         <div class="left">
             <div class="logo">
-                <h1>João Alves</h1>
+                <h1> <a href="#inicio"> João Alves</a></h1>
             </div>
             <div class="links">
-                <a href="#inicio">Inicio</a>
                 <a href="#area-atuacao">Area de Atuação</a>
-                <a href="#percurso">O meu percurso</a>
                 <a href="#quem-sou">Quem sou</a>
                 <a href="#processo">Processo</a>
-                <a href="#feedback">Feedback</a>
             </div>
         </div>
         <div class="right">
@@ -64,9 +61,9 @@ nav .right {
 
 nav .left .links a {
     text-decoration: none;
-    margin-left: 30px;
+    margin-left: 20px;
     padding: 10px;
-    color: var(--cor-branca);
+    color: var(--cor-cinza);
     font-size: 16px;
     transition: all 0.8s ease;
 }
@@ -77,11 +74,6 @@ nav .left .links a:hover {
     color: var(--cor-preta);
 }
 
-nav .left .logo img {
-    width: 30px;
-    height: 30px;
-}
-
 nav .left .logo h1 {
     font-size: 23px;
     color: var(--cor-branca);
@@ -90,6 +82,12 @@ nav .left .logo h1 {
     font-weight: 400;
   font-style: normal;
 
+}
+
+
+nav .left .logo h1 a{
+    text-decoration: none;
+    color: var(--cor-branca);
 }
 
 nav .right img {
@@ -194,7 +192,6 @@ nav .mobile-menu {
 
 <script setup>
 import { ref, onMounted } from 'vue';
-import { RouterLink } from 'vue-router';
 import PhoneIcon from './Icons/Telephone.vue';
 import Sunshine from './Icons/Sunshine.vue';
 import Moon from './Icons/Moon.vue';

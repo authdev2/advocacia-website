@@ -1,5 +1,5 @@
 <template>
-  <div id="inicio" class="main-page-container container-limited">
+  <div class="main-page-container container-limited">
     <div class="left">
       <div class="container-seguranca">
         <div class="container-box">
@@ -116,7 +116,7 @@ import WhatsappIcon from '../components/Icons/Whatsapp.vue';
   width: clamp(300px, 40vw, 600px);
   height: auto;
   max-width: 100%;
-  border-radius: 10px;
+  border-radius: 30px;
 }
 
 .btn-whatsapp button {
@@ -142,7 +142,7 @@ import WhatsappIcon from '../components/Icons/Whatsapp.vue';
 
 
   .main-page-container{
-    height: 80dvh;
+    height: 85dvh;
   }
   .container-seguranca .box {
     font-size: .8rem;
