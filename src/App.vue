@@ -6,6 +6,7 @@
   <SobreMim />
   <Processo />
   <Feedback />
+  <!-- <FormTest /> -->
   <Footer />
 </template>
 
@@ -18,4 +19,5 @@ import SobreMim from './sections/SobreMim.vue';
 import Footer from './components/Footer.vue';
 import Processo from './sections/Processo.vue';
 import Feedback from './sections/Feedback.vue';
+// import FormTest from './sections/FormTest.vue';
 </script>

@@ -1,8 +1,8 @@
 <template>
-    <nav>
+    <nav class="container-limited">
         <div class="left">
             <div class="logo">
-                <img src="../assets/logo.webp" alt="logo"></img>
+                <h1>João Alves</h1>
             </div>
             <div class="links">
                 <a href="#inicio">Inicio</a>
@@ -80,6 +80,16 @@ nav .left .links a:hover {
 nav .left .logo img {
     width: 30px;
     height: 30px;
+}
+
+nav .left .logo h1 {
+    font-size: 23px;
+    color: var(--cor-branca);
+    letter-spacing: 0.1rem;
+    font-family: 'Quintessential', cursive;
+    font-weight: 400;
+  font-style: normal;
+
 }
 
 nav .right img {
@@ -184,6 +194,7 @@ nav .mobile-menu {
 
 <script setup>
 import { ref, onMounted } from 'vue';
+import { RouterLink } from 'vue-router';
 import PhoneIcon from './Icons/Telephone.vue';
 import Sunshine from './Icons/Sunshine.vue';
 import Moon from './Icons/Moon.vue';

@@ -1,7 +1,8 @@
 <template>
 
-    <HeaderTitle title="Feedback de" title2="clientes" description="Clientes que nos escolheram para resolver os seus problemas" />
-    <div class="feedback-container">
+    <HeaderTitle title="Feedback de" title2="clientes"
+        description="Clientes que nos escolheram para resolver os seus problemas" />
+    <div class="feedback-container container-limited">
         <button class="arrow-button" @click="retrocederFeedback">
             <LeftArrow />
         </button>
@@ -94,7 +95,7 @@ const feedbacks = reactive([
     },
 
     {
-            description: 'O dr. Joao Alves foi uma profissional incrível. Ela me ajudou a resolver um problema complexo e foi muito profissional.',
+        description: 'O dr. Joao Alves foi uma profissional incrível. Ela me ajudou a resolver um problema complexo e foi muito profissional.',
         name: 'Carlos Santos',
         ajudante: 'Processo Judicial',
         rating: 5,
@@ -104,7 +105,7 @@ const feedbacks = reactive([
 
 ])
 
-function Slice(n1, n2, boolean){
+function Slice(n1, n2, boolean) {
     feedbacks.slice(n1, n2).forEach((feedback) => {
         feedback.show = boolean;
     })
@@ -161,7 +162,7 @@ function retrocederFeedback() {
     opacity: 1;
 }
 
-.feedback-box-content{
+.feedback-box-content {
     display: flex;
     justify-content: center;
     flex-direction: column;

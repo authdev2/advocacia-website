@@ -2,7 +2,7 @@
 
   <HeaderTitle title="O meu" title2="percurso" description="Perceba um pouco do meu percuso e onde eu estudei!" />
 
-  <div class="container-percurso">
+  <div class="container-percurso container-limited">
     <div class="box-percuso">
 
       <div class="box" v-for="percurso in percursos" :key="percurso.title">

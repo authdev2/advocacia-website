@@ -1,26 +1,21 @@
 <template>
-    <HeaderTitle title="O meu" title2="processo" description="Como trabalho e qual o meu processo!" />
-    <div class="processo">
-        <div class="box" v-for="(etapa, index) in etapas" :key="etapa.numero">
-
-            <div class="content-processo">
-                <div class="info-processo">
-                    <h3>{{ etapa.title }}</h3>
-                    <p>
-                        {{ etapa.description }}
-                    </p>
+    <div id="processo" class="processo-section">
+        <HeaderTitle title="O meu" title2="processo" description="Como trabalho e qual o meu processo!" />
+        <div class="processo-container container-limited">
+            <div class="processo-timeline">
+                <div class="timeline-item" v-for="(etapa, index) in etapas" :key="etapa.numero">
+                    <div class="timeline-content">
+                        <div class="step-number">
+                            <span>{{ index + 1 }}</span>
+                        </div>
+                        <div class="step-info">
+                            <h3>{{ etapa.title }}</h3>
+                            <p>{{ etapa.description }}</p>
+                        </div>
+                    </div>
+                    <div class="timeline-connector" v-if="etapas.length - 1 !== index"></div>
                 </div>
             </div>
-
-            <div class="step-circle">
-                <div class="circle-number">
-                    <span class="number">{{ index + 1 }}</span>
-                </div>
-                <div class="step-label">
-                    <span>Etapa</span>
-                </div>
-            </div>
-
         </div>
     </div>
 </template>
@@ -50,136 +45,163 @@ const etapas = [
 </script>
 
 <style scoped>
+.processo-section {
+    padding: 100px 0;
+    background: var(--cor-fundo);
+}
 
-.processo {
-    display: flex;
-    gap: 80px;
-    flex-wrap: wrap;
+.processo-container {
     margin-top: 80px;
-    padding-bottom: 80px;
-    align-items: center;
 }
 
-.content-processo {
+.processo-timeline {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 60px;
+}
+
+.timeline-content {
+    display: flex;
+    align-items: flex-start;
+    gap: 30px;
+    background: rgba(132, 146, 141, 0.05);
     border: 1px solid var(--cor-cinza-claro-escuro);
-    border-radius: 0 15px 15px 0;
-    padding: 35px;
+    border-radius: 15px;
+    padding: 40px;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.step-number {
+    flex-shrink: 0;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
     display: flex;
-    justify-content: space-between;
-    gap: 25px;
-    max-width: 500px;
-    background: rgba(132, 146, 141, 0.02);
-}
-
-.box:nth-child(2) .content-processo {
-    border-radius: 15px 0 0 15px;
-}
-
-.box:nth-child(2) .step-circle {
-    border-radius: 0 12px 12px 0;
-}
-
-.box {
-    display: flex;
+    align-items: center;
     justify-content: center;
-    /* width: 100%; */
-    min-width: 450px;
+    border: 1px solid var(--cor-cinza-claro-escuro);
+    position: relative;
+}
+
+.step-number span {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--cor-branca);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.step-info {
     flex: 1;
 }
 
-.box:nth-child(1),
-.box:nth-child(3) {
-    flex-direction: row-reverse;
-}
-
-.info-processo h3 {
-    font-size: 22px;
-    margin-bottom: 15px;
+.step-info h3 {
+    font-size: 24px;
+    font-weight: 600;
     color: var(--cor-branca);
+    margin-bottom: 15px;
+    line-height: 1.3;
 }
 
-.info-processo p {
+.step-info p {
     font-size: 16px;
     color: var(--cor-cinza);
-    max-width: 650px;
     line-height: 1.6;
+    margin: 0;
 }
 
-.step-circle {
-    padding: 20px;
-    border-radius: 12px 0px 0 12px;
-    background: linear-gradient(135deg, var(--cor-primaria), #6b7c6f);
-    color: var(--cor-branco);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-    min-width: 120px;
-    position: relative;
-    transition: all 0.3s ease;
-}
-
-
-.circle-number {
-    width: 60px;
+.timeline-connector {
+    position: absolute;
+    left: 50%;
+    top: 100%;
+    width: 2px;
     height: 60px;
-    border-radius: 50%;
+    background-color: var(--cor-branca);
+    z-index: 1;
+}
+
+.timeline-connector::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 10px;
+    height: 10px;
     background: var(--cor-branca);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 10px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
+    border-radius: 50%;
 }
 
-.number {
-    font-size: 24px;
-    font-weight: 700;
-    color: var(--cor-primaria);
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-}
-
-.step-label span {
-    font-size: 14px;
-    color: var(--cor-branca);
-    font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
+/* Responsive Design */
 @media (max-width: 768px) {
-    .processo {
-        gap: 60px;
-        margin-top: 60px;
-        padding-bottom: 60px;
-    }
-
-    .content-processo {
-        padding: 25px;
-    }
-
-    .step-circle {
-        padding: 15px;
-        min-width: 100px;
+    .processo-section {
+        padding: 60px 0;
     }
     
-    .circle-number {
+    .processo-container {
+        margin-top: 60px;
+    }
+    
+    .timeline-content {
+        flex-direction: column;
+        text-align: center;
+        padding: 30px 20px;
+        gap: 20px;
+    }
+    
+    .timeline-content::before {
+        display: none;
+    }
+    
+    .step-number {
+        width: 60px;
+        height: 60px;
+        margin: 0 auto;
+    }
+    
+    .step-number span {
+        font-size: 24px;
+    }
+    
+    .step-info h3 {
+        font-size: 20px;
+    }
+    
+    .step-info p {
+        font-size: 15px;
+    }
+    
+    .timeline-connector {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
+
+@media (max-width: 480px) {
+    .timeline-content {
+        padding: 25px 15px;
+    }
+    
+    .step-number {
         width: 50px;
         height: 50px;
     }
     
-    .number {
+    .step-number span {
         font-size: 20px;
     }
     
-    .step-label span {
-        font-size: 12px;
+    .step-info h3 {
+        font-size: 18px;
     }
-
-    .box{
-        min-width: 100%;
+    
+    .step-info p {
+        font-size: 14px;
     }
 }
 </style>

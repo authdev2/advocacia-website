@@ -1,5 +1,5 @@
 <template>
-    <div class="healder-title">
+    <div class="healder-title container-limited">
         <h2>{{ title }} <span class="text-green">{{ title2 }}</span></h2>
         <div class="description">
             <span>{{ description }}</span>

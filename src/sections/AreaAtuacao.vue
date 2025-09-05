@@ -1,5 +1,5 @@
 <template>
-  <div id="area-atuacao" class="area-atuacao">
+  <div id="area-atuacao" class="area-atuacao container-limited">
 
     <HeaderTitle title="Áreas de" title2="Atuação" description="Assessoria jurídica especializada com um escritório que entende cada detalhe do seu processo" />
 
