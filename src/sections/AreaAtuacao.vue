@@ -73,7 +73,7 @@
           </div>
 
           <div class="right">
-            <img src="../assets/mainpageImage.webp" alt="Foto do advogado">
+            <img src="../assets/mainPageImg.webp" alt="Foto do advogado">
           </div>
         </div>
       </div>

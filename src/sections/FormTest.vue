@@ -13,7 +13,7 @@ let name = ref('');
 let description = ref('');
 let image = ref('');
 
-async function sendData(e) {
+async function sendData() {
 
     await fetch(`http://localhost:3000/noticias/${name.value}/${description.value}/${image.value}`, {
         method: 'POST',

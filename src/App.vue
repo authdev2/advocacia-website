@@ -1,23 +1,3 @@
 <template>
-  <Navbar />
-  <Mainpage />
-  <AreaAtuacao />
-  <Percuso />
-  <SobreMim />
-  <Processo />
-  <Feedback />
-  <!-- <FormTest /> -->
-  <Footer />
+  <router-view />
 </template>
-
-<script setup>
-import Navbar from './components/Navbar.vue';
-import Mainpage from './sections/Mainpage.vue';
-import AreaAtuacao from './sections/AreaAtuacao.vue';
-import Percuso from './sections/Percuso.vue';
-import SobreMim from './sections/SobreMim.vue';
-import Footer from './components/Footer.vue';
-import Processo from './sections/Processo.vue';
-import Feedback from './sections/Feedback.vue';
-// import FormTest from './sections/FormTest.vue';
-</script>

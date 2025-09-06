@@ -3,7 +3,7 @@
     <HeaderTitle title="Quem" title2="sou" description="O meu compromisso com a excelência" />
     <div class="container">
       <div class="left-container">
-        <img src="../assets/sobre-mim/lawyer-smiling-law-library.jpg" alt="Minha imagem" />
+        <img src="../assets/sobre-mim/sobreMimImg.webp" alt="Imagem de João Alves" />
       </div>
 
       <div class="right-container">

@@ -2,7 +2,7 @@
     <nav id="inicio" class="container-limited">
         <div class="left">
             <div class="logo">
-                <h1> <a href="#inicio"> João Alves</a></h1>
+                <h1> <a href="/"> João Alves</a></h1>
             </div>
             <div class="links">
                 <a href="#area-atuacao">Area de Atuação</a>
@@ -19,8 +19,10 @@
                     <Moon />
                 </span>
             </button>
-            <PhoneIcon />
-            <span>+351 912 345 678</span>
+            <a href="/login">
+                
+                <User />
+            </a>
         </div>
 
         <div class="mobile-menu">
@@ -32,7 +34,7 @@
         </div>
     </nav>
     <div class="links-mobile" v-if="menuOpen">
-        <a href="#inicio">Inicio</a>
+        <a href="/">Inicio</a>
         <a href="#area-atuacao">Area de Atuação</a>
         <a href="#percurso">O meu percurso</a>
         <a href="#quem-sou">Quem sou</a>
@@ -159,13 +161,25 @@ nav .mobile-menu {
     gap: 20px;
 }
 
+.right a{
+    text-decoration: none;
+    color: var(--cor-branca);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 20px;
+}
+
 .theme-toggle{
     background: transparent;
-    border: none;
+    border: 1px solid rgb(128, 128, 128);
+    padding: 7px;
     cursor: pointer;
-    color: var(--cor-branca);
+    color: white;
     transition: all 0.3s ease;
     margin-right: 20px;
+    border-radius: 10px;
+
 
 }
 
@@ -192,11 +206,11 @@ nav .mobile-menu {
 
 <script setup>
 import { ref, onMounted } from 'vue';
-import PhoneIcon from './Icons/Telephone.vue';
 import Sunshine from './Icons/Sunshine.vue';
 import Moon from './Icons/Moon.vue';
 import Menu from './Icons/Menu.vue';
 import Close from './Icons/Close.vue';
+import User from './Icons/User.vue';
 
 let menuOpen = ref(false);
 

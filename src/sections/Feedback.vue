@@ -128,6 +128,18 @@ function retrocederFeedback() {
 .arrow-button {
     border: none;
     cursor: pointer;
+    background: var(--cor-footer);
+    padding: 10px;
+    border-radius: 10px;
+    color: var(--cor-branca);
+    transition: all 0.3s ease;
+    border: 1px solid var(--cor-cinza-escuro);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.arrow-button:hover {
     background: transparent;
 }
 

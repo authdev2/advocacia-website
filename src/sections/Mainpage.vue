@@ -34,7 +34,7 @@
       </div>
     </div>
     <div class="right">
-      <img src="../assets/freepik__retouch__69520.jpeg" alt="" />
+      <img src="../assets/mainPageImg.webp" alt="" />
     </div>
   </div>
 </template>
