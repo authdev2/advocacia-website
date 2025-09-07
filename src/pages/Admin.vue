@@ -12,20 +12,20 @@
         <h2>Gestão de Notícias</h2>
 
         <div class="box-container">
-            <div class="box">
+            <div class="box" @click="addNewsModal = true">
                 <div class="icon">
                     <User />
                 </div>
                 <h3>Adicionar Notícia</h3>
             </div>
-            <div class="box">
+            <div class="box" @click="updateNewsModal = true">
                 <div class="icon">
                     <User />
                 </div>
                 <h3>Atualizar Notícia</h3>
             </div>
 
-            <div class="box">
+            <div class="box" @click="deleteNewsModal = true">
                 <div class="icon">
                     <User />
                 </div>
@@ -72,7 +72,15 @@
             <template #content>
                 <div class="user-container">
                     <div class="user" v-for="user in allUsers" :key="user.email">
-                        <span>{{ user.email }}</span>
+                        <details>
+                            <summary>{{ user.email }}</summary>
+                            <form action="">
+                                <span>Novo email:</span>
+                                <input type="email" v-model="newEmail"></input>
+                                <button @click="updateUser(user.email, newEmail)">Atualizar email</button>
+                            </form>
+                        </details>
+
                     </div>
                 </div>
             </template>
@@ -89,6 +97,56 @@
             </template>
         </ModalAdmin>
 
+        <ModalAdmin :isOpen="addNewsModal" :title="'Adicionar Notícia'">
+            <template #content>
+                <form action="">
+                    <input type="text" placeholder="Digite o titulo" v-model="newsModal.title"></input>
+                    <input type="text" placeholder="Digite a descricao" v-model="newsModal.description"></input>
+                    <input type="text" placeholder="Digite a imagem" v-model="newsModal.image"></input>
+                    <ErrorMessage :errorMessage="newsModal.errorText" v-if="errorMessage" />
+
+                    <button type="submit" @click.prevent="addNews">Adicionar</button>
+                    <button type="button" @click="addNewsModal = false">Cancelar</button>
+                </form>
+            </template>
+        </ModalAdmin>
+
+
+        <ModalAdmin :isOpen="updateNewsModal" :title="'Atualizar Notícia'">
+            <template #content>
+                <div class="container-news">
+                    <details v-for="news in allNews" :key="news.id">
+                        <summary>{{ news.nomeNoticia }}</summary>
+                        <div class="container-news-details">
+                            <h3>{{ news.nomeNoticia }}</h3>
+                            <p>{{ news.descricaoNoticia }}</p>
+                            <img :src="news.imagemNoticia" alt="Imagem da notícia">
+                        </div>
+                    </details>
+                </div>
+
+
+            </template>
+        </ModalAdmin>
+
+        <ModalAdmin :isOpen="deleteNewsModal" :title="'Eliminar Notícia'">
+            <template #content>
+                <div class="container-news">
+                    <details v-for="news in allNews" :key="news.id">
+                        <summary>{{ news.nomeNoticia }}</summary>
+                        <div class="container-news-details">
+                            <h3>{{ news.nomeNoticia }}</h3>
+                            <p>{{ news.descricaoNoticia }}</p>
+                            <img :src="news.imagemNoticia" alt="Imagem da notícia">
+                            <div class="btn-delete">
+                                <button @click="deleteNews(news.nomeNoticia)">Eliminar</button>
+                            </div>
+                        </div>
+                    </details>
+                </div>
+            </template>
+        </ModalAdmin>
+
     </div>
     <div class="no-permission" v-else>
         <h1>Não tem permissão para acessar esta página!</h1>
@@ -100,7 +158,8 @@
 
 <script setup>
 import { useRouter } from 'vue-router';
-import { ref, reactive } from 'vue';
+import { ref, reactive, onMounted, watch } from 'vue';
+const router = useRouter();
 import ErrorMessage from '../components/ErrorMessage.vue';
 import User from '../components/Icons/User.vue';
 import ModalAdmin from '../components/ModalAdmin.vue';
@@ -108,15 +167,29 @@ let logged = localStorage.getItem('token');
 let addUserModal = ref(false);
 let deleteUserModal = ref(false);
 let updateUserModal = ref(false);
-const router = useRouter();
 let errorMessage = ref(false);
+let allNews = ref([]);
+let addNewsModal = ref(false);
+let updateNewsModal = ref(false);
+let deleteNewsModal = ref(false);
+
 let userModal = reactive({
     email: '',
     password: '',
     errorText: ''
 });
 
+let newsModal = reactive({
+    title: '',
+    description: '',
+    image: '',
+    errorText: ''
+});
+
+
 let allUsers = ref([]);
+
+let newEmail = ref('');
 
 function logout() {
     localStorage.removeItem('token');
@@ -194,6 +267,97 @@ async function getAllUsers() {
     allUsers.value = data.result;
     console.log(allUsers.value);
 }
+
+async function updateUser(email, newEmail) {
+    let response = await fetch(`http://localhost:3000/login/update`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ email: email, newEmail: newEmail })
+    });
+    let data = await response.json();
+    if (data.success) {
+        errorMessage.value = true;
+        userModal.errorText = 'Utilizador atualizado com sucesso';
+    } else {
+        errorMessage.value = true;
+        userModal.errorText = 'Erro ao atualizar utilizador';
+    }
+
+    console.log(email, newEmail);
+}
+
+function RestoreObject() {
+    newsModal.title = '';
+    newsModal.description = '';
+    newsModal.image = '';
+}
+
+async function addNews() {
+    let response = await fetch(`http://localhost:3000/noticias/create`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ title: newsModal.title, description: newsModal.description, image: newsModal.image })
+    });
+    let data = await response.json();
+    if (data.success) {
+        console.log(data);
+        errorMessage.value = true;
+        newsModal.errorText = 'Notícia adicionada com sucesso';
+        RestoreObject();
+    } else {
+        errorMessage.value = true;
+        newsModal.errorText = 'Erro ao adicionar notícia';
+        RestoreObject();
+    }
+}
+
+async function GetAllNews() {
+    let response = await fetch(`http://localhost:3000/noticias/`, {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    });
+    let data = await response.json();
+    allNews.value = data.result;
+    console.log(allNews.value);
+}
+
+async function deleteNews(nomeNoticia) {
+    try {
+        let response = await fetch(`http://localhost:3000/noticias/delete`, {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ nomeNoticia: nomeNoticia })
+        });
+        let data = await response.json();
+        if (data.success) {
+            
+            errorMessage.value = true;
+            newsModal.errorText = 'Notícia eliminada com sucesso';
+        } else {
+            errorMessage.value = true;
+            newsModal.errorText = 'Erro ao eliminar notícia';
+        }
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+
+onMounted(() => {
+    GetAllNews();
+});
+
+watch(allNews, () => {
+    GetAllNews();
+});
 </script>
 
 <style scoped>
@@ -362,9 +526,83 @@ form button[type="button"] {
     border: 1px solid var(--cor-cinza-escuro);
 }
 
-.user{
+.user {
     border: 1px solid var(--cor-cinza-escuro);
     padding: 15px;
+}
+
+details {
+    background: var(--cor-fundo);
+    border: 1px solid var(--cor-cinza-escuro);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+summary {
+    padding: 20px;
+    color: var(--cor-branca);
+    font-weight: 500;
+    cursor: pointer;
+    list-style: none;
+    position: relative;
+    background: var(--cor-fundo);
+    transition: background 0.3s ease;
+}
+
+summary:hover {
+    background: var(--cor-cinza-escuro);
+}
+
+summary::after {
+    content: '+';
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.2rem;
+    color: var(--cor-primaria);
+}
+
+details[open] summary::after {
+    content: '−';
+}
+
+.container-news {
+    padding: 10px;
+}
+
+.container-news-details {
+    padding: 0 30px;
+}
+
+.container-news-details img {
+    width: 100%;
+    max-width: 400px;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 12px;
+    border: 2px solid var(--cor-cinza-escuro);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+    display: block;
+    margin: 0 auto 20px auto;
+}
+.btn-delete {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 10px;
+}
+.btn-delete button {
+    padding: 15px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 16px;
+    margin-top: 10px;
+    background: var(--cor-branca);
+    color: var(--cor-preta);
+    width: 100%;
 }
 
 @media (max-width: 768px) {

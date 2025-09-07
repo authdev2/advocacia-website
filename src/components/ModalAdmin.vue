@@ -32,6 +32,10 @@ const props = defineProps({
     border: 1px solid var(--cor-cinza-escuro);
     border-radius: 12px;
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    max-height: 800px;
+    overflow: auto;
+    scrollbar-width: thin;
+    scrollbar-color: var(--cor-primaria) var(--cor-fundo);
 }
 
 .create-user {

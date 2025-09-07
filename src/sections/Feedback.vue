@@ -34,6 +34,7 @@
             <RightArrow />
         </button>
     </div>
+
 </template>
 
 <script setup>
@@ -47,6 +48,7 @@ import HeaderTitle from '../components/HeaderTitle.vue'
 import LeftArrow from '../components/Icons/LeftArrow.vue'
 import RightArrow from '../components/Icons/RightArrow.vue'
 import Star from '../components/Icons/Star.vue'
+
 
 
 const feedbacks = reactive([
