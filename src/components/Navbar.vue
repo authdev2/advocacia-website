@@ -80,7 +80,8 @@ nav .left .logo h1 {
     font-size: 23px;
     color: var(--cor-branca);
     letter-spacing: 0.1rem;
-    font-family: 'Quintessential', cursive;
+    font-family: "Marck Script", cursive;
+
     font-weight: 400;
   font-style: normal;
 

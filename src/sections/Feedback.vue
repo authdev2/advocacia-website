@@ -122,6 +122,7 @@ function retrocederFeedback() {
     Slice(3, feedbacks.length, false);
 }
 
+
 </script>
 
 <style scoped>

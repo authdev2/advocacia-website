@@ -151,14 +151,5 @@ const compromissos = [
     flex-direction: column;
     gap: 40px;
   }
-
-  .right-container {
-    max-width: 100%;
-  }
-
-  .box-compromissos {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
 }
 </style>

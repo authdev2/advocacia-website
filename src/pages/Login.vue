@@ -23,7 +23,7 @@
                         </div>
                     </div>
                     <div class="error-message" v-if="errorMessage">
-                        <span>{{ errorMessageText }}</span>
+                       <ErrorMessage :errorMessage="errorMessageText" />
                     </div>
 
                     <div class="contact-support">
@@ -38,6 +38,7 @@
 
 <script setup>
 import Navbar from '../components/Navbar.vue';
+import ErrorMessage from '../components/ErrorMessage.vue';
 import { ref } from 'vue';
 let email = ref('');
 let password = ref('');
@@ -46,6 +47,9 @@ const router = useRouter();
 let errorMessage = ref(false);
 let errorMessageText = ref('');
 async function Login() {
+
+
+    
     if (email.value === '' || password.value === '') {
         errorMessage.value = true;
         errorMessageText.value = 'Por favor, preencha todos os campos';
@@ -56,25 +60,26 @@ async function Login() {
         errorMessageText.value = 'Por favor, insira um email válido';
         return;
     }
-    const response = await fetch(`http://localhost:3000/login`, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-            email: email.value,
-            password: password.value
-        })
-    });
 
-    const data = await response.json();
-    console.log(data);
-
-    if (data.success) {
-        router.push('/admin');
-        localStorage.setItem('token', "LoginAceite");
+    try {
+        const response = await fetch(`http://localhost:3000/login`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                email: email.value,
+                password: password.value
+            })
+        });
+        const data = await response.json();
+        if (data.success) {
+            router.push('/admin');
+            localStorage.setItem('token', "LoginAceite");
+        }
+    } catch (error) {
+        console.log("Api esta a falhar");
     }
-
 }
 </script>
 
@@ -184,12 +189,11 @@ async function Login() {
     color: var(--cor-vermelha);
 }
 
-.contact-support span a{
+.contact-support span a {
     text-decoration: none;
     color: var(--cor-primaria);
     font-weight: 600;
     letter-spacing: 0.05rem;
-    font-size: 16px;    
+    font-size: 16px;
 }
 </style>
-
