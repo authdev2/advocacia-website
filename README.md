@@ -1,21 +1,27 @@
 Ver ao vivo: https://joao-alves-advogado.netlify.app/
 
-<img width="1898" height="941" alt="image" src="https://github.com/user-attachments/assets/2f1478f5-0a1a-4e50-8f8d-93b549e3f0af" />
+<img width="1899" height="934" alt="image" src="https://github.com/user-attachments/assets/8c104bb8-7a58-404c-984e-443605c298dc" />
 
-<img width="1888" height="929" alt="image" src="https://github.com/user-attachments/assets/1bd2c4ec-4ef6-4f36-a509-ca2c29303533" />
+<img width="1899" height="939" alt="image" src="https://github.com/user-attachments/assets/d62e3853-9dec-439a-aea5-20a474b04ab4" />
 
 Modal da area das atuações:
 
 
 
-<img width="1700" height="946" alt="image" src="https://github.com/user-attachments/assets/e5d3daea-571a-4706-8536-6a3b48d4a29c" />
+<img width="1898" height="940" alt="image" src="https://github.com/user-attachments/assets/9b71f02c-f5a9-4760-919a-285379ba4495" />
 
 
-<img width="1894" height="942" alt="image" src="https://github.com/user-attachments/assets/d9357a04-e05f-413d-8e74-9609a1632c46" />
+<img width="1897" height="931" alt="image" src="https://github.com/user-attachments/assets/4d710e61-94ef-4699-a6d4-1baf2c3a3fcd" />
 
-<img width="1892" height="864" alt="image" src="https://github.com/user-attachments/assets/e41cd0a4-c9ef-402b-bee5-72bb1d82b17e" />
-<img width="1903" height="827" alt="image" src="https://github.com/user-attachments/assets/75f00561-62d0-4c9d-bea6-bfc7d0af6743" />
-<img width="1905" height="591" alt="image" src="https://github.com/user-attachments/assets/1050f860-caaa-4ebb-a572-e0d13bb9d719" />
+<img width="1902" height="890" alt="image" src="https://github.com/user-attachments/assets/657d6199-5578-48ad-9431-cd52609fa191" />
+
+<img width="1898" height="668" alt="image" src="https://github.com/user-attachments/assets/825fb839-df9e-4d17-840e-67556e1b6f8c" />
+
+<img width="1912" height="933" alt="image" src="https://github.com/user-attachments/assets/7d009800-003f-4a3f-bf1a-06eb2e81a2ac" />
+
+<img width="1904" height="756" alt="image" src="https://github.com/user-attachments/assets/14a3b2bf-fe72-4966-819d-357c43b31f03" />
+
+
 <img width="1905" height="936" alt="image" src="https://github.com/user-attachments/assets/ecc30ad5-c0d2-41af-9d26-fa063cdc4f0d" />
 <img width="1900" height="938" alt="image" src="https://github.com/user-attachments/assets/f5ffb42e-b44d-40ee-ae37-7a02f2c2068b" />
 <img width="1901" height="938" alt="image" src="https://github.com/user-attachments/assets/cc6a58d3-4f93-416d-8939-74cf0ea53948" />
