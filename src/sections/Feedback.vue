@@ -16,7 +16,7 @@
 
                 <div class="feedback-info">
                     <div class="image">
-                        <img :src="feedback.image" alt="">
+                        <img v-lazy="feedback.image" alt="">
                     </div>
                     <div class="info">
                         <h3>{{ feedback.name }}</h3>
@@ -158,6 +158,7 @@ function retrocederFeedback() {
     flex-wrap: wrap;
     margin-top: 80px;
     margin-bottom: 100px;
+    justify-content: center;
 }
 
 .feedback-box {

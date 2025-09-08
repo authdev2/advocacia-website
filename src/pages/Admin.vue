@@ -56,7 +56,7 @@
             </div>
         </div>
 
-        <ModalAdmin :isOpen="addUserModal" :title="'Adicionar Utilizador'">
+        <ModalAdmin :isOpen="addUserModal" :title="'Adicionar Utilizador'" @close="addUserModal = false">
             <template #content>
                 <form action="">
                     <input type="email" placeholder="Digite o email" v-model="userModal.email"></input>
@@ -68,8 +68,9 @@
             </template>
         </ModalAdmin>
 
-        <ModalAdmin :isOpen="updateUserModal" :title="'Atualizar Utilizador'">
-            <template #content>
+        <ModalAdmin :isOpen="updateUserModal" :title="'Atualizar Utilizador'" @close="updateUserModal = false">
+            
+            <template #content >
                 <div class="user-container">
                     <div class="user" v-for="user in allUsers" :key="user.email">
                         <details>
@@ -86,7 +87,7 @@
             </template>
         </ModalAdmin>
 
-        <ModalAdmin :isOpen="deleteUserModal" :title="'Eliminar Utilizador'">
+        <ModalAdmin :isOpen="deleteUserModal" :title="'Eliminar Utilizador'" @close="deleteUserModal = false">
             <template #content>
                 <form action="">
                     <input type="email" placeholder="Digite o email" v-model="userModal.email"></input>
@@ -97,7 +98,7 @@
             </template>
         </ModalAdmin>
 
-        <ModalAdmin :isOpen="addNewsModal" :title="'Adicionar Notícia'">
+        <ModalAdmin :isOpen="addNewsModal" :title="'Adicionar Notícia'" @close="addNewsModal = false">
             <template #content>
                 <form action="">
                     <input type="text" placeholder="Digite o titulo" v-model="newsModal.title"></input>
@@ -112,7 +113,7 @@
         </ModalAdmin>
 
 
-        <ModalAdmin :isOpen="updateNewsModal" :title="'Atualizar Notícia'">
+        <ModalAdmin :isOpen="updateNewsModal" :title="'Atualizar Notícia'" @close="updateNewsModal = false">
             <template #content>
                 <div class="container-news">
                     <details v-for="news in allNews" :key="news.id">
@@ -121,6 +122,13 @@
                             <h3>{{ news.nomeNoticia }}</h3>
                             <p>{{ news.descricaoNoticia }}</p>
                             <img :src="news.imagemNoticia" alt="Imagem da notícia">
+
+                            <div class="update-news">
+                                <input type="text" v-model="novoNomeNoticia">
+                                <input type="text" v-model="novoDescricaoNoticia">
+                                <input type="text" v-model="novoImagemNoticia">
+                                <button @click="updateNews(news.nomeNoticia, news.descricaoNoticia, news.imagemNoticia, novoNomeNoticia, novoDescricaoNoticia, novoImagemNoticia)">Atualizar</button>
+                            </div>
                         </div>
                     </details>
                 </div>
@@ -129,7 +137,7 @@
             </template>
         </ModalAdmin>
 
-        <ModalAdmin :isOpen="deleteNewsModal" :title="'Eliminar Notícia'">
+        <ModalAdmin :isOpen="deleteNewsModal" :title="'Eliminar Notícia'" @close="deleteNewsModal = false">
             <template #content>
                 <div class="container-news">
                     <details v-for="news in allNews" :key="news.id">
@@ -137,7 +145,7 @@
                         <div class="container-news-details">
                             <h3>{{ news.nomeNoticia }}</h3>
                             <p>{{ news.descricaoNoticia }}</p>
-                            <img :src="news.imagemNoticia" alt="Imagem da notícia">
+                            <img v-lazy="news.imagemNoticia" alt="Imagem da notícia">
                             <div class="btn-delete">
                                 <button @click="deleteNews(news.nomeNoticia)">Eliminar</button>
                             </div>
@@ -172,6 +180,10 @@ let allNews = ref([]);
 let addNewsModal = ref(false);
 let updateNewsModal = ref(false);
 let deleteNewsModal = ref(false);
+
+let novoNomeNoticia = ref('');
+let novoDescricaoNoticia = ref('');
+let novoImagemNoticia = ref('');
 
 let userModal = reactive({
     email: '',
@@ -255,7 +267,6 @@ async function deleteUser() {
 
 async function getAllUsers() {
     updateUserModal.value = true;
-    console.log('getAllUsers');
     let response = await fetch(`http://localhost:3000/login/users`, {
         method: 'GET',
         headers: {
@@ -265,7 +276,6 @@ async function getAllUsers() {
 
     let data = await response.json();
     allUsers.value = data.result;
-    console.log(allUsers.value);
 }
 
 async function updateUser(email, newEmail) {
@@ -285,7 +295,6 @@ async function updateUser(email, newEmail) {
         userModal.errorText = 'Erro ao atualizar utilizador';
     }
 
-    console.log(email, newEmail);
 }
 
 function RestoreObject() {
@@ -304,7 +313,6 @@ async function addNews() {
     });
     let data = await response.json();
     if (data.success) {
-        console.log(data);
         errorMessage.value = true;
         newsModal.errorText = 'Notícia adicionada com sucesso';
         RestoreObject();
@@ -324,7 +332,6 @@ async function GetAllNews() {
     });
     let data = await response.json();
     allNews.value = data.result;
-    console.log(allNews.value);
 }
 
 async function deleteNews(nomeNoticia) {
@@ -338,7 +345,7 @@ async function deleteNews(nomeNoticia) {
         });
         let data = await response.json();
         if (data.success) {
-            
+
             errorMessage.value = true;
             newsModal.errorText = 'Notícia eliminada com sucesso';
         } else {
@@ -351,13 +358,30 @@ async function deleteNews(nomeNoticia) {
 }
 
 
+async function updateNews(nomeNoticia, descricaoNoticia, imagemNoticia, novoNomeNoticia, novoDescricaoNoticia, novoImagemNoticia) {
+    let response = await fetch(`http://localhost:3000/noticias/update`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ nomeNoticia, descricaoNoticia, imagemNoticia, novoNomeNoticia, novoDescricaoNoticia, novoImagemNoticia })
+    });
+    let data = await response.json();
+    if (data.success) {
+        errorMessage.value = true;
+        newsModal.errorText = 'Notícia atualizada com sucesso';
+    } else {
+        errorMessage.value = true;
+        newsModal.errorText = 'Erro ao atualizar notícia';
+    }
+
+}
+
+
 onMounted(() => {
     GetAllNews();
 });
 
-watch(allNews, () => {
-    GetAllNews();
-});
 </script>
 
 <style scoped>
@@ -584,14 +608,15 @@ details[open] summary::after {
     border: 2px solid var(--cor-cinza-escuro);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
     transition: all 0.3s ease;
-    display: block;
-    margin: 0 auto 20px auto;
+    margin-top: 10px;
 }
+
 .btn-delete {
     display: flex;
     justify-content: flex-end;
     margin-top: 10px;
 }
+
 .btn-delete button {
     padding: 15px 20px;
     border: none;

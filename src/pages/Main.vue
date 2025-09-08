@@ -5,8 +5,8 @@
     <Percuso />
     <SobreMim />
     <Processo />
+    <Noticias />
     <Feedback />
-    <Footer />
 
 </template>
 
@@ -18,8 +18,8 @@ const Mainpage = defineAsyncComponent(() => import('../sections/Mainpage.vue'));
 const AreaAtuacao = defineAsyncComponent(() => import('../sections/AreaAtuacao.vue'));
 const Percuso = defineAsyncComponent(() => import('../sections/Percuso.vue'));
 const SobreMim = defineAsyncComponent(() => import('../sections/SobreMim.vue'));
-const Footer = defineAsyncComponent(() => import('../components/Footer.vue'));
 const Processo = defineAsyncComponent(() => import('../sections/Processo.vue'));
 const Feedback = defineAsyncComponent(() => import('../sections/Feedback.vue'));
+const Noticias = defineAsyncComponent(() => import('../sections/Noticias.vue'));
 
 </script>

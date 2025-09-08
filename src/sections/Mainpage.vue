@@ -34,7 +34,7 @@
       </div>
     </div>
     <div class="right">
-      <img src="../assets/mainPageImg.webp" alt="" />
+      <img v-lazy="mainImg" alt="" />
     </div>
   </div>
 </template>
@@ -43,6 +43,8 @@
 import LockIcon from '../components/Icons/Lock.vue';
 import ShieldIcon from '../components/Icons/Shield.vue';
 import WhatsappIcon from '../components/Icons/Whatsapp.vue';
+import mainImg from '../assets/mainPageImg.webp'
+
 </script>
 
 <style scoped>

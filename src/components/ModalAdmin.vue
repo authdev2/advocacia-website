@@ -2,6 +2,9 @@
     <div class="modal" v-if="props.isOpen">
         <div class="create-user">
             <h1>{{ props.title }}</h1>
+            <button @click="closeModal">
+                X
+            </button>
         </div>
 
         <slot name="content"></slot>
@@ -10,13 +13,20 @@
 </template>
 
 <script setup>
-import { defineProps } from 'vue';
+import { defineProps, defineEmits } from 'vue';
 
 const props = defineProps({
     title: String,
     isOpen: Boolean,
-
 })
+
+const emit = defineEmits(
+    ['close']
+)
+
+function closeModal() {
+    emit('close')
+}
 
 </script>
 
@@ -43,6 +53,23 @@ const props = defineProps({
     background: var(--cor-gradiante);
     border-radius: 12px 12px 0 0;
     text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.create-user button {
+    background: var(--cor-cinza-escuro);
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    color: var(--cor-branca);
+}
+
+.create-user button:hover {
+    background: var(--cor-primaria);
 }
 
 .create-user h1 {

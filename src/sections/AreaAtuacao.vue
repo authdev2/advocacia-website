@@ -274,7 +274,6 @@ let index = ref(0);
 function openModal(indexArray) {
   showModal.value = true;
   index.value = indexArray;
-  console.log(index.value);
 }
 
 function closeModal() {
