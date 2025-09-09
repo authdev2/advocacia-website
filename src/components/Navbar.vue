@@ -23,6 +23,11 @@
                 
                 <User />
             </a>
+
+            <select name="language" id="language">
+                <option value="pt">PT</option>
+                <option value="en">EN</option>
+            </select>
         </div>
 
         <div class="mobile-menu">
@@ -182,6 +187,25 @@ nav .mobile-menu {
     border-radius: 10px;
 
 
+}
+
+#language{
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-radius: 10px;
+    padding: 10px;
+    color: white;
+}
+
+#language option{
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-radius: 10px;
+    padding: 10px;
 }
 
 

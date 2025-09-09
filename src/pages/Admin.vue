@@ -59,8 +59,8 @@
         <ModalAdmin :isOpen="addUserModal" :title="'Adicionar Utilizador'" @close="addUserModal = false">
             <template #content>
                 <form action="">
-                    <input type="email" placeholder="Digite o email" v-model="userModal.email"></input>
-                    <input type="password" placeholder="Digite a senha" v-model="userModal.password"></input>
+                    <input type="email" placeholder="Digite o email" v-model="userModal.email">
+                    <input type="password" placeholder="Digite a senha" v-model="userModal.password">
                     <ErrorMessage :errorMessage="userModal.errorText" v-if="errorMessage" />
                     <button type="submit" @click.prevent="addUser">Adicionar</button>
                     <button type="button" @click="addUserModal = false">Cancelar</button>
@@ -69,15 +69,15 @@
         </ModalAdmin>
 
         <ModalAdmin :isOpen="updateUserModal" :title="'Atualizar Utilizador'" @close="updateUserModal = false">
-            
-            <template #content >
+
+            <template #content>
                 <div class="user-container">
                     <div class="user" v-for="user in allUsers" :key="user.email">
                         <details>
                             <summary>{{ user.email }}</summary>
                             <form action="">
                                 <span>Novo email:</span>
-                                <input type="email" v-model="newEmail"></input>
+                                <input type="email" v-model="newEmail">
                                 <button @click="updateUser(user.email, newEmail)">Atualizar email</button>
                             </form>
                         </details>
@@ -90,7 +90,7 @@
         <ModalAdmin :isOpen="deleteUserModal" :title="'Eliminar Utilizador'" @close="deleteUserModal = false">
             <template #content>
                 <form action="">
-                    <input type="email" placeholder="Digite o email" v-model="userModal.email"></input>
+                    <input type="email" placeholder="Digite o email" v-model="userModal.email">
                     <ErrorMessage :errorMessage="userModal.errorText" v-if="errorMessage" />
                     <button type="submit" @click.prevent="deleteUser">Eliminar</button>
                     <button type="button" @click="deleteUserModal = false">Cancelar</button>
@@ -101,9 +101,9 @@
         <ModalAdmin :isOpen="addNewsModal" :title="'Adicionar Notícia'" @close="addNewsModal = false">
             <template #content>
                 <form action="">
-                    <input type="text" placeholder="Digite o titulo" v-model="newsModal.title"></input>
-                    <input type="text" placeholder="Digite a descricao" v-model="newsModal.description"></input>
-                    <input type="text" placeholder="Digite a imagem" v-model="newsModal.image"></input>
+                    <input type="text" placeholder="Digite o titulo" v-model="newsModal.title">
+                    <input type="text" placeholder="Digite a descricao" v-model="newsModal.description">
+                    <input type="text" placeholder="Digite a imagem" v-model="newsModal.image">
                     <ErrorMessage :errorMessage="newsModal.errorText" v-if="errorMessage" />
 
                     <button type="submit" @click.prevent="addNews">Adicionar</button>
@@ -127,7 +127,8 @@
                                 <input type="text" v-model="novoNomeNoticia">
                                 <input type="text" v-model="novoDescricaoNoticia">
                                 <input type="text" v-model="novoImagemNoticia">
-                                <button @click="updateNews(news.nomeNoticia, news.descricaoNoticia, news.imagemNoticia, novoNomeNoticia, novoDescricaoNoticia, novoImagemNoticia)">Atualizar</button>
+                                <button
+                                    @click="updateNews(news.nomeNoticia, news.descricaoNoticia, news.imagemNoticia, novoNomeNoticia, novoDescricaoNoticia, novoImagemNoticia)">Atualizar</button>
                             </div>
                         </div>
                     </details>
@@ -210,17 +211,17 @@ function logout() {
 
 async function addUser() {
 
+    if (userModal.email === '' || userModal.password === '') {
+        errorMessage.value = true;
+        userModal.errorText = 'Por favor, preencha todos os campos';
+        return;
+    }
+    if (!userModal.email.includes('@') || !userModal.email.includes('.')) {
+        errorMessage.value = true;
+        userModal.errorText = 'Por favor, insira um email válido';
+        return;
+    }
     try {
-        if (userModal.email === '' || userModal.password === '') {
-            errorMessage.value = true;
-            userModal.errorText = 'Por favor, preencha todos os campos';
-            return;
-        }
-        if (!userModal.email.includes('@') || !userModal.email.includes('.')) {
-            errorMessage.value = true;
-            userModal.errorText = 'Por favor, insira um email válido';
-            return;
-        }
         const response = await fetch(`http://localhost:3000/login/create`, {
             method: 'POST',
             headers: {
@@ -242,59 +243,63 @@ async function addUser() {
     } catch (error) {
         console.log(error);
     }
-
-
 }
 
 async function deleteUser() {
-    let response = await fetch(`http://localhost:3000/login/delete`, {
-        method: 'DELETE',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ email: userModal.email })
-    });
-    let data = await response.json();
-    if (data.success) {
-        errorMessage.value = true;
-        userModal.errorText = 'Utilizador eliminado com sucesso';
-    } else {
-        errorMessage.value = true;
-        userModal.errorText = 'Erro ao eliminar utilizador';
+    try {
+        let response = await fetch(`http://localhost:3000/login/delete`, {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ email: userModal.email })
+        });
+        let data = await response.json();
+        if (data.success) {
+            errorMessage.value = true;
+            userModal.errorText = 'Utilizador eliminado com sucesso';
+        } else {
+            errorMessage.value = true;
+            userModal.errorText = 'Erro ao eliminar utilizador';
+        }
+    } catch (error) {
+        console.log(error);
     }
 }
 
 
 async function getAllUsers() {
     updateUserModal.value = true;
-    let response = await fetch(`http://localhost:3000/login/users`, {
-        method: 'GET',
-        headers: {
-            'Content-Type': 'application/json'
-        }
-    });
+    try {
+        let response = await fetch('http://localhost:3000/login/users')
+        let data = await response.json();
+        allUsers.value = data.result;
 
-    let data = await response.json();
-    allUsers.value = data.result;
+    } catch (error) {
+        console.log(error);
+    }
 }
 
 async function updateUser(email, newEmail) {
-    let response = await fetch(`http://localhost:3000/login/update`, {
-        method: 'PUT',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ email: email, newEmail: newEmail })
-    });
-    let data = await response.json();
-    if (data.success) {
-        errorMessage.value = true;
-        userModal.errorText = 'Utilizador atualizado com sucesso';
-    } else {
-        errorMessage.value = true;
-        userModal.errorText = 'Erro ao atualizar utilizador';
+    try {
+        let response = await fetch(`http://localhost:3000/login/update`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ email: email, newEmail: newEmail })
+        });
+        let data = await response.json();
+        if (data.success) {
+            errorMessage.value = true;
+            userModal.errorText = 'Utilizador atualizado com sucesso';
+        } else {
+            errorMessage.value = true;
+            userModal.errorText = 'Erro ao atualizar utilizador';
+        }
+    } catch (error) {
+        console.log(error);
     }
-
 }
 
 function RestoreObject() {
@@ -304,34 +309,46 @@ function RestoreObject() {
 }
 
 async function addNews() {
-    let response = await fetch(`http://localhost:3000/noticias/create`, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ title: newsModal.title, description: newsModal.description, image: newsModal.image })
-    });
-    let data = await response.json();
-    if (data.success) {
+
+    if(!newsModal.image.includes('http') || !newsModal.image.includes('.com')){
         errorMessage.value = true;
-        newsModal.errorText = 'Notícia adicionada com sucesso';
-        RestoreObject();
-    } else {
-        errorMessage.value = true;
-        newsModal.errorText = 'Erro ao adicionar notícia';
-        RestoreObject();
+        newsModal.errorText = 'Por favor, insira uma imagem válida';
+        return;
+    }
+
+    try {
+        let response = await fetch(`http://localhost:3000/noticias/create`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ title: newsModal.title, description: newsModal.description, image: newsModal.image })
+        });
+        let data = await response.json();
+        if (data.success) {
+            errorMessage.value = true;
+            newsModal.errorText = 'Notícia adicionada com sucesso';
+            RestoreObject();
+        } else {
+            errorMessage.value = true;
+            newsModal.errorText = 'Erro ao adicionar notícia';
+            RestoreObject();
+        }
+    } catch (error) {
+        console.log(error);
     }
 }
 
 async function GetAllNews() {
-    let response = await fetch(`http://localhost:3000/noticias/`, {
-        method: 'GET',
-        headers: {
-            'Content-Type': 'application/json'
-        }
-    });
-    let data = await response.json();
-    allNews.value = data.result;
+    try {
+
+        let response = await fetch('http://localhost:3000/noticias/six')
+        let data = await response.json();
+        allNews.value = data.result;
+
+    } catch (error) {
+        console.log(error);
+    }
 }
 
 async function deleteNews(nomeNoticia) {
@@ -359,22 +376,25 @@ async function deleteNews(nomeNoticia) {
 
 
 async function updateNews(nomeNoticia, descricaoNoticia, imagemNoticia, novoNomeNoticia, novoDescricaoNoticia, novoImagemNoticia) {
-    let response = await fetch(`http://localhost:3000/noticias/update`, {
-        method: 'PUT',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ nomeNoticia, descricaoNoticia, imagemNoticia, novoNomeNoticia, novoDescricaoNoticia, novoImagemNoticia })
-    });
-    let data = await response.json();
-    if (data.success) {
-        errorMessage.value = true;
-        newsModal.errorText = 'Notícia atualizada com sucesso';
-    } else {
-        errorMessage.value = true;
-        newsModal.errorText = 'Erro ao atualizar notícia';
+    try {
+        let response = await fetch(`http://localhost:3000/noticias/update`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ nomeNoticia, descricaoNoticia, imagemNoticia, novoNomeNoticia, novoDescricaoNoticia, novoImagemNoticia })
+        });
+        let data = await response.json();
+        if (data.success) {
+            errorMessage.value = true;
+            newsModal.errorText = 'Notícia atualizada com sucesso';
+        } else {
+            errorMessage.value = true;
+            newsModal.errorText = 'Erro ao atualizar notícia';
+        }
+    } catch (error) {
+        console.log(error);
     }
-
 }
 
 

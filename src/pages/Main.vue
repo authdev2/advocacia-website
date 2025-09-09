@@ -1,5 +1,6 @@
 <template>
         <Navbar />
+        <User />
     <Mainpage />
     <AreaAtuacao />
     <Percuso />
@@ -21,5 +22,6 @@ const SobreMim = defineAsyncComponent(() => import('../sections/SobreMim.vue'));
 const Processo = defineAsyncComponent(() => import('../sections/Processo.vue'));
 const Feedback = defineAsyncComponent(() => import('../sections/Feedback.vue'));
 const Noticias = defineAsyncComponent(() => import('../sections/Noticias.vue'));
+const User = defineAsyncComponent(() => import('../pages/User.vue'));
 
 </script>

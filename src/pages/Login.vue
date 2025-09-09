@@ -73,6 +73,7 @@ async function Login() {
             })
         });
         const data = await response.json();
+        console.log(data.token);
         if (data.success) {
             router.push('/admin');
             localStorage.setItem('token', "LoginAceite");

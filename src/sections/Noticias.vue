@@ -13,12 +13,17 @@
                     <h3>{{ news.nomeNoticia }}</h3>
                     <p>{{ news.descricaoNoticia }}</p>
                 </div>
+                <hr>
+
+                <router-link :to="`/noticia/${news.id}`" class="custom-link" target="_blank">
+
+                    Ver mais
+                </router-link>
             </div>
 
         </div>
-
-        <div class="see-more">
-            <button class="btn-ver-mais">Ver mais</button>
+        <div class="see-more" v-if="allNews.length > 5">
+            <button class="btn-ver-mais" @click="moreNews">Ver mais</button>
         </div>
 
     </div>
@@ -26,14 +31,22 @@
 <script setup>
 import HeaderTitle from '../components/HeaderTitle.vue';
 import { ref, onMounted } from 'vue';
+import { useRouter } from 'vue-router';
+const router = useRouter();
 let allNews = ref([]);
 
-function getNews() {
-    fetch('http://localhost:3000/noticias/')
-        .then(response => response.json())
-        .then(data => {
-            allNews.value = data.result;
-        })
+async function getNews() {
+    try {
+        let response = await fetch('http://localhost:3000/noticias/six')
+        let data = await response.json();
+        allNews.value = data.result;
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+function moreNews() {
+    router.push('/more-news');
 }
 
 onMounted(() => {
@@ -66,6 +79,7 @@ onMounted(() => {
     background: var(--cor-fundo);
     transition: all 0.3s ease;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
 }
 
 .box:hover {
@@ -106,14 +120,14 @@ onMounted(() => {
     margin-bottom: 15px;
 }
 
-.see-more{
+.see-more {
     display: flex;
     justify-content: center;
     align-items: center;
     margin-top: 20px;
 }
 
-.btn-ver-mais{
+.btn-ver-mais {
     padding: 10px 20px;
     border: none;
     border-radius: 8px;
@@ -125,9 +139,32 @@ onMounted(() => {
     color: var(--cor-branca);
 }
 
-.btn-ver-mais:hover{
+.btn-ver-mais:hover {
     background: var(--cor-footer);
     transition: all 0.3s ease;
     border: 1px solid var(--cor-cinza-escuro);
+}
+
+hr{
+    border: none;
+    height: 1px;
+    background-color: var(--cor-cinza-escuro);
+}
+
+.custom-link{
+    text-decoration: none;
+    color: var(--cor-cinza);
+    font-size: 17px;
+    padding: 10px 20px;
+    background-color: var(--cor-primaria);
+    text-align: center;
+    border-radius: 10px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.custom-link:hover{
+    background-color: var(--cor-footer);
+    transition: all 0.3s ease;
 }
 </style>

@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import { createApp } from 'vue'
 import './style.css'
 import './variaveis.css'
+import i18n from './i18n'
 import App from './App.vue'
 import VueLazy from 'vue3-lazy'
 
@@ -13,6 +14,17 @@ const routes = [
 
     { path: '/admin', 
     component: () => import('./pages/Admin.vue') },
+
+    { path: '/noticia/:id',
+    component: () => import('./pages/NewsDetails.vue') },
+
+    { path: '/more-news',
+    component: () => import('./pages/MoreNews.vue') },
+
+  { path: '/:pathMatch(.*)*', 
+    component: () => import('./components/Notfound.vue') },
+
+
 ]
 
 const router = createRouter({
@@ -26,5 +38,6 @@ app.use(VueLazy, {
   loading: '',
   error: ''
 })
+app.use(i18n)
 app.mount('#app')
 

@@ -40,10 +40,18 @@
 </template>
 
 <script setup>
+import { useI18n } from 'vue-i18n'
+
+const { t, locale } = useI18n()
+
 import LockIcon from '../components/Icons/Lock.vue';
 import ShieldIcon from '../components/Icons/Shield.vue';
 import WhatsappIcon from '../components/Icons/Whatsapp.vue';
 import mainImg from '../assets/mainPageImg.webp'
+
+function changeLanguage(lang) {
+  locale.value = lang
+}
 
 </script>
 
