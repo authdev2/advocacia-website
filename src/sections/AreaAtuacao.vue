@@ -1,5 +1,5 @@
 <template>
-  <div id="area-atuacao" class="area-atuacao container-limited">
+  <section id="area-atuacao" class="area-atuacao container-limited">
 
     <HeaderTitle title="Áreas de" title2="Atuação" description="Assessoria jurídica especializada com um escritório que entende cada detalhe do seu processo" />
 
@@ -20,7 +20,7 @@
         </div>
       </div>
     </div>
-  </div>
+  </section>
   <div class="modal" v-if="showModal">
     <div class="modal-content">
       <div class="close-btn" @click="closeModal">

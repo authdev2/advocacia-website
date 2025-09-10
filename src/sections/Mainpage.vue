@@ -1,5 +1,5 @@
 <template>
-  <div class="main-page-container container-limited">
+  <section class="main-page-container container-limited">
     <div class="left">
       <div class="container-seguranca">
         <div class="container-box">
@@ -36,7 +36,7 @@
     <div class="right">
       <img v-lazy="mainImg" alt="" />
     </div>
-  </div>
+  </section>
 </template>
 
 <script setup>

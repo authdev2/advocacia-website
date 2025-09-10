@@ -167,7 +167,7 @@
 
 <script setup>
 import { useRouter } from 'vue-router';
-import { ref, reactive, onMounted, watch } from 'vue';
+import { ref, reactive, onMounted } from 'vue';
 const router = useRouter();
 import ErrorMessage from '../components/ErrorMessage.vue';
 import User from '../components/Icons/User.vue';
@@ -580,6 +580,7 @@ details {
     border: 1px solid var(--cor-cinza-escuro);
     border-radius: 8px;
     overflow: hidden;
+    margin-bottom: 10px;
 }
 
 summary {

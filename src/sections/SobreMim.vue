@@ -1,5 +1,5 @@
 <template>
-  <div id="quem-sou" class="sobre-mim-container">
+  <section id="quem-sou" class="sobre-mim-container">
     <HeaderTitle title="Quem" title2="sou" description="O meu compromisso com a excelência" />
     <div class="container">
       <div class="left-container">
@@ -32,7 +32,7 @@
         </div>
       </div>
     </div>
-  </div>
+  </section>
 </template>
 
 <script setup>

@@ -15,6 +15,7 @@
     --cor-seta: white;
     --cor-vermelha: rgb(160, 6, 6);
     --cor-verde: #25D366;
+    --cor-data-noticia: rgba(132, 146, 141, 0.1);
 
 }
 
@@ -29,4 +30,5 @@
     --cor-gradiante: linear-gradient(to right, var(--cor-primaria), #e9ecef);
     --cor-icon: white;
     --cor-seta: black;
+    --cor-data-noticia: rgba(132, 146, 141, 0.15);
 }

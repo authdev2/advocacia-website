@@ -1,17 +1,20 @@
 <template>
-    <div class="noticias-container container-limited">
+    <section class="noticias-container container-limited">
         <HeaderTitle title="Últimas" title2="Notícias"
             description="Mantenha-se atualizado com as últimas novidades jurídicas e informações relevantes" />
 
 
         <div class="container-noticias">
-            <div class="box" v-for="news in allNews" :key="news.id">
+            <article class="box" v-for="news in allNews" :key="news.id">
                 <div class="image">
                     <img :src="news.imagemNoticia" alt="Lei de Processo Civil">
                 </div>
                 <div class="content">
                     <h3>{{ news.nomeNoticia }}</h3>
                     <p>{{ news.descricaoNoticia }}</p>
+                    <div class="news-date">
+                        <DateIcon />
+                        {{ news.data.slice(0, 10) }}</div>
                 </div>
                 <hr>
 
@@ -19,17 +22,18 @@
 
                     Ver mais
                 </router-link>
-            </div>
+            </article>
 
         </div>
         <div class="see-more" v-if="allNews.length > 5">
             <button class="btn-ver-mais" @click="moreNews">Ver mais</button>
         </div>
 
-    </div>
+    </section>
 </template>
 <script setup>
 import HeaderTitle from '../components/HeaderTitle.vue';
+import DateIcon from '../components/Icons/Date.vue';
 import { ref, onMounted } from 'vue';
 import { useRouter } from 'vue-router';
 const router = useRouter();
@@ -40,6 +44,7 @@ async function getNews() {
         let response = await fetch('http://localhost:3000/noticias/six')
         let data = await response.json();
         allNews.value = data.result;
+        console.log(allNews.value[0].data.slice(0, 10));
     } catch (error) {
         console.log(error);
     }
@@ -55,9 +60,6 @@ onMounted(() => {
 </script>
 
 <style scoped>
-.noticias-container {
-    padding: 80px 0;
-}
 
 .container-noticias {
     display: flex;
@@ -114,6 +116,24 @@ onMounted(() => {
     margin-bottom: 10px;
 }
 
+.news-date {
+    color: var(--cor-primaria);
+    font-size: 0.85rem;
+    font-weight: 500;
+    margin-bottom: 12px;
+    width: 150px;
+    opacity: 0.9;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 4px 12px;
+    background: var(--cor-data-noticia);
+    border-radius: 20px;
+    border: 1px solid var(--cor-data-noticia);
+    transition: all 0.3s ease;
+    justify-content: center;
+}
+
 .content p {
     color: var(--cor-cinza);
     font-size: 0.9rem;
@@ -128,7 +148,7 @@ onMounted(() => {
 }
 
 .btn-ver-mais {
-    padding: 10px 20px;
+    padding: 15px 50px;
     border: none;
     border-radius: 8px;
     cursor: pointer;
@@ -145,13 +165,13 @@ onMounted(() => {
     border: 1px solid var(--cor-cinza-escuro);
 }
 
-hr{
+hr {
     border: none;
     height: 1px;
     background-color: var(--cor-cinza-escuro);
 }
 
-.custom-link{
+.custom-link {
     text-decoration: none;
     color: var(--cor-cinza);
     font-size: 17px;
@@ -163,7 +183,7 @@ hr{
     transition: all 0.3s ease;
 }
 
-.custom-link:hover{
+.custom-link:hover {
     background-color: var(--cor-footer);
     transition: all 0.3s ease;
 }

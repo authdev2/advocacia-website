@@ -1,5 +1,5 @@
 <template>
-    <div id="processo" class="processo-section">
+    <section id="processo" class="processo-section">
         <HeaderTitle title="O meu" title2="processo" description="Como trabalho e qual o meu processo!" />
         <div class="processo-container container-limited">
             <div class="processo-timeline">
@@ -17,7 +17,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 </template>
 
 
@@ -67,7 +67,7 @@ const etapas = [
 
 .timeline-content {
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     gap: 30px;
     background: rgba(132, 146, 141, 0.05);
     border: 1px solid var(--cor-cinza-claro-escuro);
@@ -87,6 +87,7 @@ const etapas = [
     justify-content: center;
     border: 1px solid var(--cor-cinza-claro-escuro);
     position: relative;
+    background: var(--cor-data-noticia);
 }
 
 .step-number span {

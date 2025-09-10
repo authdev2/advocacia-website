@@ -7,7 +7,7 @@
         </div>
         
         <div class="box-container">
-            <div class="box" v-for="news in allNews" :key="news.id">
+            <article class="box" v-for="news in allNews" :key="news.id">
                 <div class="image">
                     <img v-lazy="news.imagemNoticia" alt="Imagem da notícia">
                 </div>
@@ -22,7 +22,7 @@
                         <span class="arrow">→</span>
                     </router-link>
                 </div>
-            </div>
+            </article>
         </div>
     </div>
 </template>

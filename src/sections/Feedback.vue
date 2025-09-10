@@ -1,8 +1,8 @@
 <template>
-
-    <HeaderTitle title="Feedback de" title2="clientes"
-        description="Clientes que nos escolheram para resolver os seus problemas" />
-    <div class="feedback-container container-limited">
+    <section>
+        <HeaderTitle title="Feedback de" title2="clientes"
+            description="Clientes que nos escolheram para resolver os seus problemas" />
+        <div class="feedback-container container-limited">
         <button class="arrow-button" @click="retrocederFeedback">
             <LeftArrow />
         </button>
@@ -33,7 +33,8 @@
         <button class="arrow-button" @click="avancarFeedback">
             <RightArrow />
         </button>
-    </div>
+        </div>
+    </section>
 
 </template>
 
@@ -159,6 +160,7 @@ function retrocederFeedback() {
     margin-top: 80px;
     margin-bottom: 100px;
     justify-content: center;
+    margin-top: 50px;
 }
 
 .feedback-box {

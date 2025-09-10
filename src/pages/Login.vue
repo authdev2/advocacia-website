@@ -23,7 +23,7 @@
                         </div>
                     </div>
                     <div class="error-message" v-if="errorMessage">
-                       <ErrorMessage :errorMessage="errorMessageText" />
+                        <ErrorMessage :errorMessage="errorMessageText" />
                     </div>
 
                     <div class="contact-support">
@@ -46,16 +46,16 @@ import { useRouter } from 'vue-router';
 const router = useRouter();
 let errorMessage = ref(false);
 let errorMessageText = ref('');
+
+function validadeEmail(email) {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+
+}
+
 async function Login() {
 
-
-    
-    if (email.value === '' || password.value === '') {
-        errorMessage.value = true;
-        errorMessageText.value = 'Por favor, preencha todos os campos';
-        return;
-    }
-    if (!email.value.includes('@') || !email.value.includes('.')) {
+    if (!validadeEmail(email.value)) {
         errorMessage.value = true;
         errorMessageText.value = 'Por favor, insira um email válido';
         return;

@@ -1,8 +1,8 @@
 <template>
+  <section>
+    <HeaderTitle title="O meu" title2="percurso" description="Perceba um pouco do meu percuso e onde eu estudei!" />
 
-  <HeaderTitle title="O meu" title2="percurso" description="Perceba um pouco do meu percuso e onde eu estudei!" />
-
-  <div class="container-percurso container-limited">
+    <div class="container-percurso container-limited">
     <div class="box-percuso">
 
       <div class="box" v-for="percurso in percursos" :key="percurso.title">
@@ -34,7 +34,8 @@
         </div>
       </div>
     </div>
-  </div>
+    </div>
+  </section>
 </template>
 
 <script setup>

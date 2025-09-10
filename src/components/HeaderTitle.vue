@@ -16,6 +16,11 @@ const props = defineProps({
 </script>
 
 <style scoped>
+
+.healder-title {
+    padding: 100px 0;
+}
+
 .healder-title h2 {
     text-align: center;
     font-size: 40px;
