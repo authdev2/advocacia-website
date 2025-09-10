@@ -14,6 +14,9 @@ Modal da area das atuações:
 <img width="1897" height="931" alt="image" src="https://github.com/user-attachments/assets/4d710e61-94ef-4699-a6d4-1baf2c3a3fcd" />
 
 <img width="1902" height="890" alt="image" src="https://github.com/user-attachments/assets/657d6199-5578-48ad-9431-cd52609fa191" />
+Notícias atualizadas da mais recente para a mais antiga! Ao clicar em 'Ver mais', será redirecionado para o detalhe da notícia.
+Ao ver mais na ultima opção é para ver todas as noticias feitas em todo o tempo!
+<img width="1686" height="863" alt="image" src="https://github.com/user-attachments/assets/31bc6d57-98ce-4e6c-a478-0e2f9030d4ee" />
 
 <img width="1898" height="668" alt="image" src="https://github.com/user-attachments/assets/825fb839-df9e-4d17-840e-67556e1b6f8c" />
 
