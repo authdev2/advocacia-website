@@ -93,8 +93,12 @@ async function Login() {
     justify-content: center;
 }
 
-.input-email {
+.input-email, .input-password {
     position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .input-password {
@@ -197,4 +201,90 @@ async function Login() {
     letter-spacing: 0.05rem;
     font-size: 16px;
 }
+
+@media (max-width: 768px) {
+    .login-container {
+        margin-top: 60px;
+        padding: 15px;
+        height: 60dvh;
+    }
+    
+    .form-container input,
+    .form-container button {
+        width: 400px;
+        height: 45px;
+    }
+    
+    .form-container input {
+        padding: 20px;
+    }
+    
+    .title h2 {
+        font-size: 24px;
+    }
+    
+    .title p {
+        font-size: 14px;
+        max-width: 400px;
+    }
+}
+
+@media (max-width: 480px) {
+    .login-container {
+        margin-top: 40px;
+        padding: 10px;
+        height: 50dvh;
+        border: none;
+    }
+    
+    .form-container {
+        gap: 15px;
+    }
+    
+    .form-container input,
+    .form-container button {
+        width: 100%;
+        max-width: 350px;
+        height: 50px;
+    }
+    
+    .form-container input {
+        padding: 15px;
+        font-size: 16px;
+    }
+    
+    .form-container button {
+        font-size: 14px;
+        height: 50px;
+    }
+    
+    .title h2 {
+        font-size: 20px;
+    }
+    
+    .title p {
+        font-size: 12px;
+        max-width: 300px;
+        margin-top: 15px;
+        margin-bottom: 15px;
+    }
+    
+    .input-email .text,
+    .input-password .text {
+        font-size: 10px;
+        left: 15px;
+        top: -12px;
+    }
+    
+    .contact-support span {
+        font-size: 12px;
+    }
+    
+    .contact-support span a {
+        font-size: 12px;
+    }
+}
+
 </style>
+
+

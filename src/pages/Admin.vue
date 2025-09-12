@@ -638,6 +638,10 @@ details[open] summary::after {
     margin-top: 10px;
 }
 
+.btn-delete{
+    margin-bottom: 20px;
+}
+
 .btn-delete button {
     padding: 15px 20px;
     border: none;
