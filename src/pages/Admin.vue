@@ -124,11 +124,16 @@
                             <img :src="news.imagemNoticia" alt="Imagem da notícia">
 
                             <div class="update-news">
-                                <input type="text" v-model="novoNomeNoticia">
-                                <input type="text" v-model="novoDescricaoNoticia">
-                                <input type="text" v-model="novoImagemNoticia">
-                                <button
-                                    @click="updateNews(news.nomeNoticia, news.descricaoNoticia, news.imagemNoticia, novoNomeNoticia, novoDescricaoNoticia, novoImagemNoticia)">Atualizar</button>
+                                <form action="">
+                                    <input type="text" v-model="novoNomeNoticia"
+                                        placeholder="Digite o novo nome da notícia">
+                                    <input type="text" v-model="novoDescricaoNoticia"
+                                        placeholder="Digite a nova descrição da notícia">
+                                    <input type="text" v-model="novoImagemNoticia"
+                                        placeholder="Digite a nova imagem da notícia">
+                                    <button type="submit"
+                                        @click="updateNews(novoNomeNoticia, novoDescricaoNoticia, novoImagemNoticia, news.id)">Atualizar</button>
+                                </form>
                             </div>
                         </div>
                     </details>
@@ -310,7 +315,7 @@ function RestoreObject() {
 
 async function addNews() {
 
-    if(!newsModal.image.includes('http') || !newsModal.image.includes('.com')){
+    if (!newsModal.image.includes('http') || !newsModal.image.includes('.com')) {
         errorMessage.value = true;
         newsModal.errorText = 'Por favor, insira uma imagem válida';
         return;
@@ -375,14 +380,14 @@ async function deleteNews(nomeNoticia) {
 }
 
 
-async function updateNews(nomeNoticia, descricaoNoticia, imagemNoticia, novoNomeNoticia, novoDescricaoNoticia, novoImagemNoticia) {
+async function updateNews(novoNomeNoticia, novoDescricaoNoticia, novoImagemNoticia, id) {
     try {
         let response = await fetch(`http://localhost:3000/noticias/update`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ nomeNoticia, descricaoNoticia, imagemNoticia, novoNomeNoticia, novoDescricaoNoticia, novoImagemNoticia })
+            body: JSON.stringify({ newNomeNoticia: novoNomeNoticia, newDescricaoNoticia: novoDescricaoNoticia, newImagemNoticia: novoImagemNoticia, id: id })
         });
         let data = await response.json();
         if (data.success) {
@@ -638,7 +643,7 @@ details[open] summary::after {
     margin-top: 10px;
 }
 
-.btn-delete{
+.btn-delete {
     margin-bottom: 20px;
 }
 
