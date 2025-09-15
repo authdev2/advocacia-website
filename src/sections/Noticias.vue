@@ -11,7 +11,7 @@
                 </div>
                 <div class="content">
                     <h3>{{ news.nomeNoticia }}</h3>
-                    <p>{{ news.descricaoNoticia }}</p>
+                    <p>{{ news.descricaoNoticia.slice(0, 100) }}...</p>
                     <div class="news-date">
                         <DateIcon />
                         {{ news.data.slice(0, 10) }}</div>
@@ -110,7 +110,7 @@ onMounted(() => {
 }
 
 .content h3 {
-    font-size: 1.2rem;
+    font-size: 1rem;
     font-weight: 600;
     color: var(--cor-branca);
     margin-bottom: 10px;

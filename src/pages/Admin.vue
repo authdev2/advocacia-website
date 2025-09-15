@@ -315,7 +315,7 @@ function RestoreObject() {
 
 async function addNews() {
 
-    if (!newsModal.image.includes('http') || !newsModal.image.includes('.com')) {
+    if (!newsModal.image.includes('http')) {
         errorMessage.value = true;
         newsModal.errorText = 'Por favor, insira uma imagem válida';
         return;
