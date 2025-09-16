@@ -54,58 +54,53 @@ import Star from '../components/Icons/Star.vue'
 
 const feedbacks = reactive([
     {
-        description: 'O dr. Joao Alves foi uma profissional incrível. Ela me ajudou a resolver um problema complexo e foi muito profissional.',
-        name: 'João Silva',
-        ajudante: 'Processo Judicial',
+        description: 'Excelente profissional! O Dr. João Alves conseguiu resolver o meu processo de nacionalidade portuguesa em tempo recorde. Comunicação clara e resultados excepcionais.',
+        name: 'Maria Santos',
+        ajudante: 'Nacionalidade Portuguesa',
         rating: 5,
         image: PessoaImagem2,
         show: true,
     },
     {
-        description: 'O dr. Joao Alves foi uma profissional incrível. Ela me ajudou a resolver um problema complexo e foi muito profissional.',
-        name: 'Ana Maria',
-        ajudante: 'Processo Judicial',
+        description: 'Recomendo vivamente! Profissionalismo, dedicação e conhecimento técnico excepcional. Resolveu uma questão complexa de direito civil com sucesso.',
+        name: 'António Ferreira',
+        ajudante: 'Direito Civil',
         rating: 5,
         image: PessoaImagem3,
         show: true,
     },
-
     {
-        description: 'O dr. Joao Alves foi uma profissional incrível. Ela me ajudou a resolver um problema complexo e foi muito profissional.',
-        name: 'Mario Marques',
-        ajudante: 'Processo Judicial',
+        description: 'Atendimento personalizado e resultados concretos. O Dr. João demonstrou grande competência na resolução do meu caso empresarial.',
+        name: 'Carla Rodrigues',
+        ajudante: 'Direito Empresarial',
         rating: 5,
         image: PessoaImagem4,
         show: true,
     },
-
     {
-        description: 'O dr. Joao Alves foi uma profissional incrível. Ela me ajudou a resolver um problema complexo e foi muito profissional.',
-        name: 'Carla Silva',
-        ajudante: 'Processo Judicial',
+        description: 'Profissional de confiança! Transparência total no processo e comunicação regular. Resultado final superou as expectativas.',
+        name: 'João Silva',
+        ajudante: 'Direito do Trabalho',
         rating: 5,
         image: PessoaImagem5,
         show: false,
     },
-
     {
-        description: 'O dr. Joao Alves foi uma profissional incrível. Ela me ajudou a resolver um problema complexo e foi muito profissional.',
-        name: 'Ana Maria',
-        ajudante: 'Processo Judicial',
+        description: 'Experiência muito positiva. O Dr. João mostrou grande conhecimento técnico e conseguiu resolver o meu caso de forma eficiente.',
+        name: 'Ana Costa',
+        ajudante: 'Direito Administrativo',
         rating: 5,
         image: PessoaImagem6,
         show: false,
     },
-
     {
-        description: 'O dr. Joao Alves foi uma profissional incrível. Ela me ajudou a resolver um problema complexo e foi muito profissional.',
-        name: 'Carlos Santos',
-        ajudante: 'Processo Judicial',
+        description: 'Serviço de excelência! Profissionalismo, pontualidade e resultados excepcionais. Recomendo sem hesitação.',
+        name: 'Pedro Martins',
+        ajudante: 'Direito Penal',
         rating: 5,
         image: PessoaImagem2,
         show: false,
     },
-
 ])
 
 function Slice(n1, n2, boolean) {

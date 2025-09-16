@@ -88,6 +88,7 @@ const etapas = [
     border: 1px solid var(--cor-cinza-claro-escuro);
     position: relative;
     background: var(--cor-data-noticia);
+    background: linear-gradient(to right, #505050, #84928D);
 }
 
 .step-number span {

@@ -7,7 +7,6 @@
     <Processo />
     <Noticias />
     <Feedback />
-
 </template>
 
 <script setup>

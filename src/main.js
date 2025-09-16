@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import { createApp } from 'vue'
 import './style.css'
 import './variaveis.css'
+import './fonts.css'
 import i18n from './i18n'
 import App from './App.vue'
 import VueLazy from 'vue3-lazy'
@@ -11,20 +12,14 @@ const routes = [
     component: () => import('./pages/Main.vue') },
   { path: '/login', 
     component: () => import('./pages/Login.vue') },
-
-    { path: '/admin', 
+  { path: '/admin', 
     component: () => import('./pages/Admin.vue') },
-
-    { path: '/noticia/:id',
+  { path: '/noticia/:id',
     component: () => import('./pages/NewsDetails.vue') },
-
-    { path: '/more-news',
+  { path: '/more-news',
     component: () => import('./pages/MoreNews.vue') },
-
   { path: '/:pathMatch(.*)*', 
     component: () => import('./components/Notfound.vue') },
-
-
 ]
 
 const router = createRouter({

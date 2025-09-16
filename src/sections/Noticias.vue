@@ -5,22 +5,33 @@
 
 
         <div class="container-noticias">
+
+
+            <div class="error-message" v-if="errorText">
+                <span>API está desligada ou alguma falha tecnica!</span>
+            </div>
+
+
             <article class="box" v-for="news in allNews" :key="news.id">
                 <div class="image">
-                    <img :src="news.imagemNoticia" alt="Lei de Processo Civil">
+                    <img :src="news.imagemNoticia" alt="Imagem da notícia">
                 </div>
                 <div class="content">
-                    <h3>{{ news.nomeNoticia }}</h3>
-                    <p>{{ news.descricaoNoticia.slice(0, 100) }}...</p>
+                    <h3>{{ news.nomeNoticia ? news.nomeNoticia.slice(0, 50) : 'Notícia sem nome' }}...</h3>
+                    <p>{{ news.descricaoNoticia ? news.descricaoNoticia.slice(0, 100) : 'Notícia sem descrição' }}...
+                    </p>
                     <div class="news-date">
                         <DateIcon />
-                        {{ news.data.slice(0, 10) }}</div>
+                        {{ news.data.slice(0, 10) }}
+                    </div>
                 </div>
                 <hr>
 
                 <router-link :to="`/noticia/${news.id}`" class="custom-link" target="_blank">
 
                     Ver mais
+
+                    <span class="arrow">→</span>
                 </router-link>
             </article>
 
@@ -38,7 +49,7 @@ import { ref, onMounted } from 'vue';
 import { useRouter } from 'vue-router';
 const router = useRouter();
 let allNews = ref([]);
-
+let errorText = ref(false)
 async function getNews() {
     try {
         let response = await fetch('http://localhost:3000/noticias/six')
@@ -47,6 +58,7 @@ async function getNews() {
         console.log(allNews.value[0].data.slice(0, 10));
     } catch (error) {
         console.log(error);
+        errorText.value = true
     }
 }
 
@@ -55,12 +67,13 @@ function moreNews() {
 }
 
 onMounted(() => {
-    getNews();
+    setTimeout(() => {
+        getNews();
+    }, 100);
 })
 </script>
 
 <style scoped>
-
 .container-noticias {
     display: flex;
     flex-wrap: wrap;
@@ -74,13 +87,10 @@ onMounted(() => {
     gap: 20px;
     justify-content: space-between;
     flex: 1;
-    border: 1px solid var(--cor-cinza-escuro);
-    border-radius: 12px;
     padding: 20px;
     min-width: 300px;
     background: var(--cor-fundo);
     transition: all 0.3s ease;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     overflow: hidden;
 }
 
@@ -96,6 +106,8 @@ onMounted(() => {
     overflow: hidden;
     border-radius: 8px;
     margin-bottom: 15px;
+    background: var(--cor-cinza-escuro);
+    position: relative;
 }
 
 .image img {
@@ -103,6 +115,7 @@ onMounted(() => {
     height: 100%;
     object-fit: cover;
     transition: transform 0.3s ease;
+    display: block;
 }
 
 .box:hover .image img {
@@ -176,15 +189,20 @@ hr {
     color: var(--cor-cinza);
     font-size: 17px;
     padding: 10px 20px;
-    background-color: var(--cor-primaria);
     text-align: center;
     border-radius: 10px;
     font-weight: 600;
     transition: all 0.3s ease;
+    background-color: var(--cor-footer);
 }
 
 .custom-link:hover {
-    background-color: var(--cor-footer);
     transition: all 0.3s ease;
+    background-color: var(--cor-primaria);
+}
+
+.error-message{
+    font-size: 30px;
+    margin: 0 auto;
 }
 </style>

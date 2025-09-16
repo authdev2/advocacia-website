@@ -18,8 +18,9 @@
         </div>
         <div class="description">
           <p>
-            Não deixes que questões legais complexas te causem stress desnecessário. Contacta-nos hoje mesmo para uma
-            consulta inicial. A tua tranquilidade é a nossa prioridade.
+            Com mais de 10 anos de experiência em direito civil e empresarial, oferecemos assessoria jurídica especializada e personalizada. A tua tranquilidade e o sucesso do teu caso são a nossa prioridade.
+
+
           </p>
         </div>
 
@@ -27,7 +28,7 @@
           <a href="https://wa.me/351912345678" target="_blank" rel="noopener noreferrer" aria-label="Contactar via WhatsApp">
             <button type="button">
               <WhatsappIcon />
-              Fale no WhatsApp!
+              Fale agora no Whatsapp!
             </button>
           </a>
         </div>
@@ -123,10 +124,12 @@ function changeLanguage(lang) {
 }
 
 .right img {
-  width: clamp(300px, 40vw, 600px);
-  height: auto;
+  width: 600px;
+  height: 400px;
   max-width: 100%;
   border-radius: 30px;
+  object-fit: cover;
+  background: var(--cor-cinza-escuro);
 }
 
 .btn-whatsapp button {

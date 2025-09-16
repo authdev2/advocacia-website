@@ -12,8 +12,13 @@
                     <img v-lazy="news.imagemNoticia" alt="Imagem da notícia">
                 </div>
                 <div class="content">
-                    <h3>{{ news.nomeNoticia }}</h3>
-                    <p>{{ news.descricaoNoticia }}</p>
+                    <h3>{{ news.nomeNoticia ? news.nomeNoticia.slice(0, 50) : 'Notícia sem nome' }}...</h3>
+                    <p>{{ news.descricaoNoticia ? news.descricaoNoticia.slice(0, 100) : 'Notícia sem descrição' }}...</p>
+
+                    <div class="news-date">
+                        <DateIcon />
+                        {{ news.data.slice(0, 10) }}
+                    </div>
                 </div>
                 <div class="btn-container">
 
@@ -30,6 +35,7 @@
 <script setup>
 import Navbar from '../components/Navbar.vue';
 import { ref, onMounted } from 'vue';
+import DateIcon from '../components/Icons/Date.vue';
 let allNews = ref([]);
 async function getAllNews(){
     let response = await fetch('http://localhost:3000/noticias');
@@ -83,7 +89,6 @@ onMounted(() => {
     overflow: hidden;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
-    border: 1px solid var(--cor-cinza-claro);
     flex: 1;
     min-width: 300px;
 }
@@ -137,7 +142,6 @@ onMounted(() => {
     align-items: center;
     gap: 8px;
     padding: 12px 24px;
-    background: var(--cor-primaria);
     color: var(--cor-branca);
     border-radius: 25px;
     font-weight: 600;
@@ -158,5 +162,23 @@ onMounted(() => {
 .arrow {
     font-size: 1.1rem;
     transition: transform 0.3s ease;
+}
+
+.news-date {
+    color: var(--cor-primaria);
+    font-size: 0.85rem;
+    font-weight: 500;
+    margin-bottom: 12px;
+    width: 150px;
+    opacity: 0.9;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 4px 12px;
+    background: var(--cor-data-noticia);
+    border-radius: 20px;
+    border: 1px solid var(--cor-data-noticia);
+    transition: all 0.3s ease;
+    justify-content: center;
 }
 </style>

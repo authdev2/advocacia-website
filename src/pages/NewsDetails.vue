@@ -5,7 +5,7 @@
 
             <div class="all-info" v-for="detail in allDetails" :key="detail.id">
 
-                <h2>{{ detail.nomeNoticia }}</h2>
+                <h2>{{ detail.nomeNoticia  }}</h2>
                 <p>{{ detail.descricaoNoticia }}</p>
                 <img :src="detail.imagemNoticia" alt="Imagem da notícia">
             </div>
@@ -18,6 +18,9 @@
                         <div class="content">
                             <h3>{{ noticia.nomeNoticia }}</h3>
                         </div>
+                        <router-link :to="`/noticia/${noticia.id}`" class="custom-link" target="_blank">
+                            Ver mais
+                        </router-link>
                     </div>
                 </div>
             </div>
@@ -71,49 +74,41 @@ onMounted(() => {
     gap: 60px;
     margin-top: 80px;
     padding: 0 20px;
+    flex-wrap: wrap;
 }
 
 .all-info {
     flex: 2;
-    background: var(--cor-fundo);
-    border-radius: 16px;
-    padding: 40px;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
-    border: 1px solid var(--cor-cinza-escuro);
+    flex-wrap: wrap;
 }
 
 .all-info h2 {
-    font-size: 2rem;
+    font-size: 1.5rem;
     font-weight: 700;
     color: var(--cor-branca);
-    margin-bottom: 25px;
+    margin-bottom: 30px;
     line-height: 1.2;
 }
 
 .all-info p {
     font-size: 1.1rem;
     color: var(--cor-cinza);
-    margin-bottom: 30px;
+    margin-bottom: 40px;
 }
 
 .all-info img {
     width: 100%;
-    height: 700px;
+    height: 500px;
     object-fit: cover;
-    border-radius: 12px;
-    border: 1px solid var(--cor-cinza-escuro);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
-    transition: all 0.3s ease;
-    margin-bottom: 30px;
+    border-radius: 16px;
+    margin-bottom: 40px;
+    background: var(--cor-cinza-escuro);
 }
 
 .right-noticias {
     flex: 1;
-    background: var(--cor-fundo);
-    border-radius: 16px;
-    padding: 30px;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
-    border: 1px solid var(--cor-cinza-escuro);
+    position: sticky;
+    top: 100px;
 }
 
 .right-noticias h2 {
@@ -121,7 +116,6 @@ onMounted(() => {
     font-weight: 600;
     color: var(--cor-branca);
     margin-bottom: 25px;
-    text-align: center;
     padding-bottom: 15px;
     border-bottom: 2px solid var(--cor-primaria);
 }
@@ -130,6 +124,11 @@ onMounted(() => {
     display: flex;
     flex-direction: column;
     gap: 20px;
+    overflow-y: scroll;
+    max-height: 700px;
+    scrollbar-color: var(--cor-primaria) var(--cor-fundo);
+    scrollbar-width: thin;
+    padding-right: 10px;
 }
 
 .noticia {
@@ -137,11 +136,10 @@ onMounted(() => {
     align-items: center;
     gap: 15px;
     padding: 15px;
-    border: 1px solid var(--cor-cinza-escuro);
     border-radius: 12px;
     transition: all 0.3s ease;
     cursor: pointer;
-    border-color: var(--cor-primaria);
+    border-bottom: 1px solid var(--cor-cinza-escuro);
 }
 
 .noticia img {
@@ -149,7 +147,6 @@ onMounted(() => {
     height: 60px;
     object-fit: cover;
     border-radius: 8px;
-    border: 1px solid var(--cor-cinza-claro);
     transition: all 0.3s ease;
     flex-shrink: 0;
 }
@@ -159,5 +156,23 @@ onMounted(() => {
     font-weight: 500;
     color: var(--cor-branca);
     overflow: hidden;
+    line-height: 1.4;
+}
+
+.custom-link{
+    text-decoration: none;
+    color: var(--cor-branca);
+    font-size: 17px;
+    padding: 10px 20px;
+    background-color: var(--cor-primaria);
+    text-align: center;
+    border-radius: 10px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.custom-link:hover {
+    background-color: var(--cor-footer);
+    transition: all 0.3s ease;
 }
 </style>
