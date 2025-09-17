@@ -2,8 +2,8 @@
     <Navbar />
     <div class="more-news-container container-limited">
         <div class="header">
-            <h1>Todas as Notícias</h1>
-            <p>Mantenha-se atualizado com as últimas notícias e atualizações legais</p>
+            <h1>{{ $t('noticias.todasNoticias') }}</h1>
+            <p>{{ $t('noticias.todasNoticiasDescription') }}</p>
         </div>
         
         <div class="box-container">
@@ -12,8 +12,8 @@
                     <img v-lazy="news.imagemNoticia" alt="Imagem da notícia">
                 </div>
                 <div class="content">
-                    <h3>{{ news.nomeNoticia ? news.nomeNoticia.slice(0, 50) : 'Notícia sem nome' }}...</h3>
-                    <p>{{ news.descricaoNoticia ? news.descricaoNoticia.slice(0, 100) : 'Notícia sem descrição' }}...</p>
+                    <h3>{{ news.nomeNoticia ? news.nomeNoticia.slice(0, 50) : $t('noticias.noticiaSemNome') }}...</h3>
+                    <p>{{ news.descricaoNoticia ? news.descricaoNoticia.slice(0, 100) : $t('noticias.noticiaSemDescricao') }}...</p>
 
                     <div class="news-date">
                         <DateIcon />
@@ -23,7 +23,7 @@
                 <div class="btn-container">
 
                     <router-link :to="`/noticia/${news.id}`" target="_blank" class="btn-ver-mais">
-                        Ver mais
+                        {{ $t('noticias.verMais') }}
                         <span class="arrow">→</span>
                     </router-link>
                 </div>

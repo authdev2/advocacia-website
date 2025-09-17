@@ -3,23 +3,23 @@
     <div class="login-container container-limited">
         <div class="right">
             <div class="title">
-                <h2>Sistema de Gestão</h2>
-                <p>Acesso exclusivo para administradores</p>
+                <h2>{{ $t('login.sistemaGestao') }}</h2>
+                <p>{{ $t('login.acessoExclusivo') }}</p>
             </div>
             <form action="POST" @submit.prevent="Login">
                 <div class="form-container">
                     <div class="input-email">
-                        <input type="email" placeholder="Digite o teu email" required v-model="email">
+                        <input type="email" :placeholder="$t('login.digiteEmail')" required v-model="email">
 
                         <div class="text">
-                            <span>Qual é o seu email?</span>
+                            <span>{{ $t('login.qualEmail') }}</span>
                         </div>
 
                     </div>
                     <div class="input-password">
-                        <input type="password" placeholder="Digite a tua senha" required v-model="password">
+                        <input type="password" :placeholder="$t('login.digiteSenha')" required v-model="password">
                         <div class="text">
-                            <span>Qual é a sua senha?</span>
+                            <span>{{ $t('login.qualSenha') }}</span>
                         </div>
                     </div>
                     <div class="error-message" v-if="errorMessage">
@@ -27,9 +27,9 @@
                     </div>
 
                     <div class="contact-support">
-                        <span>Não tem acesso? Contacte o <a href="https://wa.me/351912345678">suporte</a></span>
+                        <span>{{ $t('login.naoTemAcesso') }} <a href="https://wa.me/351912345678">{{ $t('login.suporte') }}</a></span>
                     </div>
-                    <button type="submit" @click.prevent="Login">Login</button>
+                    <button type="submit" @click.prevent="Login">{{ $t('login.login') }}</button>
                 </div>
             </form>
         </div>

@@ -1,8 +1,8 @@
 <template>
     <div class="notfound-container">
-        <h1>404</h1>
-        <p>Página não encontrada</p>
-        <a href="/">Voltar para a página inicial</a>
+        <h1>{{ $t('notfound.titulo') }}</h1>
+        <p>{{ $t('notfound.mensagem') }}</p>
+        <a href="/">{{ $t('notfound.voltarInicio') }}</a>
     </div>
 </template>
 

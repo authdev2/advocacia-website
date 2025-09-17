@@ -3,9 +3,11 @@ import { createApp } from 'vue'
 import './style.css'
 import './variaveis.css'
 import './fonts.css'
-import i18n from './i18n'
 import App from './App.vue'
 import VueLazy from 'vue3-lazy'
+import { createI18n } from 'vue-i18n'
+import PT from './locales/pt.json'
+import EN from './locales/en.json'
 
 const routes = [
   { path: '/', 
@@ -25,6 +27,16 @@ const routes = [
 const router = createRouter({
     history: createWebHistory(),
     routes
+})
+
+let localeSrorage = localStorage.getItem('locale')
+
+const i18n = createI18n({
+  locale: localeSrorage || 'pt',
+  messages: {
+    pt: PT,
+    en: EN,
+  }
 })
 
 const app = createApp(App)

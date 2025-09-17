@@ -2,68 +2,68 @@
     <div class="container-limited" v-if="logged === 'LoginAceite'">
         <header>
             <div class="left">
-                <h1>Painel de Administração</h1>
+                <h1>{{ $t('admin.painelAdministracao') }}</h1>
             </div>
             <div class="right">
-                <button @click="logout">Sair</button>
+                <button @click="logout">{{ $t('admin.sair') }}</button>
             </div>
         </header>
 
-        <h2>Gestão de Notícias</h2>
+        <h2>{{ $t('admin.gestaoNoticias') }}</h2>
 
         <div class="box-container">
             <div class="box" @click="addNewsModal = true">
                 <div class="icon">
                     <User />
                 </div>
-                <h3>Adicionar Notícia</h3>
+                <h3>{{ $t('admin.adicionarNoticia') }}</h3>
             </div>
             <div class="box" @click="updateNewsModal = true">
                 <div class="icon">
                     <User />
                 </div>
-                <h3>Atualizar Notícia</h3>
+                <h3>{{ $t('admin.atualizarNoticia') }}</h3>
             </div>
 
             <div class="box" @click="deleteNewsModal = true">
                 <div class="icon">
                     <User />
                 </div>
-                <h3>Eliminar Notícia</h3>
+                <h3>{{ $t('admin.eliminarNoticia') }}</h3>
             </div>
         </div>
 
-        <h2>Gestão de Utilizadores</h2>
+        <h2>{{ $t('admin.gestaoUtilizadores') }}</h2>
 
         <div class="box-container">
             <div class="box" @click="addUserModal = true">
                 <div class="icon">
                     <User />
                 </div>
-                <h3>Adicionar Utilizador</h3>
+                <h3>{{ $t('admin.adicionarUtilizador') }}</h3>
             </div>
             <div class="box" @click="getAllUsers">
                 <div class="icon">
                     <User />
                 </div>
-                <h3>Atualizar Utilizador</h3>
+                <h3>{{ $t('admin.atualizarUtilizador') }}</h3>
             </div>
             <div class="box" @click="deleteUserModal = true">
                 <div class="icon">
                     <User />
                 </div>
-                <h3>Eliminar Utilizador</h3>
+                <h3>{{ $t('admin.eliminarUtilizador') }}</h3>
             </div>
         </div>
 
-        <ModalAdmin :isOpen="addUserModal" :title="'Adicionar Utilizador'" @close="addUserModal = false">
+        <ModalAdmin :isOpen="addUserModal" :title="$t('admin.adicionarUtilizador')" @close="addUserModal = false">
             <template #content>
                 <form action="">
-                    <input type="email" placeholder="Digite o email" v-model="userModal.email">
-                    <input type="password" placeholder="Digite a senha" v-model="userModal.password">
+                    <input type="email" :placeholder="$t('admin.digiteEmail')" v-model="userModal.email">
+                    <input type="password" :placeholder="$t('admin.digiteSenha')" v-model="userModal.password">
                     <ErrorMessage :errorMessage="userModal.errorText" v-if="errorMessage" />
-                    <button type="submit" @click.prevent="addUser">Adicionar</button>
-                    <button type="button" @click="addUserModal = false">Cancelar</button>
+                    <button type="submit" @click.prevent="addUser">{{ $t('admin.adicionar') }}</button>
+                    <button type="button" @click="addUserModal = false">{{ $t('admin.cancelar') }}</button>
                 </form>
             </template>
         </ModalAdmin>
@@ -163,8 +163,8 @@
 
     </div>
     <div class="no-permission" v-else>
-        <h1>Não tem permissão para acessar esta página!</h1>
-        <a href="/">Voltar para a pagina inicial</a>
+        <h1>{{ $t('admin.semPermissao') }}</h1>
+        <a href="/">{{ $t('admin.voltarInicio') }}</a>
     </div>
 
 

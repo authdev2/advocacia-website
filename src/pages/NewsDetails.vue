@@ -11,7 +11,7 @@
             </div>
 
             <div class="right-noticias">
-                <h2>Notícias relacionadas</h2>
+                <h2>{{ $t('noticias.noticiasRelacionadas') }}</h2>
                 <div class="noticias-container">
                     <div class="noticia" v-for="noticia in allNoticias" :key="noticia.id">
                         <img :src="noticia.imagemNoticia" alt="Imagem da notícia">
@@ -19,7 +19,7 @@
                             <h3>{{ noticia.nomeNoticia }}</h3>
                         </div>
                         <router-link :to="`/noticia/${noticia.id}`" class="custom-link" target="_blank">
-                            Ver mais
+                            {{ $t('noticias.verMais') }}
                         </router-link>
                     </div>
                 </div>

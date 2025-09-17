@@ -1,7 +1,7 @@
 <template>
   <section id="area-atuacao" class="area-atuacao container-limited">
 
-    <HeaderTitle title="Áreas de" title2="Atuação" description="Assessoria jurídica especializada com um escritório que entende cada detalhe do seu processo" />
+    <HeaderTitle :title="$t('areaAtuacao.title')" :title2="$t('areaAtuacao.title2')" :description="$t('areaAtuacao.description')" />
 
     <div class="box-container">
 
@@ -14,7 +14,7 @@
           <p>
             {{ area.description }}
           </p>
-          <button class="btn-saber-mais" @click="openModal(index)">{{ area.button }}
+          <button class="btn-saber-mais" @click="openModal(index)">{{ $t('areaAtuacao.saberMais') }}
             <RightArrow />
           </button>
         </div>
@@ -36,7 +36,7 @@
       </div>
 
       <div class="process">
-        <h3>Processo</h3>
+        <h3>{{ $t('areaAtuacao.processo') }}</h3>
         <div class="process-steps">
           <div class="step" v-for="(step, index) in areas[index].modal[0].process.steps" :key="index">
             <span>{{ step }}</span>
@@ -46,7 +46,7 @@
       </div>
 
       <div class="faq">
-        <h3>Perguntas Frequentes</h3>
+        <h3>{{ $t('areaAtuacao.perguntasFrequentes') }}</h3>
         <div class="faq-item" v-for="(item, index) in areas[index].modal[0].faq" :key="index">
           <details>
             <summary>{{ item.question }}</summary>
@@ -56,17 +56,17 @@
       </div>
 
       <div class="contacto">
-        <h3>Contacto</h3>
+        <h3>{{ $t('areaAtuacao.contacto') }}</h3>
         <div class="container">
           <div class="left">
             <div class="contacto-item-phone">
-              <span>Telemovel: {{ areas[index].modal[0].contact.phone }}</span>
+              <span>{{ $t('areaAtuacao.telemovel') }} {{ areas[index].modal[0].contact.phone }}</span>
             </div>
             <div class="contacto-item-whatsapp">
               <button>
                 <a :href="areas[index].modal[0].contact.whatsapp" target="_blank" rel="noopener noreferrer" aria-label="Contactar via WhatsApp">
                   <WhatsappIcon />
-                  WhatsApp
+                  {{ $t('areaAtuacao.whatsapp') }}
                 </a>
               </button>
             </div>

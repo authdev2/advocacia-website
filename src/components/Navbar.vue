@@ -5,9 +5,9 @@
                 <h1> <a href="/"> João Alves</a></h1>
             </div>
             <div class="links">
-                <a href="#area-atuacao">Area de Atuação</a>
-                <a href="#quem-sou">Quem sou</a>
-                <a href="#processo">Processo</a>
+                <a href="#area-atuacao">{{ $t('navbar.areaAtuacao') }}</a>
+                <a href="#quem-sou">{{ $t('navbar.quemSou') }}</a>
+                <a href="#processo">{{ $t('navbar.processo') }}</a>
             </div>
         </div>
         <div class="right">
@@ -20,11 +20,11 @@
                 </span>
             </button>
             <a href="/login">
-                
+
                 <User />
             </a>
 
-            <select name="language" id="language">
+            <select name="language" id="language" @change="changeLanguage($event.target.value)">
                 <option value="pt">PT</option>
                 <option value="en">EN</option>
             </select>
@@ -39,12 +39,12 @@
         </div>
     </nav>
     <div class="links-mobile" v-if="menuOpen">
-        <a href="/">Inicio</a>
-        <a href="#area-atuacao">Area de Atuação</a>
-        <a href="#percurso">O meu percurso</a>
-        <a href="#quem-sou">Quem sou</a>
-        <a href="#processo">Processo</a>
-        <a href="#feedback">Feedback</a>
+        <a href="/">{{ $t('navbar.inicio') }}</a>
+        <a href="#area-atuacao">{{ $t('navbar.areaAtuacao') }}</a>
+        <a href="#percurso">{{ $t('navbar.percurso') }}</a>
+        <a href="#quem-sou">{{ $t('navbar.quemSou') }}</a>
+        <a href="#processo">{{ $t('navbar.processo') }}</a>
+        <a href="#feedback">{{ $t('navbar.feedback') }}</a>
     </div>
 </template>
 
@@ -88,12 +88,12 @@ nav .left .logo h1 {
     font-family: "Marck Script", cursive;
 
     font-weight: 400;
-  font-style: normal;
+    font-style: normal;
 
 }
 
 
-nav .left .logo h1 a{
+nav .left .logo h1 a {
     text-decoration: none;
     color: var(--cor-branca);
 }
@@ -161,13 +161,13 @@ nav .mobile-menu {
     background-color: var(--cor-branca);
 }
 
-.right{
+.right {
     display: flex;
     align-items: center;
     gap: 20px;
 }
 
-.right a{
+.right a {
     text-decoration: none;
     color: var(--cor-branca);
     display: flex;
@@ -176,7 +176,7 @@ nav .mobile-menu {
     margin-right: 20px;
 }
 
-.theme-toggle{
+.theme-toggle {
     background: transparent;
     border: 1px solid rgb(128, 128, 128);
     padding: 7px;
@@ -189,7 +189,7 @@ nav .mobile-menu {
 
 }
 
-#language{
+#language {
     background: transparent;
     border: none;
     cursor: pointer;
@@ -199,7 +199,7 @@ nav .mobile-menu {
     color: white;
 }
 
-#language option{
+#language option {
     background: transparent;
     border: none;
     cursor: pointer;
@@ -230,13 +230,12 @@ nav .mobile-menu {
 </style>
 
 <script setup>
-import { ref, onMounted } from 'vue';
+import { ref, onMounted, watch } from 'vue';
 import Sunshine from './Icons/Sunshine.vue';
 import Moon from './Icons/Moon.vue';
 import Menu from './Icons/Menu.vue';
 import Close from './Icons/Close.vue';
 import User from './Icons/User.vue';
-
 let menuOpen = ref(false);
 
 function toggleMenu() {
@@ -250,6 +249,12 @@ function toggleTheme() {
     themeChoose = isDark.value ? "dark" : "light";
     document.documentElement.setAttribute('data-theme', themeChoose);
     localStorage.setItem('theme', themeChoose);
+}
+
+
+function changeLanguage(lang) {
+    localStorage.setItem('locale', lang)
+    console.log(lang)
 }
 
 onMounted(() => {

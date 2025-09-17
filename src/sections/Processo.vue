@@ -1,6 +1,6 @@
 <template>
     <section id="processo" class="processo-section">
-        <HeaderTitle title="O meu" title2="processo" description="Como trabalho e qual o meu processo!" />
+        <HeaderTitle :title="$t('processo.title')" :title2="$t('processo.title2')" :description="$t('processo.description')" />
         <div class="processo-container container-limited">
             <div class="processo-timeline">
                 <div class="timeline-item" v-for="(etapa, index) in etapas" :key="etapa.numero">
@@ -23,21 +23,25 @@
 
 <script setup>
 import HeaderTitle from '../components/HeaderTitle.vue'
+import { useI18n } from 'vue-i18n'
+
+const { t } = useI18n()
+
 const etapas = [
 
     {
-        title: 'Primeira consulta',
-        description: 'Iniciamos com uma reunião personalizada para cornpreender profundarnente o seu caso e estabelecer uma relação de confiança',
+        title: t('processo.etapas.0.title'),
+        description: t('processo.etapas.0.description'),
         numero: 'Etapa 01',
     },
     {
-        title: 'Análise',
-        description: 'Nesta etapa, realizamos uma análise detalhada do seu caso, identificando os pontos mais importantes e as possíveis estratégias para a sua defesa',
+        title: t('processo.etapas.1.title'),
+        description: t('processo.etapas.1.description'),
         numero: 'Etapa 02',
     },
     {
-        title: 'Execução',
-        description: 'Nesta etapa, executamos as estratégias definidas, garantindo que todas as ações necessárias sejam realizadas para a defesa do seu caso',
+        title: t('processo.etapas.2.title'),
+        description: t('processo.etapas.2.description'),
         numero: 'Etapa 03',
     }
 ]

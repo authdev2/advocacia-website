@@ -1,14 +1,14 @@
 <template>
     <section class="noticias-container container-limited">
-        <HeaderTitle title="Últimas" title2="Notícias"
-            description="Mantenha-se atualizado com as últimas novidades jurídicas e informações relevantes" />
+        <HeaderTitle :title="$t('noticias.title')" :title2="$t('noticias.title2')"
+            :description="$t('noticias.description')" />
 
 
         <div class="container-noticias">
 
 
             <div class="error-message" v-if="errorText">
-                <span>API está desligada ou alguma falha tecnica!</span>
+                <span>{{ $t('noticias.apiError') }}</span>
             </div>
 
 
@@ -17,8 +17,8 @@
                     <img :src="news.imagemNoticia" alt="Imagem da notícia">
                 </div>
                 <div class="content">
-                    <h3>{{ news.nomeNoticia ? news.nomeNoticia.slice(0, 50) : 'Notícia sem nome' }}...</h3>
-                    <p>{{ news.descricaoNoticia ? news.descricaoNoticia.slice(0, 100) : 'Notícia sem descrição' }}...
+                    <h3>{{ news.nomeNoticia ? news.nomeNoticia.slice(0, 50) : $t('noticias.noticiaSemNome') }}...</h3>
+                    <p>{{ news.descricaoNoticia ? news.descricaoNoticia.slice(0, 100) : $t('noticias.noticiaSemDescricao') }}...
                     </p>
                     <div class="news-date">
                         <DateIcon />
@@ -29,7 +29,7 @@
 
                 <router-link :to="`/noticia/${news.id}`" class="custom-link" target="_blank">
 
-                    Ver mais
+                    {{ $t('noticias.verMais') }}
 
                     <span class="arrow">→</span>
                 </router-link>
@@ -37,7 +37,7 @@
 
         </div>
         <div class="see-more" v-if="allNews.length > 5">
-            <button class="btn-ver-mais" @click="moreNews">Ver mais</button>
+            <button class="btn-ver-mais" @click="moreNews">{{ $t('noticias.verMaisButton') }}</button>
         </div>
 
     </section>

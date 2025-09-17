@@ -1,0 +1,147 @@
+{
+  "hello": "Olá",
+  "mainpage": {
+    "security": "Segurança",
+    "loyalty": "Lealdade",
+    "title": "Defendemos os teus",
+    "rights": "direitos",
+    "description": "Com mais de 10 anos de experiência em direito civil e empresarial, oferecemos assessoria jurídica especializada e personalizada. A tua tranquilidade e o sucesso do teu caso são a nossa prioridade.",
+    "whatsappButton": "Fale agora no Whatsapp!"
+  },
+  "navbar": {
+    "areaAtuacao": "Area de Atuação",
+    "quemSou": "Quem sou",
+    "processo": "Processo",
+    "inicio": "Inicio",
+    "percurso": "O meu percurso",
+    "feedback": "Feedback"
+  },
+  "areaAtuacao": {
+    "title": "Áreas de",
+    "title2": "Atuação",
+    "description": "Assessoria jurídica especializada com um escritório que entende cada detalhe do seu processo",
+    "saberMais": "Saber mais",
+    "processo": "Processo",
+    "perguntasFrequentes": "Perguntas Frequentes",
+    "contacto": "Contacto",
+    "telemovel": "Telemovel:",
+    "whatsapp": "WhatsApp"
+  },
+  "sobreMim": {
+    "title": "Quem",
+    "title2": "sou",
+    "description": "O meu compromisso com a excelência",
+    "compromissoTitle": "O meu compromisso com a",
+    "excelencia": "excelência",
+    "textoPrincipal": "Como advogado dedicado, o meu objetivo é proporcionar aos meus clientes uma representação jurídica de qualidade, baseada na transparência, honestidade e compromisso com os seus interesses. Com uma vasta experiência em diversas áreas do direito, especialmente em nacionalidade portuguesa e direito civil, trabalho incansavelmente para garantir que cada caso seja tratado com a atenção e dedicação que merece. Acredito que o sucesso de um advogado não se mede apenas pelos casos ganhos, mas pela confiança e satisfação dos clientes que represento. Por isso, mantenho-me sempre atualizado com as últimas mudanças na legislação para oferecer o melhor serviço possível.",
+    "compromissos": {
+      "transparencia": "Transparência",
+      "honestidade": "Honestidade",
+      "inovacao": "Inovação",
+      "dedicacao": "Dedicação"
+    }
+  },
+  "noticias": {
+    "title": "Últimas",
+    "title2": "Notícias",
+    "description": "Mantenha-se atualizado com as últimas novidades jurídicas e informações relevantes",
+    "apiError": "API está desligada ou alguma falha tecnica!",
+    "noticiaSemNome": "Notícia sem nome",
+    "noticiaSemDescricao": "Notícia sem descrição",
+    "verMais": "Ver mais",
+    "verMaisButton": "Ver mais",
+    "todasNoticias": "Todas as Notícias",
+    "todasNoticiasDescription": "Mantenha-se atualizado com as últimas notícias e atualizações legais",
+    "noticiasRelacionadas": "Notícias relacionadas"
+  },
+  "feedback": {
+    "title": "Feedback de",
+    "title2": "clientes",
+    "description": "Clientes que nos escolheram para resolver os seus problemas"
+  },
+  "processo": {
+    "title": "O meu",
+    "title2": "processo",
+    "description": "Como trabalho e qual o meu processo!",
+    "etapas": [
+      {
+        "title": "Primeira consulta",
+        "description": "Iniciamos com uma reunião personalizada para cornpreender profundarnente o seu caso e estabelecer uma relação de confiança"
+      },
+      {
+        "title": "Análise",
+        "description": "Nesta etapa, realizamos uma análise detalhada do seu caso, identificando os pontos mais importantes e as possíveis estratégias para a sua defesa"
+      },
+      {
+        "title": "Execução",
+        "description": "Nesta etapa, executamos as estratégias definidas, garantindo que todas as ações necessárias sejam realizadas para a defesa do seu caso"
+      }
+    ]
+  },
+  "percurso": {
+    "title": "O meu",
+    "title2": "percurso",
+    "description": "Perceba um pouco do meu percuso e onde eu estudei!",
+    "formacao": "Formado em Direito pela Universidade X"
+  },
+  "admin": {
+    "painelAdministracao": "Painel de Administração",
+    "sair": "Sair",
+    "gestaoNoticias": "Gestão de Notícias",
+    "adicionarNoticia": "Adicionar Notícia",
+    "atualizarNoticia": "Atualizar Notícia",
+    "eliminarNoticia": "Eliminar Notícia",
+    "gestaoUtilizadores": "Gestão de Utilizadores",
+    "adicionarUtilizador": "Adicionar Utilizador",
+    "atualizarUtilizador": "Atualizar Utilizador",
+    "eliminarUtilizador": "Eliminar Utilizador",
+    "semPermissao": "Não tem permissão para acessar esta página!",
+    "voltarInicio": "Voltar para a pagina inicial",
+    "digiteEmail": "Digite o email",
+    "digiteSenha": "Digite a senha",
+    "adicionar": "Adicionar",
+    "cancelar": "Cancelar",
+    "novoEmail": "Novo email:",
+    "atualizarEmail": "Atualizar email",
+    "digiteTitulo": "Digite o titulo",
+    "digiteDescricao": "Digite a descricao",
+    "digiteImagem": "Digite a imagem",
+    "digiteNovoNome": "Digite o novo nome da notícia",
+    "digiteNovaDescricao": "Digite a nova descrição da notícia",
+    "digiteNovaImagem": "Digite a nova imagem da notícia",
+    "atualizar": "Atualizar",
+    "eliminar": "Eliminar",
+    "preencherCampos": "Por favor, preencha todos os campos",
+    "emailValido": "Por favor, insira um email válido",
+    "utilizadorAdicionado": "Utilizador adicionado com sucesso",
+    "erroAdicionarUtilizador": "Erro ao adicionar utilizador",
+    "utilizadorEliminado": "Utilizador eliminado com sucesso",
+    "erroEliminarUtilizador": "Erro ao eliminar utilizador",
+    "utilizadorAtualizado": "Utilizador atualizado com sucesso",
+    "erroAtualizarUtilizador": "Erro ao atualizar utilizador",
+    "imagemValida": "Por favor, insira uma imagem válida",
+    "noticiaAdicionada": "Notícia adicionada com sucesso",
+    "erroAdicionarNoticia": "Erro ao adicionar notícia",
+    "noticiaEliminada": "Notícia eliminada com sucesso",
+    "erroEliminarNoticia": "Erro ao eliminar notícia",
+    "noticiaAtualizada": "Notícia atualizada com sucesso",
+    "erroAtualizarNoticia": "Erro ao atualizar notícia"
+  },
+  "login": {
+    "sistemaGestao": "Sistema de Gestão",
+    "acessoExclusivo": "Acesso exclusivo para administradores",
+    "digiteEmail": "Digite o teu email",
+    "qualEmail": "Qual é o seu email?",
+    "digiteSenha": "Digite a tua senha",
+    "qualSenha": "Qual é a sua senha?",
+    "naoTemAcesso": "Não tem acesso? Contacte o",
+    "suporte": "suporte",
+    "login": "Login",
+    "emailValido": "Por favor, insira um email válido"
+  },
+  "notfound": {
+    "titulo": "404",
+    "mensagem": "Página não encontrada",
+    "voltarInicio": "Voltar para a página inicial"
+  }
+}

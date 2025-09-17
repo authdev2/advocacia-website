@@ -5,22 +5,20 @@
         <div class="container-box">
           <div class="box">
             <LockIcon />
-            <span>Segurança</span>
+            <span>{{ $t('mainpage.security') }}</span>
           </div>
           <div class="box">
             <ShieldIcon />
-            <span>Lealdade</span>
+            <span>{{ $t('mainpage.loyalty') }}</span>
           </div>
         </div>
 
         <div class="title">
-          <h1>Defendemos os teus <span>direitos</span></h1>
+          <h1>{{ $t('mainpage.title') }} <span>{{ $t('mainpage.rights') }}</span></h1>
         </div>
         <div class="description">
           <p>
-            Com mais de 10 anos de experiência em direito civil e empresarial, oferecemos assessoria jurídica especializada e personalizada. A tua tranquilidade e o sucesso do teu caso são a nossa prioridade.
-
-
+            {{ $t('mainpage.description') }}
           </p>
         </div>
 
@@ -28,7 +26,7 @@
           <a href="https://wa.me/351912345678" target="_blank" rel="noopener noreferrer" aria-label="Contactar via WhatsApp">
             <button type="button">
               <WhatsappIcon />
-              Fale agora no Whatsapp!
+              {{ $t('mainpage.whatsappButton') }}
             </button>
           </a>
         </div>

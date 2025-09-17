@@ -1,6 +1,6 @@
 <template>
   <section id="quem-sou" class="sobre-mim-container">
-    <HeaderTitle title="Quem" title2="sou" description="O meu compromisso com a excelência" />
+    <HeaderTitle :title="$t('sobreMim.title')" :title2="$t('sobreMim.title2')" :description="$t('sobreMim.description')" />
     <div class="container">
       <div class="left-container">
         <img src="../assets/sobre-mim/sobreMimImg.webp" alt="Imagem de João Alves" />
@@ -8,20 +8,10 @@
 
       <div class="right-container">
         <h3>
-          O meu compromisso com a <span class="text-green">excelência</span>
+          {{ $t('sobreMim.compromissoTitle') }} <span class="text-green">{{ $t('sobreMim.excelencia') }}</span>
         </h3>
         <p>
-          Como advogado dedicado, o meu objetivo é proporcionar aos meus
-          clientes uma representação jurídica de qualidade, baseada na
-          transparência, honestidade e compromisso com os seus interesses. Com
-          uma vasta experiência em diversas áreas do direito, especialmente em
-          nacionalidade portuguesa e direito civil, trabalho incansavelmente
-          para garantir que cada caso seja tratado com a atenção e dedicação que
-          merece. Acredito que o sucesso de um advogado não se mede apenas pelos
-          casos ganhos, mas pela confiança e satisfação dos clientes que
-          represento. Por isso, mantenho-me sempre atualizado com as últimas
-          mudanças na legislação para oferecer o melhor serviço possível.Tentar
-          novamenteO Claude pode cometer erros. Confira sempre as respostas.
+          {{ $t('sobreMim.textoPrincipal') }}
         </p>
 
         <div class="box-compromissos">
@@ -42,24 +32,28 @@ import Honest from '../components/Icons/Honest.vue'
 import Idea from '../components/Icons/Idea.vue'
 import Appointment from '../components/Icons/Appointment.vue'
 
+import { useI18n } from 'vue-i18n'
+
+const { t } = useI18n()
+
 const compromissos = [
   {
     icon: Trust,
-    title: 'Transparência',
+    title: t('sobreMim.compromissos.transparencia'),
   },
   {
     icon: Honest,
-    title: 'Honestidade',
+    title: t('sobreMim.compromissos.honestidade'),
   },
 
   {
     icon: Idea,
-    title: 'Inovação',
+    title: t('sobreMim.compromissos.inovacao'),
   },
 
   {
     icon: Appointment,
-    title: 'Dedicação',
+    title: t('sobreMim.compromissos.dedicacao'),
   },
 ]
 

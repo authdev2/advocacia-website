@@ -1,0 +1,147 @@
+{
+  "hello": "Hello",
+  "mainpage": {
+    "security": "Security",
+    "loyalty": "Loyalty",
+    "title": "We defend your",
+    "rights": "rights",
+    "description": "With over 10 years of experience in civil and business law, we offer specialized and personalized legal advice. Your peace of mind and the success of your case are our priority.",
+    "whatsappButton": "Talk now on WhatsApp!"
+  },
+  "navbar": {
+    "areaAtuacao": "Practice Areas",
+    "quemSou": "Who I am",
+    "processo": "Process",
+    "inicio": "Home",
+    "percurso": "My journey",
+    "feedback": "Feedback"
+  },
+  "areaAtuacao": {
+    "title": "Practice",
+    "title2": "Areas",
+    "description": "Specialized legal advice with an office that understands every detail of your process",
+    "saberMais": "Learn more",
+    "processo": "Process",
+    "perguntasFrequentes": "Frequently Asked Questions",
+    "contacto": "Contact",
+    "telemovel": "Mobile:",
+    "whatsapp": "WhatsApp"
+  },
+  "sobreMim": {
+    "title": "Who",
+    "title2": "I am",
+    "description": "My commitment to excellence",
+    "compromissoTitle": "My commitment to",
+    "excelencia": "excellence",
+    "textoPrincipal": "As a dedicated lawyer, my goal is to provide my clients with quality legal representation, based on transparency, honesty and commitment to their interests. With extensive experience in various areas of law, especially Portuguese nationality and civil law, I work tirelessly to ensure that each case is treated with the attention and dedication it deserves. I believe that a lawyer's success is not measured only by cases won, but by the trust and satisfaction of the clients I represent. That's why I always stay updated with the latest changes in legislation to offer the best possible service.",
+    "compromissos": {
+      "transparencia": "Transparency",
+      "honestidade": "Honesty",
+      "inovacao": "Innovation",
+      "dedicacao": "Dedication"
+    }
+  },
+  "noticias": {
+    "title": "Latest",
+    "title2": "News",
+    "description": "Stay updated with the latest legal news and relevant information",
+    "apiError": "API is down or some technical failure!",
+    "noticiaSemNome": "News without name",
+    "noticiaSemDescricao": "News without description",
+    "verMais": "Read more",
+    "verMaisButton": "Read more",
+    "todasNoticias": "All News",
+    "todasNoticiasDescription": "Stay updated with the latest news and legal updates",
+    "noticiasRelacionadas": "Related news"
+  },
+  "feedback": {
+    "title": "Client",
+    "title2": "Feedback",
+    "description": "Clients who chose us to solve their problems"
+  },
+  "processo": {
+    "title": "My",
+    "title2": "process",
+    "description": "How I work and what my process is!",
+    "etapas": [
+      {
+        "title": "First consultation",
+        "description": "We start with a personalized meeting to deeply understand your case and establish a relationship of trust"
+      },
+      {
+        "title": "Analysis",
+        "description": "In this stage, we carry out a detailed analysis of your case, identifying the most important points and possible strategies for your defense"
+      },
+      {
+        "title": "Execution",
+        "description": "In this stage, we execute the defined strategies, ensuring that all necessary actions are taken for the defense of your case"
+      }
+    ]
+  },
+  "percurso": {
+    "title": "My",
+    "title2": "journey",
+    "description": "Understand a bit about my journey and where I studied!",
+    "formacao": "Graduated in Law from University X"
+  },
+  "admin": {
+    "painelAdministracao": "Administration Panel",
+    "sair": "Logout",
+    "gestaoNoticias": "News Management",
+    "adicionarNoticia": "Add News",
+    "atualizarNoticia": "Update News",
+    "eliminarNoticia": "Delete News",
+    "gestaoUtilizadores": "User Management",
+    "adicionarUtilizador": "Add User",
+    "atualizarUtilizador": "Update User",
+    "eliminarUtilizador": "Delete User",
+    "semPermissao": "You don't have permission to access this page!",
+    "voltarInicio": "Return to home page",
+    "digiteEmail": "Enter email",
+    "digiteSenha": "Enter password",
+    "adicionar": "Add",
+    "cancelar": "Cancel",
+    "novoEmail": "New email:",
+    "atualizarEmail": "Update email",
+    "digiteTitulo": "Enter title",
+    "digiteDescricao": "Enter description",
+    "digiteImagem": "Enter image",
+    "digiteNovoNome": "Enter new news name",
+    "digiteNovaDescricao": "Enter new news description",
+    "digiteNovaImagem": "Enter new news image",
+    "atualizar": "Update",
+    "eliminar": "Delete",
+    "preencherCampos": "Please fill in all fields",
+    "emailValido": "Please enter a valid email",
+    "utilizadorAdicionado": "User added successfully",
+    "erroAdicionarUtilizador": "Error adding user",
+    "utilizadorEliminado": "User deleted successfully",
+    "erroEliminarUtilizador": "Error deleting user",
+    "utilizadorAtualizado": "User updated successfully",
+    "erroAtualizarUtilizador": "Error updating user",
+    "imagemValida": "Please enter a valid image",
+    "noticiaAdicionada": "News added successfully",
+    "erroAdicionarNoticia": "Error adding news",
+    "noticiaEliminada": "News deleted successfully",
+    "erroEliminarNoticia": "Error deleting news",
+    "noticiaAtualizada": "News updated successfully",
+    "erroAtualizarNoticia": "Error updating news"
+  },
+  "login": {
+    "sistemaGestao": "Management System",
+    "acessoExclusivo": "Exclusive access for administrators",
+    "digiteEmail": "Enter your email",
+    "qualEmail": "What is your email?",
+    "digiteSenha": "Enter your password",
+    "qualSenha": "What is your password?",
+    "naoTemAcesso": "Don't have access? Contact",
+    "suporte": "support",
+    "login": "Login",
+    "emailValido": "Please enter a valid email"
+  },
+  "notfound": {
+    "titulo": "404",
+    "mensagem": "Page not found",
+    "voltarInicio": "Return to home page"
+  }
+}

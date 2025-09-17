@@ -1,7 +1,7 @@
 <template>
     <section>
-        <HeaderTitle title="Feedback de" title2="clientes"
-            description="Clientes que nos escolheram para resolver os seus problemas" />
+        <HeaderTitle :title="$t('feedback.title')" :title2="$t('feedback.title2')"
+            :description="$t('feedback.description')" />
         <div class="feedback-container container-limited">
         <button class="arrow-button" @click="retrocederFeedback">
             <LeftArrow />

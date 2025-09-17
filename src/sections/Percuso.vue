@@ -1,6 +1,6 @@
 <template>
   <section>
-    <HeaderTitle title="O meu" title2="percurso" description="Perceba um pouco do meu percuso e onde eu estudei!" />
+    <HeaderTitle :title="$t('percurso.title')" :title2="$t('percurso.title2')" :description="$t('percurso.description')" />
 
     <div class="container-percurso container-limited">
     <div class="box-percuso">
@@ -40,22 +40,26 @@
 
 <script setup>
 import HeaderTitle from '../components/HeaderTitle.vue'
+import { useI18n } from 'vue-i18n'
+
+const { t } = useI18n()
+
 const percursos = [
   {
     title: '2005',
-    description: 'Formado em Direito pela Universidade X',
+    description: t('percurso.formacao'),
   },
   {
     title: '2005',
-    description: 'Formado em Direito pela Universidade X',
+    description: t('percurso.formacao'),
   },
   {
     title: '2005',
-    description: 'Formado em Direito pela Universidade X',
+    description: t('percurso.formacao'),
   },
   {
     title: '2005',
-    description: 'Formado em Direito pela Universidade X',
+    description: t('percurso.formacao'),
   },
 
 ]
@@ -63,17 +67,17 @@ const percursos = [
 const percursosRight = [
   {
     title: '2005',
-    description: 'Formado em Direito pela Universidade X',
+    description: t('percurso.formacao'),
   },
 
   {
     title: '2005',
-    description: 'Formado em Direito pela Universidade X',
+    description: t('percurso.formacao'),
   },
 
   {
     title: '2005',
-    description: 'Formado em Direito pela Universidade X',
+    description: t('percurso.formacao'),
   },
 ]
 </script>
