@@ -1,18 +1,18 @@
 <template>
-    <div class="healder-title container-limited">
-        <h2>{{ title }} <span class="text-green">{{ title2 }}</span></h2>
-        <div class="description">
-            <span>{{ description }}</span>
-        </div>
+  <div class="healder-title container-limited">
+    <h2>{{ title }} <span class="text-green">{{ title2 }}</span></h2>
+    <div class="description">
+      <span>{{ description }}</span>
     </div>
+  </div>
 </template>
 
 <script setup>
 const props = defineProps({
-    title: String,
-    description: String,
-    title2: String,
-})
+  title: String,
+  description: String,
+  title2: String
+});
 </script>
 
 <style scoped>

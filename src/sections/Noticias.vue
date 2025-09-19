@@ -1,46 +1,67 @@
 <template>
-    <section class="noticias-container container-limited">
-        <HeaderTitle :title="$t('noticias.title')" :title2="$t('noticias.title2')"
-            :description="$t('noticias.description')" />
+  <section class="noticias-container container-limited">
+    <HeaderTitle
+      :title="$t('noticias.title')"
+      :title2="$t('noticias.title2')"
+      :description="$t('noticias.description')"
+    />
 
 
-        <div class="container-noticias">
+    <div class="container-noticias">
+      <div
+        v-if="errorText"
+        class="error-message"
+      >
+        <span>{{ $t('noticias.apiError') }}</span>
+      </div>
 
 
-            <div class="error-message" v-if="errorText">
-                <span>{{ $t('noticias.apiError') }}</span>
-            </div>
-
-
-            <article class="box" v-for="news in allNews" :key="news.id">
-                <div class="image">
-                    <img :src="news.imagemNoticia" alt="Imagem da notícia">
-                </div>
-                <div class="content">
-                    <h3>{{ news.nomeNoticia ? news.nomeNoticia.slice(0, 50) : $t('noticias.noticiaSemNome') }}...</h3>
-                    <p>{{ news.descricaoNoticia ? news.descricaoNoticia.slice(0, 100) : $t('noticias.noticiaSemDescricao') }}...
-                    </p>
-                    <div class="news-date">
-                        <DateIcon />
-                        {{ news.data.slice(0, 10) }}
-                    </div>
-                </div>
-                <hr>
-
-                <router-link :to="`/noticia/${news.id}`" class="custom-link" target="_blank">
-
-                    {{ $t('noticias.verMais') }}
-
-                    <span class="arrow">→</span>
-                </router-link>
-            </article>
-
+      <article
+        v-for="news in allNews"
+        :key="news.id"
+        class="box"
+      >
+        <div class="image">
+          <img
+            :src="news.imagemNoticia"
+            alt="Imagem da notícia"
+          />
         </div>
-        <div class="see-more" v-if="allNews.length > 5">
-            <button class="btn-ver-mais" @click="moreNews">{{ $t('noticias.verMaisButton') }}</button>
+        <div class="content">
+          <h3>{{ news.nomeNoticia ? news.nomeNoticia.slice(0, 50) : $t('noticias.noticiaSemNome') }}...</h3>
+          <p>
+            {{ news.descricaoNoticia ? news.descricaoNoticia.slice(0, 100) : $t('noticias.noticiaSemDescricao') }}...
+          </p>
+          <div class="news-date">
+            <DateIcon />
+            {{ news.data.slice(0, 10) }}
+          </div>
         </div>
+        <hr />
 
-    </section>
+        <router-link
+          :to="`/noticia/${news.id}`"
+          class="custom-link"
+          target="_blank"
+        >
+          {{ $t('noticias.verMais') }}
+
+          <span class="arrow">→</span>
+        </router-link>
+      </article>
+    </div>
+    <div
+      v-if="allNews.length > 5"
+      class="see-more"
+    >
+      <button
+        class="btn-ver-mais"
+        @click="moreNews"
+      >
+        {{ $t('noticias.verMaisButton') }}
+      </button>
+    </div>
+  </section>
 </template>
 <script setup>
 import HeaderTitle from '../components/HeaderTitle.vue';
@@ -49,28 +70,28 @@ import { ref, onMounted } from 'vue';
 import { useRouter } from 'vue-router';
 const router = useRouter();
 let allNews = ref([]);
-let errorText = ref(false)
+let errorText = ref(false);
 async function getNews() {
-    try {
-        let response = await fetch('http://localhost:3000/noticias/six')
-        let data = await response.json();
-        allNews.value = data.result;
-        console.log(allNews.value[0].data.slice(0, 10));
-    } catch (error) {
-        console.log(error);
-        errorText.value = true
-    }
+  try {
+    let response = await fetch('http://localhost:3000/noticias/six');
+    let data = await response.json();
+    allNews.value = data.result;
+    console.log(allNews.value[0].data.slice(0, 10));
+  } catch (error) {
+    console.log(error);
+    errorText.value = true;
+  }
 }
 
 function moreNews() {
-    router.push('/more-news');
+  router.push('/more-news');
 }
 
 onMounted(() => {
-    setTimeout(() => {
-        getNews();
-    }, 100);
-})
+  setTimeout(() => {
+    getNews();
+  }, 100);
+});
 </script>
 
 <style scoped>

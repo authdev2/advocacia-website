@@ -1,13 +1,13 @@
-import { createRouter, createWebHistory } from 'vue-router'
-import { createApp } from 'vue'
-import './style.css'
-import './variaveis.css'
-import './fonts.css'
-import App from './App.vue'
-import VueLazy from 'vue3-lazy'
-import { createI18n } from 'vue-i18n'
-import PT from './locales/pt.json'
-import EN from './locales/en.json'
+import { createRouter, createWebHistory } from 'vue-router';
+import { createApp } from 'vue';
+import './style.css';
+import './variaveis.css';
+import './fonts.css';
+import App from './App.vue';
+import VueLazy from 'vue3-lazy';
+import { createI18n } from 'vue-i18n';
+import PT from './locales/pt.json';
+import EN from './locales/en.json';
 
 const routes = [
   { path: '/', 
@@ -21,30 +21,30 @@ const routes = [
   { path: '/more-news',
     component: () => import('./pages/MoreNews.vue') },
   { path: '/:pathMatch(.*)*', 
-    component: () => import('./components/Notfound.vue') },
-]
+    component: () => import('./components/Notfound.vue') }
+];
 
 const router = createRouter({
-    history: createWebHistory(),
-    routes
-})
+  history: createWebHistory(),
+  routes
+});
 
-let localeSrorage = localStorage.getItem('locale')
+let storage = localStorage.getItem('locale');
 
 const i18n = createI18n({
-  locale: localeSrorage || 'pt',
+  locale: storage || 'pt',
   messages: {
     pt: PT,
-    en: EN,
+    en: EN
   }
-})
+});
 
-const app = createApp(App)
-app.use(router)
+const app = createApp(App);
+app.use(router);
 app.use(VueLazy, {
   loading: '',
   error: ''
-})
-app.use(i18n)
-app.mount('#app')
+});
+app.use(i18n);
+app.mount('#app');
 

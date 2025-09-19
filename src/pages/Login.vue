@@ -1,39 +1,59 @@
 <template>
-    <Navbar />
-    <div class="login-container container-limited">
-        <div class="right">
-            <div class="title">
-                <h2>{{ $t('login.sistemaGestao') }}</h2>
-                <p>{{ $t('login.acessoExclusivo') }}</p>
+  <Navbar />
+  <div class="login-container container-limited">
+    <div class="right">
+      <div class="title">
+        <h2>{{ $t('login.sistemaGestao') }}</h2>
+        <p>{{ $t('login.acessoExclusivo') }}</p>
+      </div>
+      <form
+        action="POST"
+        @submit.prevent="Login"
+      >
+        <div class="form-container">
+          <div class="input-email">
+            <input
+              v-model="email"
+              type="email"
+              :placeholder="$t('login.digiteEmail')"
+              required
+            />
+
+            <div class="text">
+              <span>{{ $t('login.qualEmail') }}</span>
             </div>
-            <form action="POST" @submit.prevent="Login">
-                <div class="form-container">
-                    <div class="input-email">
-                        <input type="email" :placeholder="$t('login.digiteEmail')" required v-model="email">
+          </div>
+          <div class="input-password">
+            <input
+              v-model="password"
+              type="password"
+              :placeholder="$t('login.digiteSenha')"
+              required
+            />
+            <div class="text">
+              <span>{{ $t('login.qualSenha') }}</span>
+            </div>
+          </div>
+          <div
+            v-if="errorMessage"
+            class="error-message"
+          >
+            <ErrorMessage :error-message="errorMessageText" />
+          </div>
 
-                        <div class="text">
-                            <span>{{ $t('login.qualEmail') }}</span>
-                        </div>
-
-                    </div>
-                    <div class="input-password">
-                        <input type="password" :placeholder="$t('login.digiteSenha')" required v-model="password">
-                        <div class="text">
-                            <span>{{ $t('login.qualSenha') }}</span>
-                        </div>
-                    </div>
-                    <div class="error-message" v-if="errorMessage">
-                        <ErrorMessage :errorMessage="errorMessageText" />
-                    </div>
-
-                    <div class="contact-support">
-                        <span>{{ $t('login.naoTemAcesso') }} <a href="https://wa.me/351912345678">{{ $t('login.suporte') }}</a></span>
-                    </div>
-                    <button type="submit" @click.prevent="Login">{{ $t('login.login') }}</button>
-                </div>
-            </form>
+          <div class="contact-support">
+            <span>{{ $t('login.naoTemAcesso') }} <a href="https://wa.me/351912345678">{{ $t('login.suporte') }}</a></span>
+          </div>
+          <button
+            type="submit"
+            @click.prevent="Login"
+          >
+            {{ $t('login.login') }}
+          </button>
         </div>
+      </form>
     </div>
+  </div>
 </template>
 
 <script setup>
@@ -48,39 +68,39 @@ let errorMessage = ref(false);
 let errorMessageText = ref('');
 
 function validadeEmail(email) {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return emailRegex.test(email);
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return emailRegex.test(email);
 
 }
 
 async function Login() {
 
-    if (!validadeEmail(email.value)) {
-        errorMessage.value = true;
-        errorMessageText.value = 'Por favor, insira um email válido';
-        return;
-    }
+  if (!validadeEmail(email.value)) {
+    errorMessage.value = true;
+    errorMessageText.value = 'Por favor, insira um email válido';
+    return;
+  }
 
-    try {
-        const response = await fetch(`http://localhost:3000/login`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                email: email.value,
-                password: password.value
-            })
-        });
-        const data = await response.json();
-        console.log(data.token);
-        if (data.success) {
-            router.push('/admin');
-            localStorage.setItem('token', "LoginAceite");
-        }
-    } catch (error) {
-        console.log("Api esta a falhar");
+  try {
+    const response = await fetch('http://localhost:3000/login', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        email: email.value,
+        password: password.value
+      })
+    });
+    const data = await response.json();
+    console.log(data.token);
+    if (data.success) {
+      router.push('/admin');
+      localStorage.setItem('token', 'LoginAceite');
     }
+  } catch (error) {
+    console.log('Api esta a falhar');
+  }
 }
 </script>
 

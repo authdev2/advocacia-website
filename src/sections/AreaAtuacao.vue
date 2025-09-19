@@ -1,30 +1,54 @@
 <template>
-  <section id="area-atuacao" class="area-atuacao container-limited">
-
-    <HeaderTitle :title="$t('areaAtuacao.title')" :title2="$t('areaAtuacao.title2')" :description="$t('areaAtuacao.description')" />
+  <section
+    id="area-atuacao"
+    class="area-atuacao container-limited"
+  >
+    <HeaderTitle
+      :title="$t('areaAtuacao.title')"
+      :title2="$t('areaAtuacao.title2')"
+      :description="$t('areaAtuacao.description')"
+    />
 
     <div class="box-container">
-
-      <div class="box" v-for="(area, index) in areas" :key="area.title">
+      <div
+        v-for="(area, index) in areas"
+        :key="area.title"
+        class="box"
+      >
         <div class="icon-ultrapassado">
-          <component :is="area.icon"></component>
+          <component :is="area.icon" />
         </div>
         <div class="title-box">
           <h3>{{ area.title }}</h3>
           <p>
             {{ area.description }}
           </p>
-          <button class="btn-saber-mais" @click="openModal(index)">{{ $t('areaAtuacao.saberMais') }}
+          <button
+            class="btn-saber-mais"
+            @click="openModal(index)"
+          >
+            {{ $t('areaAtuacao.saberMais') }}
             <RightArrow />
           </button>
         </div>
       </div>
     </div>
   </section>
-  <div class="modal" v-if="showModal">
+  <div
+    v-if="showModal"
+    class="modal"
+  >
     <div class="modal-content">
-      <div class="close-btn" @click="closeModal">
-        <button class="close-btn" @click="closeModal">×</button>
+      <div
+        class="close-btn"
+        @click="closeModal"
+      >
+        <button
+          class="close-btn"
+          @click="closeModal"
+        >
+          ×
+        </button>
       </div>
       
       <div class="modal-header">
@@ -32,13 +56,19 @@
       </div>
 
       <div class="description-container">
-        <p class="modal-description">{{ areas[index].modal[0].description }}</p>
+        <p class="modal-description">
+          {{ areas[index].modal[0].description }}
+        </p>
       </div>
 
       <div class="process">
         <h3>{{ $t('areaAtuacao.processo') }}</h3>
         <div class="process-steps">
-          <div class="step" v-for="(step, index) in areas[index].modal[0].process.steps" :key="index">
+          <div
+            v-for="(step, index) in areas[index].modal[0].process.steps"
+            :key="index"
+            class="step"
+          >
             <span>{{ step }}</span>
             <span class="duration">{{ areas[index].modal[0].process.duration }}</span>
           </div>
@@ -47,7 +77,11 @@
 
       <div class="faq">
         <h3>{{ $t('areaAtuacao.perguntasFrequentes') }}</h3>
-        <div class="faq-item" v-for="(item, index) in areas[index].modal[0].faq" :key="index">
+        <div
+          v-for="(item, index) in areas[index].modal[0].faq"
+          :key="index"
+          class="faq-item"
+        >
           <details>
             <summary>{{ item.question }}</summary>
             <p>{{ item.answer }}</p>
@@ -64,7 +98,12 @@
             </div>
             <div class="contacto-item-whatsapp">
               <button>
-                <a :href="areas[index].modal[0].contact.whatsapp" target="_blank" rel="noopener noreferrer" aria-label="Contactar via WhatsApp">
+                <a
+                  :href="areas[index].modal[0].contact.whatsapp"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Contactar via WhatsApp"
+                >
                   <WhatsappIcon />
                   {{ $t('areaAtuacao.whatsapp') }}
                 </a>
@@ -75,15 +114,14 @@
       </div>
     </div>
   </div>
-
 </template>
 
 
 <script setup>
-import HeaderTitle from '../components/HeaderTitle.vue'
-import Location from '../components/Icons/Location.vue'
-import RightArrow from '../components/Icons/RightArrow.vue'
-import WhatsappIcon from '../components/Icons/Whatsapp.vue'
+import HeaderTitle from '../components/HeaderTitle.vue';
+import Location from '../components/Icons/Location.vue';
+import RightArrow from '../components/Icons/RightArrow.vue';
+import WhatsappIcon from '../components/Icons/Whatsapp.vue';
 import { ref } from 'vue';
 let showModal = ref(false);
 const areas = [
@@ -93,28 +131,28 @@ const areas = [
     button: 'Saber mais',
     icon: Location,
     modal: [
-     {
-      title: 'Nacionalidade Portuguesa',
-      description: 'Especializamo-nos em todos os processos de nacionalidade portuguesa, incluindo aquisição por descendência, casamento, naturalização e reconhecimento. Acompanhamos todo o processo desde a análise de documentos até à obtenção do certificado de nacionalidade.',
-      process: {
-        steps: ['Análise de documentos', 'Preparação da candidatura', 'Submissão ao IRN', 'Acompanhamento do processo'],
-        duration: '6-12 meses'
-      },
-      contact: {
-        phone: '+351 912 345 678',
-        whatsapp: 'https://wa.me/912345678'
-      },
-      faq: [
-        {
-          question: 'Quanto tempo demora o processo?',
-          answer: 'Entre 6 a 12 meses, dependendo da complexidade do caso'
+      {
+        title: 'Nacionalidade Portuguesa',
+        description: 'Especializamo-nos em todos os processos de nacionalidade portuguesa, incluindo aquisição por descendência, casamento, naturalização e reconhecimento. Acompanhamos todo o processo desde a análise de documentos até à obtenção do certificado de nacionalidade.',
+        process: {
+          steps: ['Análise de documentos', 'Preparação da candidatura', 'Submissão ao IRN', 'Acompanhamento do processo'],
+          duration: '6-12 meses'
         },
-        {
-          question: 'Que documentos preciso?',
-          answer: 'Certidão de nascimento, comprovativo de residência e certificado de português'
-        }
-      ]
-     }
+        contact: {
+          phone: '+351 912 345 678',
+          whatsapp: 'https://wa.me/912345678'
+        },
+        faq: [
+          {
+            question: 'Quanto tempo demora o processo?',
+            answer: 'Entre 6 a 12 meses, dependendo da complexidade do caso'
+          },
+          {
+            question: 'Que documentos preciso?',
+            answer: 'Certidão de nascimento, comprovativo de residência e certificado de português'
+          }
+        ]
+      }
     ]
   },
   {
@@ -123,28 +161,28 @@ const areas = [
     button: 'Saber mais',
     icon: Location,
     modal: [
-     {
-      title: 'Direito do Trabalho',
-      description: 'Representamos trabalhadores em questões de direito laboral, incluindo despedimentos, acidentes de trabalho, horas extraordinárias, férias, subsídios e resolução de conflitos com empregadores. Garantimos a proteção dos seus direitos laborais.',
-      process: {
-        steps: ['Análise do caso', 'Negociação com empregador', 'Preparação de documentos', 'Representação em tribunal'],
-        duration: '1-6 meses'
-      },
-      contact: {
-        phone: '+351 912 345 678',
-        whatsapp: 'https://wa.me/351912345678'
-      },
-      faq: [
-        {
-          question: 'Posso ser despedido sem justa causa?',
-          answer: 'Não, o despedimento deve ter justa causa ou ser por extinção do posto de trabalho'
+      {
+        title: 'Direito do Trabalho',
+        description: 'Representamos trabalhadores em questões de direito laboral, incluindo despedimentos, acidentes de trabalho, horas extraordinárias, férias, subsídios e resolução de conflitos com empregadores. Garantimos a proteção dos seus direitos laborais.',
+        process: {
+          steps: ['Análise do caso', 'Negociação com empregador', 'Preparação de documentos', 'Representação em tribunal'],
+          duration: '1-6 meses'
         },
-        {
-          question: 'Tenho direito a indemnização?',
-          answer: 'Sim, dependendo do tipo de despedimento e tempo de serviço'
-        }
-      ]
-     }
+        contact: {
+          phone: '+351 912 345 678',
+          whatsapp: 'https://wa.me/351912345678'
+        },
+        faq: [
+          {
+            question: 'Posso ser despedido sem justa causa?',
+            answer: 'Não, o despedimento deve ter justa causa ou ser por extinção do posto de trabalho'
+          },
+          {
+            question: 'Tenho direito a indemnização?',
+            answer: 'Sim, dependendo do tipo de despedimento e tempo de serviço'
+          }
+        ]
+      }
     ]
   },
   {
@@ -153,28 +191,28 @@ const areas = [
     button: 'Saber mais',
     icon: Location,
     modal: [
-     {
-      title: 'Direito Civil',
-      description: 'Oferecemos assistência jurídica em direito civil, cobrindo contratos, responsabilidade civil, direito da família (divórcios, regulação de responsabilidades parentais), sucessões, propriedade e outros assuntos civis.',
-      process: {
-        steps: ['Consulta inicial', 'Análise jurídica', 'Preparação de documentos', 'Negociação ou processo judicial'],
-        duration: '2-8 meses'
-      },
-      contact: {
-        phone: '+351 912 345 678',
-        whatsapp: 'https://wa.me/351912345678'
-      },
-      faq: [
-        {
-          question: 'Como funciona o divórcio?',
-          answer: 'Pode ser por mútuo acordo ou litigioso, com diferentes procedimentos'
+      {
+        title: 'Direito Civil',
+        description: 'Oferecemos assistência jurídica em direito civil, cobrindo contratos, responsabilidade civil, direito da família (divórcios, regulação de responsabilidades parentais), sucessões, propriedade e outros assuntos civis.',
+        process: {
+          steps: ['Consulta inicial', 'Análise jurídica', 'Preparação de documentos', 'Negociação ou processo judicial'],
+          duration: '2-8 meses'
         },
-        {
-          question: 'Quem herda os bens?',
-          answer: 'Depende da existência de testamento e da ordem legal de sucessão'
-        }
-      ]
-     }
+        contact: {
+          phone: '+351 912 345 678',
+          whatsapp: 'https://wa.me/351912345678'
+        },
+        faq: [
+          {
+            question: 'Como funciona o divórcio?',
+            answer: 'Pode ser por mútuo acordo ou litigioso, com diferentes procedimentos'
+          },
+          {
+            question: 'Quem herda os bens?',
+            answer: 'Depende da existência de testamento e da ordem legal de sucessão'
+          }
+        ]
+      }
     ]
   },
   {
@@ -183,28 +221,28 @@ const areas = [
     button: 'Saber mais',
     icon: Location,
     modal: [
-     {
-      title: 'Direito Comercial',
-      description: 'Assistência jurídica para empresas, incluindo constituição de sociedades, contratos comerciais, propriedade intelectual, resolução de disputas comerciais e assessoria em questões empresariais.',
-      process: {
-        steps: ['Consulta empresarial', 'Análise de necessidades', 'Preparação de documentos', 'Acompanhamento legal'],
-        duration: '1-4 meses'
-      },
-      contact: {
-        phone: '+351 912 345 678',
-        whatsapp: 'https://wa.me/351912345678'
-      },
-      faq: [
-        {
-          question: 'Que tipo de sociedade escolher?',
-          answer: 'Depende do número de sócios, capital e responsabilidade desejada'
+      {
+        title: 'Direito Comercial',
+        description: 'Assistência jurídica para empresas, incluindo constituição de sociedades, contratos comerciais, propriedade intelectual, resolução de disputas comerciais e assessoria em questões empresariais.',
+        process: {
+          steps: ['Consulta empresarial', 'Análise de necessidades', 'Preparação de documentos', 'Acompanhamento legal'],
+          duration: '1-4 meses'
         },
-        {
-          question: 'Preciso de contabilista?',
-          answer: 'Sim, é obrigatório para todas as sociedades comerciais'
-        }
-      ]
-     }
+        contact: {
+          phone: '+351 912 345 678',
+          whatsapp: 'https://wa.me/351912345678'
+        },
+        faq: [
+          {
+            question: 'Que tipo de sociedade escolher?',
+            answer: 'Depende do número de sócios, capital e responsabilidade desejada'
+          },
+          {
+            question: 'Preciso de contabilista?',
+            answer: 'Sim, é obrigatório para todas as sociedades comerciais'
+          }
+        ]
+      }
     ]
   },
   {
@@ -213,28 +251,28 @@ const areas = [
     button: 'Saber mais',
     icon: Location,
     modal: [
-     {
-      title: 'Direito Penal',
-      description: 'Defesa criminal especializada, representando clientes em processos penais com dedicação e experiência. Trabalhamos para garantir que os seus direitos sejam protegidos em todas as fases do processo criminal.',
-      process: {
-        steps: ['Consulta urgente', 'Análise do processo', 'Preparação da defesa', 'Representação em tribunal'],
-        duration: '3-12 meses'
-      },
-      contact: {
-        phone: '+351 912 345 678',
-        whatsapp: 'https://wa.me/351912345678'
-      },
-      faq: [
-        {
-          question: 'Tenho direito a advogado?',
-          answer: 'Sim, é um direito fundamental em qualquer processo penal'
+      {
+        title: 'Direito Penal',
+        description: 'Defesa criminal especializada, representando clientes em processos penais com dedicação e experiência. Trabalhamos para garantir que os seus direitos sejam protegidos em todas as fases do processo criminal.',
+        process: {
+          steps: ['Consulta urgente', 'Análise do processo', 'Preparação da defesa', 'Representação em tribunal'],
+          duration: '3-12 meses'
         },
-        {
-          question: 'Posso ser preso preventivamente?',
-          answer: 'Só em casos específicos e com fundamentação adequada'
-        }
-      ]
-     }
+        contact: {
+          phone: '+351 912 345 678',
+          whatsapp: 'https://wa.me/351912345678'
+        },
+        faq: [
+          {
+            question: 'Tenho direito a advogado?',
+            answer: 'Sim, é um direito fundamental em qualquer processo penal'
+          },
+          {
+            question: 'Posso ser preso preventivamente?',
+            answer: 'Só em casos específicos e com fundamentação adequada'
+          }
+        ]
+      }
     ]
   },
   {
@@ -243,31 +281,31 @@ const areas = [
     button: 'Saber mais',
     icon: Location,
     modal: [
-     {
-      title: 'Direito Administrativo',
-      description: 'Especializamo-nos em direito administrativo, representando clientes em questões com a administração pública, incluindo recursos administrativos, contencioso administrativo e defesa de direitos perante entidades públicas.',
-      process: {
-        steps: ['Análise do ato administrativo', 'Preparação do recurso', 'Submissão à entidade', 'Acompanhamento do processo'],
-        duration: '4-18 meses'
-      },
-      contact: {
-        phone: '+351 912 345 678',
-        whatsapp: 'https://wa.me/351912345678'
-      },
-      faq: [
-        {
-          question: 'Posso recorrer de qualquer decisão?',
-          answer: 'Sim, desde que respeite os prazos e formalidades legais'
+      {
+        title: 'Direito Administrativo',
+        description: 'Especializamo-nos em direito administrativo, representando clientes em questões com a administração pública, incluindo recursos administrativos, contencioso administrativo e defesa de direitos perante entidades públicas.',
+        process: {
+          steps: ['Análise do ato administrativo', 'Preparação do recurso', 'Submissão à entidade', 'Acompanhamento do processo'],
+          duration: '4-18 meses'
         },
-        {
-          question: 'Quanto tempo tenho para recorrer?',
-          answer: 'Geralmente 15 dias úteis, mas varia consoante o tipo de ato'
-        }
-      ]
-     }
+        contact: {
+          phone: '+351 912 345 678',
+          whatsapp: 'https://wa.me/351912345678'
+        },
+        faq: [
+          {
+            question: 'Posso recorrer de qualquer decisão?',
+            answer: 'Sim, desde que respeite os prazos e formalidades legais'
+          },
+          {
+            question: 'Quanto tempo tenho para recorrer?',
+            answer: 'Geralmente 15 dias úteis, mas varia consoante o tipo de ato'
+          }
+        ]
+      }
     ]
-  },
-]
+  }
+];
 
 let index = ref(0);
 

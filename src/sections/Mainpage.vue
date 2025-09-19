@@ -23,7 +23,12 @@
         </div>
 
         <div class="btn-whatsapp">
-          <a href="https://wa.me/351912345678" target="_blank" rel="noopener noreferrer" aria-label="Contactar via WhatsApp">
+          <a
+            href="https://wa.me/351912345678"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Contactar via WhatsApp"
+          >
             <button type="button">
               <WhatsappIcon />
               {{ $t('mainpage.whatsappButton') }}
@@ -33,25 +38,19 @@
       </div>
     </div>
     <div class="right">
-      <img v-lazy="mainImg" alt="" />
+      <img
+        v-lazy="mainImg"
+        alt=""
+      />
     </div>
   </section>
 </template>
 
 <script setup>
-import { useI18n } from 'vue-i18n'
-
-const { t, locale } = useI18n()
-
 import LockIcon from '../components/Icons/Lock.vue';
 import ShieldIcon from '../components/Icons/Shield.vue';
 import WhatsappIcon from '../components/Icons/Whatsapp.vue';
-import mainImg from '../assets/mainPageImg.webp'
-
-function changeLanguage(lang) {
-  locale.value = lang
-}
-
+import mainImg from '../assets/mainPageImg.webp';
 </script>
 
 <style scoped>

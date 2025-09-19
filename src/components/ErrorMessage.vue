@@ -1,14 +1,14 @@
 <template>
-    <div class="error-message">
-        <span>{{ errorMessage }}</span>
-    </div>
+  <div class="error-message">
+    <span>{{ errorMessage }}</span>
+  </div>
 </template>
 
 <script setup>
 const props = defineProps({
-    errorMessage: String,
+  errorMessage: String
     
-})
+});
 </script>
 
 <style scoped>

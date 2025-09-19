@@ -1,35 +1,43 @@
 <template>  
-        <Navbar />
-    <div class="container-limited">
-        <div class="container-details">
+  <Navbar />
+  <div class="container-limited">
+    <div class="container-details">
+      <div
+        v-for="detail in allDetails"
+        :key="detail.id"
+        class="all-info"
+      >
+        <h2>{{ detail.nomeNoticia }}</h2>
+        <p>{{ detail.descricaoNoticia }}</p>
+        <img :src="detail.imagemNoticia" alt="Imagem da notícia" />
+      </div>
 
-            <div class="all-info" v-for="detail in allDetails" :key="detail.id">
-
-                <h2>{{ detail.nomeNoticia  }}</h2>
-                <p>{{ detail.descricaoNoticia }}</p>
-                <img :src="detail.imagemNoticia" alt="Imagem da notícia">
+      <div class="right-noticias">
+        <h2>{{ $t('noticias.noticiasRelacionadas') }}</h2>
+        <div class="noticias-container">
+          <div
+            v-for="noticia in allNoticias"
+            :key="noticia.id"
+            class="noticia"
+          >
+            <img :src="noticia.imagemNoticia" alt="Imagem da notícia" />
+            <div class="content">
+              <h3>{{ noticia.nomeNoticia }}</h3>
             </div>
-
-            <div class="right-noticias">
-                <h2>{{ $t('noticias.noticiasRelacionadas') }}</h2>
-                <div class="noticias-container">
-                    <div class="noticia" v-for="noticia in allNoticias" :key="noticia.id">
-                        <img :src="noticia.imagemNoticia" alt="Imagem da notícia">
-                        <div class="content">
-                            <h3>{{ noticia.nomeNoticia }}</h3>
-                        </div>
-                        <router-link :to="`/noticia/${noticia.id}`" class="custom-link" target="_blank">
-                            {{ $t('noticias.verMais') }}
-                        </router-link>
-                    </div>
-                </div>
-            </div>
-
-            <!-- <router-link to="/">Voltar</router-link> -->
-
+            <router-link
+              :to="`/noticia/${noticia.id}`"
+              class="custom-link"
+              target="_blank"
+            >
+              {{ $t('noticias.verMais') }}
+            </router-link>
+          </div>
         </div>
+      </div>
 
+      <!-- <router-link to="/">Voltar</router-link> -->
     </div>
+  </div>
 </template>
 
 <script setup>
@@ -41,29 +49,30 @@ const id = route.params.id;
 let allDetails = ref([]);
 let allNoticias = ref([]);
 async function getDetails() {
-    try {
-        let response = await fetch(`http://localhost:3000/noticias/${id}`);
-        let data = await response.json();
-        allDetails.value = data.result;
-    } catch (error) {
-        console.log(error);
-    }
+  try {
+    let response = await fetch(`http://localhost:3000/noticias/${id}`);
+    let data = await response.json();
+    allDetails.value = data.result;
+  } catch (error) {
+    console.log(error);
+  }
 }
 
 
 async function get6News() {
-    try {
-        let response = await fetch('http://localhost:3000/noticias/six');
-        let data = await response.json();
-        allNoticias.value = data.result;
-    } catch (error) {
-        console.log(error);
-    }
+  try {
+    let response = await fetch('http://localhost:3000/noticias/six');
+    let data = await response.json();
+    allNoticias.value = data.result;
+  } catch (error) {
+    console.log(error);
+  }
 }
 
+
 onMounted(() => {
-    getDetails();
-    get6News();
+  getDetails();
+  get6News();
 });
 </script>
 
@@ -106,7 +115,7 @@ onMounted(() => {
 }
 
 .right-noticias {
-    flex: 1;
+    flex: 2;
     position: sticky;
     top: 100px;
 }

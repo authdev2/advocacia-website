@@ -1,31 +1,39 @@
 <template>
-    <div class="modal" v-if="props.isOpen">
-        <div class="create-user">
-            <h1>{{ props.title }}</h1>
-            <button @click="closeModal">
-                X
-            </button>
-        </div>
-
-        <slot name="content"></slot>
-
+  <div
+    v-if="props.isOpen"
+    class="modal"
+  >
+    <div class="create-user">
+      <h1>{{ props.title }}</h1>
+      <button @click="closeModal">
+        X
+      </button>
     </div>
+
+    <slot name="content" />
+  </div>
 </template>
 
 <script setup>
 import { defineProps } from 'vue';
 
 const props = defineProps({
-    title: String,
-    isOpen: Boolean,
-})
+  title: {
+    type: String,
+    required: true
+  },
+  isOpen: {
+    type: Boolean,
+    required: true
+  }
+});
 
 const emit = defineEmits(
-    ['close']
-)
+  ['close']
+);
 
 function closeModal() {
-    emit('close')
+  emit('close');
 }
 
 </script>

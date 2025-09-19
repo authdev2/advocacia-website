@@ -1,52 +1,104 @@
 <template>
-    <nav id="inicio" class="container-limited">
-        <div class="left">
-            <div class="logo">
-                <h1> <a href="/"> João Alves</a></h1>
-            </div>
-            <div class="links">
-                <a href="#area-atuacao">{{ $t('navbar.areaAtuacao') }}</a>
-                <a href="#quem-sou">{{ $t('navbar.quemSou') }}</a>
-                <a href="#processo">{{ $t('navbar.processo') }}</a>
-            </div>
-        </div>
-        <div class="right">
-            <button class="theme-toggle" @click="toggleTheme">
-                <span v-if="isDark">
-                    <Sunshine />
-                </span>
-                <span v-else>
-                    <Moon />
-                </span>
-            </button>
-            <a href="/login">
-
-                <User />
-            </a>
-
-            <select name="language" id="language" @change="changeLanguage($event.target.value)">
-                <option value="pt">PT</option>
-                <option value="en">EN</option>
-            </select>
-        </div>
-
-        <div class="mobile-menu">
-            <button @click="toggleMenu">
-                <Menu v-if="!menuOpen" />
-                <Close v-else />
-            </button>
-
-        </div>
-    </nav>
-    <div class="links-mobile" v-if="menuOpen">
-        <a href="/">{{ $t('navbar.inicio') }}</a>
+  <nav
+    id="inicio"
+    class="container-limited"
+  >
+    <div class="left">
+      <div class="logo">
+        <h1> <a href="/"> João Alves</a></h1>
+      </div>
+      <div class="links">
         <a href="#area-atuacao">{{ $t('navbar.areaAtuacao') }}</a>
-        <a href="#percurso">{{ $t('navbar.percurso') }}</a>
         <a href="#quem-sou">{{ $t('navbar.quemSou') }}</a>
         <a href="#processo">{{ $t('navbar.processo') }}</a>
-        <a href="#feedback">{{ $t('navbar.feedback') }}</a>
+      </div>
     </div>
+    <div class="right">
+      <button
+        class="theme-toggle"
+        @click="toggleTheme"
+      >
+        <span v-if="isDark">
+          <Sunshine />
+        </span>
+        <span v-else>
+          <Moon />
+        </span>
+      </button>
+      <a href="/login">
+
+        <User />
+      </a>
+
+      <select
+        id="language"
+        v-model="locale"
+        name="language"
+        @change="changeLanguage($event.target.value)"
+      >
+        <option value="pt">
+          PT
+        </option>
+        <option value="en">
+          EN
+        </option>
+      </select>
+    </div>
+
+    <div class="mobile-menu">
+      <button @click="toggleMenu">
+        <Menu v-if="!menuOpen" />
+        <Close v-else />
+      </button>
+    </div>
+  </nav>
+  <div
+    v-if="menuOpen"
+    class="links-mobile"
+  >
+    <a href="/">{{ $t('navbar.inicio') }}</a>
+    <a href="#area-atuacao">{{ $t('navbar.areaAtuacao') }}</a>
+    <a href="#percurso">{{ $t('navbar.percurso') }}</a>
+    <a href="#quem-sou">{{ $t('navbar.quemSou') }}</a>
+    <a href="#processo">{{ $t('navbar.processo') }}</a>
+    <a href="#feedback">{{ $t('navbar.feedback') }}</a>
+  </div>
 </template>
+
+<script setup>
+import { ref, onMounted } from 'vue';
+import Sunshine from './Icons/Sunshine.vue';
+import Moon from './Icons/Moon.vue';
+import Menu from './Icons/Menu.vue';
+import Close from './Icons/Close.vue';
+import User from './Icons/User.vue';
+import { useI18n } from 'vue-i18n';
+const { locale } = useI18n();
+let menuOpen = ref(false);
+
+function toggleMenu() {
+  menuOpen.value = !menuOpen.value;
+}
+
+let isDark = ref(true);
+let themeChoose;
+function toggleTheme() {
+  isDark.value = !isDark.value;
+  themeChoose = isDark.value ? 'dark' : 'light';
+  document.documentElement.setAttribute('data-theme', themeChoose);
+  localStorage.setItem('theme', themeChoose);
+}
+
+
+function changeLanguage(lang) {
+  localStorage.setItem('locale', lang);
+  locale.value = lang;
+}
+
+onMounted(() => {
+  document.documentElement.setAttribute('data-theme', localStorage.getItem('theme'));
+});
+</script>
 
 <style scoped>
 nav {
@@ -190,7 +242,7 @@ nav .mobile-menu {
 }
 
 #language {
-    background: transparent;
+    background-color: #29292950;
     border: none;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -198,16 +250,6 @@ nav .mobile-menu {
     padding: 10px;
     color: white;
 }
-
-#language option {
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    border-radius: 10px;
-    padding: 10px;
-}
-
 
 @media (max-width: 1000px) {
     nav .mobile-menu {
@@ -228,36 +270,3 @@ nav .mobile-menu {
 
 }
 </style>
-
-<script setup>
-import { ref, onMounted, watch } from 'vue';
-import Sunshine from './Icons/Sunshine.vue';
-import Moon from './Icons/Moon.vue';
-import Menu from './Icons/Menu.vue';
-import Close from './Icons/Close.vue';
-import User from './Icons/User.vue';
-let menuOpen = ref(false);
-
-function toggleMenu() {
-    menuOpen.value = !menuOpen.value;
-}
-
-let isDark = ref(true);
-let themeChoose;
-function toggleTheme() {
-    isDark.value = !isDark.value;
-    themeChoose = isDark.value ? "dark" : "light";
-    document.documentElement.setAttribute('data-theme', themeChoose);
-    localStorage.setItem('theme', themeChoose);
-}
-
-
-function changeLanguage(lang) {
-    localStorage.setItem('locale', lang)
-    console.log(lang)
-}
-
-onMounted(() => {
-    document.documentElement.setAttribute('data-theme', localStorage.getItem('theme'));
-})
-</script>

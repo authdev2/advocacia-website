@@ -1,35 +1,45 @@
 <template>
-    <Navbar />
-    <div class="more-news-container container-limited">
-        <div class="header">
-            <h1>{{ $t('noticias.todasNoticias') }}</h1>
-            <p>{{ $t('noticias.todasNoticiasDescription') }}</p>
-        </div>
-        
-        <div class="box-container">
-            <article class="box" v-for="news in allNews" :key="news.id">
-                <div class="image">
-                    <img v-lazy="news.imagemNoticia" alt="Imagem da notícia">
-                </div>
-                <div class="content">
-                    <h3>{{ news.nomeNoticia ? news.nomeNoticia.slice(0, 50) : $t('noticias.noticiaSemNome') }}...</h3>
-                    <p>{{ news.descricaoNoticia ? news.descricaoNoticia.slice(0, 100) : $t('noticias.noticiaSemDescricao') }}...</p>
-
-                    <div class="news-date">
-                        <DateIcon />
-                        {{ news.data.slice(0, 10) }}
-                    </div>
-                </div>
-                <div class="btn-container">
-
-                    <router-link :to="`/noticia/${news.id}`" target="_blank" class="btn-ver-mais">
-                        {{ $t('noticias.verMais') }}
-                        <span class="arrow">→</span>
-                    </router-link>
-                </div>
-            </article>
-        </div>
+  <Navbar />
+  <div class="more-news-container container-limited">
+    <div class="header">
+      <h1>{{ $t('noticias.todasNoticias') }}</h1>
+      <p>{{ $t('noticias.todasNoticiasDescription') }}</p>
     </div>
+        
+    <div class="box-container">
+      <article
+        v-for="news in allNews"
+        :key="news.id"
+        class="box"
+      >
+        <div class="image">
+          <img
+            v-lazy="news.imagemNoticia"
+            alt="Imagem da notícia"
+          />
+        </div>
+        <div class="content">
+          <h3>{{ news.nomeNoticia ? news.nomeNoticia.slice(0, 50) : $t('noticias.noticiaSemNome') }}...</h3>
+          <p>{{ news.descricaoNoticia ? news.descricaoNoticia.slice(0, 100) : $t('noticias.noticiaSemDescricao') }}...</p>
+
+          <div class="news-date">
+            <DateIcon />
+            {{ news.data.slice(0, 10) }}
+          </div>
+        </div>
+        <div class="btn-container">
+          <router-link
+            :to="`/noticia/${news.id}`"
+            target="_blank"
+            class="btn-ver-mais"
+          >
+            {{ $t('noticias.verMais') }}
+            <span class="arrow">→</span>
+          </router-link>
+        </div>
+      </article>
+    </div>
+  </div>
 </template>
 
 <script setup>
@@ -38,13 +48,13 @@ import { ref, onMounted } from 'vue';
 import DateIcon from '../components/Icons/Date.vue';
 let allNews = ref([]);
 async function getAllNews(){
-    let response = await fetch('http://localhost:3000/noticias');
-    let data = await response.json();
-    allNews.value = data.result;
+  let response = await fetch('http://localhost:3000/noticias');
+  let data = await response.json();
+  allNews.value = data.result;
 } 
 
 onMounted(() => {
-    getAllNews();
+  getAllNews();
 });
 </script>
 

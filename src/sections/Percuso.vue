@@ -1,85 +1,95 @@
 <template>
   <section>
-    <HeaderTitle :title="$t('percurso.title')" :title2="$t('percurso.title2')" :description="$t('percurso.description')" />
+    <HeaderTitle
+      :title="$t('percurso.title')"
+      :title2="$t('percurso.title2')"
+      :description="$t('percurso.description')"
+    />
 
     <div class="container-percurso container-limited">
-    <div class="box-percuso">
-
-      <div class="box" v-for="percurso in percursos" :key="percurso.title">
-        <div class="conector">
-          <span></span>
-        </div>
-        <div class="data">
-          <span>{{ percurso.title }}</span>
-        </div>
-        <div class="description">
-          <p>{{ percurso.description }}</p>
-        </div>
-      </div>
-
-    </div>
-
-    <div class="linha-percurso"></div>
-
-    <div class="box-percuso">
-      <div class="box" v-for="percursoRight in percursosRight" :key="percursoRight.title">
-        <div class="data">
-          <span>{{ percursoRight.title }}</span>
-        </div>
-        <div class="description">
-          <p>{{ percursoRight.description }}</p>
-        </div>
-        <div class="conector-right">
-          <span></span>
+      <div class="box-percuso">
+        <div
+          v-for="percurso in percursos"
+          :key="percurso.title"
+          class="box"
+        >
+          <div class="conector">
+            <span />
+          </div>
+          <div class="data">
+            <span>{{ percurso.title }}</span>
+          </div>
+          <div class="description">
+            <p>{{ percurso.description }}</p>
+          </div>
         </div>
       </div>
-    </div>
+
+      <div class="linha-percurso" />
+
+      <div class="box-percuso">
+        <div
+          v-for="percursoRight in percursosRight"
+          :key="percursoRight.title"
+          class="box"
+        >
+          <div class="data">
+            <span>{{ percursoRight.title }}</span>
+          </div>
+          <div class="description">
+            <p>{{ percursoRight.description }}</p>
+          </div>
+          <div class="conector-right">
+            <span />
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 </template>
 
 <script setup>
-import HeaderTitle from '../components/HeaderTitle.vue'
-import { useI18n } from 'vue-i18n'
+import HeaderTitle from '../components/HeaderTitle.vue';
+import { useI18n } from 'vue-i18n';
 
-const { t } = useI18n()
+const { t } = useI18n();
 
 const percursos = [
   {
     title: '2005',
-    description: t('percurso.formacao'),
+    description: t('percurso.formacao')
   },
   {
     title: '2005',
-    description: t('percurso.formacao'),
+    description: t('percurso.formacao')
   },
   {
     title: '2005',
-    description: t('percurso.formacao'),
+    description: t('percurso.formacao')
   },
   {
     title: '2005',
-    description: t('percurso.formacao'),
-  },
+    description: t('percurso.formacao')
+  }
 
-]
+];
 
 const percursosRight = [
   {
     title: '2005',
-    description: t('percurso.formacao'),
+    description: t('percurso.formacao')
   },
 
   {
     title: '2005',
-    description: t('percurso.formacao'),
+    description: t('percurso.formacao')
   },
 
   {
     title: '2005',
-    description: t('percurso.formacao'),
-  },
-]
+    description: t('percurso.formacao')
+  }
+];
 </script>
 
 <style scoped>

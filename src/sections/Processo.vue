@@ -1,50 +1,64 @@
 <template>
-    <section id="processo" class="processo-section">
-        <HeaderTitle :title="$t('processo.title')" :title2="$t('processo.title2')" :description="$t('processo.description')" />
-        <div class="processo-container container-limited">
-            <div class="processo-timeline">
-                <div class="timeline-item" v-for="(etapa, index) in etapas" :key="etapa.numero">
-                    <div class="timeline-content">
-                        <div class="step-number">
-                            <span>{{ index + 1 }}</span>
-                        </div>
-                        <div class="step-info">
-                            <h3>{{ etapa.title }}</h3>
-                            <p>{{ etapa.description }}</p>
-                        </div>
-                    </div>
-                    <div class="timeline-connector" v-if="etapas.length - 1 !== index"></div>
-                </div>
+  <section
+    id="processo"
+    class="processo-section"
+  >
+    <HeaderTitle
+      :title="$t('processo.title')"
+      :title2="$t('processo.title2')"
+      :description="$t('processo.description')"
+    />
+    <div class="processo-container container-limited">
+      <div class="processo-timeline">
+        <div
+          v-for="(etapa, index) in etapas"
+          :key="etapa.numero"
+          class="timeline-item"
+        >
+          <div class="timeline-content">
+            <div class="step-number">
+              <span>{{ index + 1 }}</span>
             </div>
+            <div class="step-info">
+              <h3>{{ etapa.title }}</h3>
+              <p>{{ etapa.description }}</p>
+            </div>
+          </div>
+          <div
+            v-if="etapas.length - 1 !== index"
+            class="timeline-connector"
+          />
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 </template>
 
 
 <script setup>
-import HeaderTitle from '../components/HeaderTitle.vue'
-import { useI18n } from 'vue-i18n'
+import HeaderTitle from '../components/HeaderTitle.vue';
+import { useI18n } from 'vue-i18n';
 
-const { t } = useI18n()
+const { t } = useI18n();
 
 const etapas = [
 
-    {
-        title: t('processo.etapas.0.title'),
-        description: t('processo.etapas.0.description'),
-        numero: 'Etapa 01',
-    },
-    {
-        title: t('processo.etapas.1.title'),
-        description: t('processo.etapas.1.description'),
-        numero: 'Etapa 02',
-    },
-    {
-        title: t('processo.etapas.2.title'),
-        description: t('processo.etapas.2.description'),
-        numero: 'Etapa 03',
-    }
-]
+  {
+    title: t('processo.etapas.0.title'),
+    description: t('processo.etapas.0.description'),
+    numero: 'Etapa 01'
+  },
+  {
+    title: t('processo.etapas.1.title'),
+    description: t('processo.etapas.1.description'),
+    numero: 'Etapa 02'
+  },
+  {
+    title: t('processo.etapas.2.title'),
+    description: t('processo.etapas.2.description'),
+    numero: 'Etapa 03'
+  }
+];
 
 </script>
 

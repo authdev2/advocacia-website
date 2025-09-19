@@ -1,12 +1,12 @@
 <template>
-        <Navbar />
-    <Mainpage />
-    <AreaAtuacao />
-    <Percuso />
-    <SobreMim />
-    <Processo />
-    <Noticias />
-    <Feedback />
+  <Navbar />
+  <Mainpage />
+  <AreaAtuacao />
+  <Percuso />
+  <SobreMim />
+  <Processo />
+  <Noticias />
+  <Feedback />
 </template>
 
 <script setup>

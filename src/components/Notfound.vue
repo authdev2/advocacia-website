@@ -1,9 +1,9 @@
 <template>
-    <div class="notfound-container">
-        <h1>{{ $t('notfound.titulo') }}</h1>
-        <p>{{ $t('notfound.mensagem') }}</p>
-        <a href="/">{{ $t('notfound.voltarInicio') }}</a>
-    </div>
+  <div class="notfound-container">
+    <h1>{{ $t('notfound.titulo') }}</h1>
+    <p>{{ $t('notfound.mensagem') }}</p>
+    <a href="/">{{ $t('notfound.voltarInicio') }}</a>
+  </div>
 </template>
 
 <style scoped>

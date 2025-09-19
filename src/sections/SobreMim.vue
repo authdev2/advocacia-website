@@ -1,9 +1,19 @@
 <template>
-  <section id="quem-sou" class="sobre-mim-container">
-    <HeaderTitle :title="$t('sobreMim.title')" :title2="$t('sobreMim.title2')" :description="$t('sobreMim.description')" />
+  <section
+    id="quem-sou"
+    class="sobre-mim-container"
+  >
+    <HeaderTitle
+      :title="$t('sobreMim.title')"
+      :title2="$t('sobreMim.title2')"
+      :description="$t('sobreMim.description')"
+    />
     <div class="container">
       <div class="left-container">
-        <img src="../assets/sobre-mim/sobreMimImg.webp" alt="Imagem de João Alves" />
+        <img
+          src="../assets/sobre-mim/sobreMimImg.webp"
+          alt="Imagem de João Alves"
+        />
       </div>
 
       <div class="right-container">
@@ -15,8 +25,12 @@
         </p>
 
         <div class="box-compromissos">
-          <div class="box" v-for="compromisso in compromissos" :key="compromisso.title">
-            <component :is="compromisso.icon"></component>
+          <div
+            v-for="compromisso in compromissos"
+            :key="compromisso.title"
+            class="box"
+          >
+            <component :is="compromisso.icon" />
             <h4>{{ compromisso.title }}</h4>
           </div>
         </div>
@@ -26,36 +40,36 @@
 </template>
 
 <script setup>
-import HeaderTitle from '../components/HeaderTitle.vue'
-import Trust from '../components/Icons/Trust.vue'
-import Honest from '../components/Icons/Honest.vue'
-import Idea from '../components/Icons/Idea.vue'
-import Appointment from '../components/Icons/Appointment.vue'
+import HeaderTitle from '../components/HeaderTitle.vue';
+import Trust from '../components/Icons/Trust.vue';
+import Honest from '../components/Icons/Honest.vue';
+import Idea from '../components/Icons/Idea.vue';
+import Appointment from '../components/Icons/Appointment.vue';
 
-import { useI18n } from 'vue-i18n'
+import { useI18n } from 'vue-i18n';
 
-const { t } = useI18n()
+const { t } = useI18n();
 
 const compromissos = [
   {
     icon: Trust,
-    title: t('sobreMim.compromissos.transparencia'),
+    title: t('sobreMim.compromissos.transparencia')
   },
   {
     icon: Honest,
-    title: t('sobreMim.compromissos.honestidade'),
+    title: t('sobreMim.compromissos.honestidade')
   },
 
   {
     icon: Idea,
-    title: t('sobreMim.compromissos.inovacao'),
+    title: t('sobreMim.compromissos.inovacao')
   },
 
   {
     icon: Appointment,
-    title: t('sobreMim.compromissos.dedicacao'),
-  },
-]
+    title: t('sobreMim.compromissos.dedicacao')
+  }
+];
 
 </script>
 
