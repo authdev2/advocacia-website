@@ -1,6 +1,6 @@
 Ver ao vivo: https://joao-alves-advogado.netlify.app/
 
-<img width="1899" height="934" alt="image" src="https://github.com/user-attachments/assets/8c104bb8-7a58-404c-984e-443605c298dc" />
+<img width="1895" height="907" alt="image" src="https://github.com/user-attachments/assets/52971b4a-f5ee-486c-b6e0-aa37f98b77e6" />
 
 <img width="1899" height="939" alt="image" src="https://github.com/user-attachments/assets/d62e3853-9dec-439a-aea5-20a474b04ab4" />
 
